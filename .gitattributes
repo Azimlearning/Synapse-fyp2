@@ -10,3 +10,7 @@ eval/gold/*.yaml -text
 # The declared extension (D-39): same rule, store the exact bytes.
 eval/questions_ext.yaml -text
 eval/gold_ext/*.yaml -text
+
+# Hosted-demo recordings are replayed byte for byte (the Kit and Environments are hash-checked): no line-ending conversion
+web/demo-data/** -text
+genui/web/demo-data/** -text
