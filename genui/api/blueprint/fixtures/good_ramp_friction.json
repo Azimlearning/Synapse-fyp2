@@ -1,0 +1,39 @@
+{
+  "concept": "A block slides down a ramp only when the pull along the slope beats the friction holding it.",
+  "goal": "Find the angle at which a block starts to slide, and see how a rougher surface moves that angle.",
+  "phenomenon": "A block rests on a ramp that can be tilted. The surface can be made rougher or smoother. When the pull down the slope is bigger than the friction the block speeds up down the ramp.",
+  "variables": [
+    {"name": "angle", "unit": "deg", "min": 0, "max": 60, "role": "changed"},
+    {"name": "mu", "unit": "ratio", "min": 0, "max": 1, "role": "changed"},
+    {"name": "a_net", "unit": "m/s^2", "min": 0, "max": 10, "role": "measured"}
+  ],
+  "interactions": [
+    {"variable": "angle", "object": "the top end of the ramp", "gesture": "drag", "target": "upward along an arc", "response": "the ramp tilts and the block starts to slide when the pull wins"},
+    {"variable": "mu", "object": "the grip ring on the rail", "gesture": "drag", "target": "along the rough to smooth rail beside the ramp", "response": "the ramp surface becomes rougher or smoother and the block's behaviour changes"}
+  ],
+  "scene": {
+    "apparatus": "a tiltable ramp with a block, and a grip rail beside it",
+    "widthShare": 0.75,
+    "heightShare": 0.8,
+    "fills": ["a ground line under the ramp", "an arrow showing the pull down the slope", "a rough to smooth rail"],
+    "wideScreen": "The ramp is centred and the grip rail stands to its right, so the bench is filled from side to side."
+  },
+  "motion": "The ramp tilts as it is dragged and an arrow shows the pull. Under reduced motion the block is drawn at rest.",
+  "science": ["a = g (sin(angle) - mu cos(angle)), never below zero", "g = 9.81 N/kg"],
+  "expectedBehaviour": [
+    {"kind": "rises-with", "measured": "a_net", "variable": "angle", "low": null, "high": null, "at": null, "value": null, "text": "the acceleration rises as the ramp gets steeper"},
+    {"kind": "falls-with", "measured": "a_net", "variable": "mu", "low": null, "high": null, "at": null, "value": null, "text": "the acceleration falls as the surface gets rougher"},
+    {"kind": "stays-within", "measured": "a_net", "variable": "", "low": 0, "high": 10, "at": null, "value": null, "text": "the acceleration is never negative and stays under g"}
+  ],
+  "assists": [],
+  "predict": {
+    "question": "On a rough ramp, will the block slide as soon as the ramp is tilted a little?",
+    "choices": ["Yes, at any tilt", "No, only once the ramp is steep enough", "Never, friction always wins"],
+    "check": "Tilt the ramp a little at a time with a rough surface, then make it smoother."
+  },
+  "steps": [
+    "Drag the top end of the ramp up slowly and watch for the angle where the block starts to slide.",
+    "Drag the grip ring toward smooth and tilt again.",
+    "Find an angle where a rough ramp holds the block but a smooth one does not."
+  ]
+}

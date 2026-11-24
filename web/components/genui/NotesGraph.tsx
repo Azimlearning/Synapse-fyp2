@@ -17,6 +17,9 @@ import { EmptyState, ErrorState, Frame, LoadingState, PartialState } from "./Blo
 import { safeId } from "./ids";
 import { BAND_FILL, BAND_SWATCH, BAND_WORDS, band } from "./mastery";
 import { useNotesNav } from "./notesNav";
+
+/** The list of pages under the diagram is open when it is short; a longer one is folded (one click away) so the screen is not long. */
+const LIST_OPEN_UP_TO = 12;
 import { ringLayout } from "./notesLayout";
 
 export function NotesGraph({ block }: { block: NotesGraphBlock }) {
@@ -184,9 +187,14 @@ function Body({ block }: { block: NotesGraphBlock }) {
         </p>
       )}
 
+      {/* Folded by default: the diagram above carries the same pages, and the full list made the screen long to scroll. It stays one
+          click away (and is the text equivalent of the picture). */}
       <section aria-label="Pages">
-        <h3 className="mb-1 text-xs font-medium uppercase tracking-wide text-stone-500">Pages ({nodes.length})</h3>
-        <ul className="space-y-1 text-sm">
+      <details className="group" open={nodes.length <= LIST_OPEN_UP_TO}>
+        <summary className="mb-1 cursor-pointer text-xs font-medium uppercase tracking-wide text-stone-500 hover:text-stone-800">
+          Pages ({nodes.length}) <span className="normal-case tracking-normal">· show the list</span>
+        </summary>
+        <ul className="grid gap-x-6 gap-y-1 text-sm md:grid-cols-2">
           {nodes.map((node) => (
             <li key={node.id} className="flex flex-wrap items-baseline gap-x-2">
               <button
@@ -211,6 +219,7 @@ function Body({ block }: { block: NotesGraphBlock }) {
             {focusId === null && !query ? " Search for a concept to find it." : ""}
           </p>
         )}
+      </details>
       </section>
     </div>
   );

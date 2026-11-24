@@ -159,6 +159,8 @@ interface WorkspaceState {
   /** End the turn with an error: any block still loading or partial becomes an error block. */
   failTurn: (error: ErrorEnvelope) => void;
   finishTurn: () => void;
+  /** Show a turn kept in this browser's history again (its blocks and adaptive layout as they were): no server call, no spend. */
+  restoreTurn: (saved: { blocks: UIBlock[]; adaptive: LayoutSpec | null }) => void;
 }
 
 export const useWorkspace = create<WorkspaceState>()((set) => ({
@@ -249,4 +251,18 @@ export const useWorkspace = create<WorkspaceState>()((set) => ({
     }),
 
   finishTurn: () => set((s) => (s.turn === "streaming" ? { turn: "idle" } : {})),
+
+  restoreTurn: (saved) =>
+    set((s) => {
+      if (s.turn === "streaming") return {};
+      const adaptive = saved.adaptive && isLayoutSpec(saved.adaptive) && saved.adaptive.origin === "adaptive" ? saved.adaptive : null;
+      return {
+        order: saved.blocks.map((b) => b.id),
+        blocks: Object.fromEntries(saved.blocks.map((b) => [b.id, b])),
+        layouts: { ...s.layouts, adaptive },
+        layoutChoice: adaptive && !s.pinned ? "adaptive" : "basic",
+        turn: "idle",
+        turnError: null,
+      };
+    }),
 }));

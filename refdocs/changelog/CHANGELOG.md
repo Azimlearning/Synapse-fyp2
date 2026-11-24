@@ -28,6 +28,12 @@ Rules that make this file worth keeping:
 
 ## [Unreleased]
 
+### 2026-11-24: Studio and pane scrolling; general questions explained; simulations fill the chat box with their label
+- **Changed:** `web/app/Workspace.tsx` and `components/shell/{HistoryList,Studio,Panes}.tsx` (the Studio tools stay fixed and only Previous studios scrolls; with panes open the conversation and each pane scroll on their own); `components/genui/CitedSummary.tsx` and the welcome card (a general question gets a clear "only your papers, no web search, no guessing" message, at the owner's request instead of a web search switch); `components/shell/SimulationDrawer.tsx` (the box shows the finished simulation alone once ready, is taller, shows its trust label outside it; the picker lists six general science simulations and three from the uploaded papers); `lib/history.ts` (a stored simulation keeps its label); `start-synapse.ps1` (live mode allows the free providers that answer; `-SimCapUsd` turns on Claude through OpenRouter, genui V5-D26).
+- **Decided:** no web search (PRD non-goal stands, owner 2026-11-23).
+- **Verified:** `tsc --noEmit` clean; `vitest run` 460 passed in 34 files; production build; real-browser runs of the picker: Hooke's law, Ohm's law, chunk size, black hole and multi-hop each switch to the stored simulation in about 8 s, with the steps outside the box and the label in its header.
+- **Known issues / next steps:** restart with `start-synapse.ps1 -SimMode live -SimCapUsd 3` before the viva (the servers now running were started by hand).
+
 ### 2026-10-15: Audio deferred; manual test guide and test documents
 - **Decided:** audio is a future enhancement (Azim). The Listen button stays in the script block and does nothing, with no message (`AUDIO_ENABLED = false`); D-43's `ASSUMED:` is resolved by deferral.
 - **Changed:** `web/components/genui/WritingDraft.tsx` and its tests; the docs that mentioned read-aloud; `refdocs/guides/manual-testing.md` and `refdocs/guides/test-docs/` (see that guide).

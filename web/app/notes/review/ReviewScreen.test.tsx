@@ -1,7 +1,7 @@
 // The review screen against a mocked server: the four lists in words, the exact totals beyond what is shown, and the states.
 
 import type { VaultLintResponse } from "@arcana/schema";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { envelope, jsonResponse } from "@/test/fixtures";
@@ -53,7 +53,8 @@ describe("ReviewScreen", () => {
     expect(section).toHaveTextContent("dense retrieval · 3 passages and Dense Retrievals · 1 passage");
     expect(section).toHaveTextContent("the same words once plurals and hyphens are ignored");
     expect(section).toHaveTextContent("one name is the other with one more word");
-    expect(screen.queryByRole("button")).not.toBeInTheDocument(); // reported, never fixed: no action here
+    // reported, never fixed: no action in the report (the header's colour-mode switch is not part of it)
+    expect(within(screen.getByRole("main")).queryByRole("button")).not.toBeInTheDocument();
   });
 
   it("puts the definitions of a concept several papers define side by side, as text and with the paper", async () => {
@@ -104,8 +105,9 @@ describe("ReviewScreen", () => {
   it("links back to the notes and to the chat, and marks itself as the current view", async () => {
     render(<ReviewScreen />);
     await screen.findByRole("region", { name: "Concepts no link reaches" });
-    expect(screen.getByRole("link", { name: "Notes" })).toHaveAttribute("href", "/notes");
+    expect(screen.getByRole("link", { name: "Knowledge graph" })).toHaveAttribute("href", "/notes");
     expect(screen.getByRole("link", { name: "Chat" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "Review" })).toHaveAttribute("aria-current", "page");
+    // Review is part of Notes (reached from the notes screen), so the header marks Notes as the current view.
+    expect(screen.getByRole("link", { name: "Knowledge graph" })).toHaveAttribute("aria-current", "page");
   });
 });

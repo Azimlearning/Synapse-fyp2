@@ -1,0 +1,29 @@
+{
+  "set": "T",
+  "purpose": "Twists: a library Environment plus a change that matters (another planet, series or parallel, a different liquid, a heavier mass, an added factor). Each must be generated, never served from the library (V5-D01), and should reuse its base where one exists. Evaluation plan section 1.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Edit or keep the questions, set approved to true, then run: uv run python -m eval.v5.sets --pin. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {"id": "t01", "question": "How does the pressure change as a diver goes deeper in salt water compared with fresh water?"},
+    {"id": "t02", "question": "What happens to the current in a circuit if I connect two resistors in parallel instead of one?"},
+    {"id": "t03", "question": "How would Newton's cannonball behave if it were fired from a mountain on the Moon?"},
+    {"id": "t04", "question": "Hooke's law, but with two springs in series on Mars."},
+    {"id": "t05", "question": "How does the extension of a spring depend on the load if the spring is twice as stiff?"},
+    {"id": "t06", "question": "What happens to the extension if two springs hang side by side instead of one?"},
+    {"id": "t07", "question": "How much would I weigh on Mars compared with Earth if I carry a 10 kg backpack?"},
+    {"id": "t08", "question": "How does the current change with resistance if I double the battery voltage?"},
+    {"id": "t09", "question": "What happens to the pressure on a diver in oil instead of water?"},
+    {"id": "t10", "question": "How do I find the concentration of an acid by titration if the alkali is twice as strong?"},
+    {"id": "t11", "question": "How does the weight of an astronaut change as they travel away from Earth?"},
+    {"id": "t12", "question": "What happens to a satellite's orbit if it is launched faster?"},
+    {"id": "t13", "question": "What happens to the stretch of a spring if the same weight hangs in water instead of air?"},
+    {"id": "t14", "question": "How does the current change if a bulb and a resistor are in series with the battery?"},
+    {"id": "t15", "question": "How does gravity on the Moon compare with Jupiter, and what does it do to a falling ball?"},
+    {"id": "t16", "question": "Does yeast make limewater go milky faster if I add more sugar?"},
+    {"id": "t17", "question": "Is the pressure at the bottom of a tall narrow tube different from a wide one of the same height?"},
+    {"id": "t18", "question": "What happens to the colour change in a titration if I use a different indicator?"},
+    {"id": "t19", "question": "How does the stretch of a rubber band compare with a spring when I hang masses on it?"},
+    {"id": "t20", "question": "How does the weight of the same mass change at the equator and at the poles?"}
+  ]
+}

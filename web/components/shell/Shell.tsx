@@ -39,13 +39,13 @@ export function Shell({
 }) {
   return (
     <div className="flex min-h-screen flex-col bg-stone-50 text-stone-900 md:h-screen">
-      <header className="flex items-center justify-between gap-4 border-b border-stone-200 bg-white px-6 py-3">
+      <header className="flex items-center justify-between gap-4 border-b border-stone-200 bg-stone-50 px-6 py-3">
         {header}
       </header>
       {/* Below the md breakpoint the panels stack (chat first, then the studio, then the sources) and the page scrolls: three
           side by side panels at phone width are columns a few characters wide (seen in the real browser, P5 S5). */}
       <div
-        className="flex min-h-0 flex-1 gap-4 p-4 max-md:flex-col"
+        className="flex min-h-0 flex-1 max-md:flex-col"
         data-layout-origin={layout.origin}
         data-layout-mode={layout.mode}
       >

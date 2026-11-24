@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import httpx
 
-from api.llm.models import OPENROUTER_MODELS
+from api.llm.models import OPENROUTER_FREE_FALLBACKS, OPENROUTER_MODELS
 from api.llm.providers.base import ProviderFailure
 from api.llm.types import LLMRequest, ProviderResponse, Tier
 
@@ -42,7 +42,9 @@ class OpenRouterProvider:
         if request.system:
             messages.append({"role": "system", "content": request.system})
         messages.append({"role": "user", "content": request.prompt})
-        body = {"model": model, "messages": messages, "max_tokens": request.max_tokens}
+        body: dict[str, object] = {"model": model, "messages": messages, "max_tokens": request.max_tokens}
+        # The last resort: if this model fails on OpenRouter's side, OpenRouter tries the free models in the same request.
+        body["models"] = [model, *(m for m in OPENROUTER_FREE_FALLBACKS if m != model)]
 
         try:
             response = await self._client.post(

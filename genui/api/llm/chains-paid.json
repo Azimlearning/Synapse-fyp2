@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "paid": true,
+  "checked": "2026-11-24",
+  "note": "PAID chains (V5-D26): Claude through the owner's OpenRouter credits, used only when ALLOW_PAID_FALLBACK=true, OPENROUTER_PAID_CHAINS_PATH names this file and LLM_MONTHLY_CAP_USD is set. Prices from OpenRouter's model list on 2026-11-24, per million tokens in/out: claude-haiku-5.5 $0.10/$0.50, claude-sonnet-5.5 $2/$10. Measured on the real Plan request (12.5k tokens in): Haiku 14 s, $0.0027; Sonnet 16 s, $0.045; the best free model took 193 s. Haiku for the short steps, Sonnet for writing a whole page (the Free lane and the Build Script), where the page must survive the browser check.",
+  "chains": {
+    "light": ["anthropic/claude-haiku-5.5", "anthropic/claude-sonnet-5.5"],
+    "writer": ["anthropic/claude-sonnet-5.5", "anthropic/claude-haiku-5.5"]
+  },
+  "purposes": {
+    "route": "light",
+    "explain": "light",
+    "fill": "light",
+    "patch": "light",
+    "plan": "light",
+    "blueprint": "writer",
+    "build_script": "writer",
+    "free": "writer",
+    "wording": "light",
+    "wording_free": "light"
+  },
+  "default": "light"
+}

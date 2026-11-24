@@ -15,6 +15,11 @@ three small papers:
   3. compile the vault from that graph and the claims.
 
 Then run the app on the result:  ARCANA_DATA_DIR=data/manual-test uv run uvicorn api.main:app --reload
+
+Your own PDFs (lecture slides, notes, papers): put them in one folder and pass --pdfs, then start the demo on it:
+    ARCANA_LLM_MODE=live ARCANA_EMBED_MODE=live uv run python refdocs/guides/test-docs/build_test_corpus.py \
+        --pdfs "C:/path/to/my-pdfs" --out data/my-slides --allow-paid --max-usd 1
+    powershell -ExecutionPolicy Bypass -File .\\start-synapse.ps1 -DataDir data/my-slides
 """
 
 from __future__ import annotations
@@ -40,12 +45,15 @@ from eval.vault_tool import build as build_vault  # noqa: E402
 DOCS = Path(__file__).resolve().parent
 
 
-async def stage(staging: Path) -> list[dict[str, Any]]:
-    """Ingest the PDFs into `staging` and return the ingestion report entries the rebuild tool reads."""
+async def stage(staging: Path, pdfs: Path = DOCS) -> list[dict[str, Any]]:
+    """Ingest the PDFs in `pdfs` into `staging` and return the ingestion report entries the rebuild tool reads."""
     settings = load_settings().model_copy(update={"arcana_data_dir": staging, "arcana_llm_mode": "fake"})
     container = build_container(settings)
     report: list[dict[str, Any]] = []
-    for pdf in sorted(DOCS.glob("*.pdf")):
+    found = sorted(pdfs.glob("*.pdf"))
+    if not found:
+        raise SystemExit(f"no PDF files in {pdfs}")
+    for pdf in found:
         result = await ingest_pdf(pdf.read_bytes(), pdf.name, container.ingest_deps)
         if result.status != "ready":
             raise SystemExit(f"{pdf.name} did not ingest: {result.error}")
@@ -66,7 +74,7 @@ async def main_async(args: argparse.Namespace) -> None:
     if work.exists():
         shutil.rmtree(work)
     staging.mkdir(parents=True)
-    await stage(staging)
+    await stage(staging, Path(args.pdfs))
     record = await rebuild_graph(staging, atomic, "atomic2", args.max_usd, args.allow_paid)
     print(f"atomic2 rebuild: {record.get('claims', '?')} claim(s), spent ${record.get('spent_usd', '?')}")
     stats = build_vault(atomic, out)["stats"]
@@ -76,6 +84,11 @@ async def main_async(args: argparse.Namespace) -> None:
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--out", required=True, help="a new data directory the app will run on")
+    p.add_argument(
+        "--pdfs",
+        default=str(DOCS),
+        help="a folder of PDFs to build from (default: the three test papers here); text PDFs only, scanned pages have no text",
+    )
     p.add_argument("--max-usd", type=float, default=0.3)
     p.add_argument("--allow-paid", action="store_true")
     args = p.parse_args()

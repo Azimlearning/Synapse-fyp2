@@ -1,0 +1,12 @@
+{
+  "set": "T-gate",
+  "purpose": "The three twist questions for the V5-2 prototype gate (refdocs/v5-design/docs/evaluation-plan.md section 3). A subset of set T: each is a library topic plus a change that matters. None is the question the writer prompt shows as its worked example (two springs in series on another planet), so the gate tests writing, not copying.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Edit or keep the questions, set approved to true, then run: uv run python -m eval.v5.sets --pin. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {"id": "t01", "question": "How does the pressure change as a diver goes deeper in salt water compared with fresh water?"},
+    {"id": "t02", "question": "What happens to the current in a circuit if I connect two resistors in parallel instead of one?"},
+    {"id": "t03", "question": "How would Newton's cannonball behave if it were fired from a mountain on the Moon?"}
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "concept": "For small swings the time of a pendulum depends on its length, not on how far it is pulled back.",
+  "goal": "Discover that a longer pendulum swings more slowly, and that the starting angle hardly matters for small swings.",
+  "phenomenon": "A bob hangs from a pivot on a string. It swings back and forth. The time of one full swing is shown as the string length and the starting angle change.",
+  "variables": [
+    {
+      "name": "length",
+      "unit": "m",
+      "min": 0.2,
+      "max": 2,
+      "role": "changed"
+    },
+    {
+      "name": "start_angle",
+      "unit": "deg",
+      "min": 2,
+      "max": 20,
+      "role": "changed"
+    },
+    {
+      "name": "g_planet",
+      "unit": "N/kg",
+      "min": 1,
+      "max": 25,
+      "role": "changed"
+    },
+    {
+      "name": "period",
+      "unit": "s",
+      "min": 0,
+      "max": 4,
+      "role": "measured"
+    }
+  ],
+  "interactions": [
+    {
+      "variable": "length",
+      "object": "the bob",
+      "gesture": "drag",
+      "target": "up or down the string",
+      "response": "the string shortens or lengthens and the swing speeds up or slows down"
+    },
+    {
+      "variable": "start_angle",
+      "object": "the bob",
+      "gesture": "drag",
+      "target": "sideways along the arc, then release",
+      "response": "the bob swings from the angle where it was released"
+    },
+    {
+      "variable": "g_planet",
+      "object": "the gravity ring",
+      "gesture": "drag",
+      "target": "along the weak to strong gravity rail",
+      "response": "the swing slows or speeds up as gravity changes"
+    }
+  ],
+  "scene": {
+    "apparatus": "a pendulum with a pivot bar, a string and a bob, over a protractor arc",
+    "widthShare": 0.65,
+    "heightShare": 0.9,
+    "fills": [
+      "a protractor arc under the pivot",
+      "three rails for length, angle and gravity",
+      "a swing-time clock"
+    ],
+    "wideScreen": "The clock and a period against length graph stand to the right of the pendulum."
+  },
+  "motion": "The bob swings continuously once released. Under reduced motion it shows the two end positions and the middle as a still frame.",
+  "science": [
+    "T = 2 pi sqrt(L / g), valid for small angles",
+    "v = sqrt(2 g L (1 - cos angle))"
+  ],
+  "expectedBehaviour": [
+    {
+      "kind": "rises-with",
+      "measured": "period",
+      "variable": "length",
+      "low": null,
+      "high": null,
+      "at": null,
+      "value": null,
+      "text": "the period rises as the string gets longer"
+    },
+    {
+      "kind": "independent-of",
+      "measured": "period",
+      "variable": "start_angle",
+      "low": null,
+      "high": null,
+      "at": null,
+      "value": null,
+      "text": "for small angles the period does not depend on the starting angle"
+    },
+    {
+      "kind": "equals-at",
+      "measured": "period",
+      "variable": "length",
+      "low": null,
+      "high": null,
+      "at": 1,
+      "value": 2.006,
+      "text": "a 1 m pendulum takes about 2.0 s per swing"
+    }
+  ],
+  "assists": [],
+  "predict": {
+    "question": "If you pull the bob back further, will one swing take longer?",
+    "choices": [
+      "Longer",
+      "Shorter",
+      "About the same"
+    ],
+    "check": "Release the bob from 5 degrees, then from 15 degrees, and compare the period."
+  },
+  "steps": [
+    "Drag the bob sideways to 10 degrees and release it.",
+    "Drag the bob up the string to shorten it and compare the period.",
+    "Release it from a larger angle and see whether the period changes."
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "ohm_explorer",
+  "title": "Ohm's law: current, voltage and resistance",
+  "goal": "Explore how the current changes with the voltage and the resistance.",
+  "pattern": "simulation",
+  "topic": "physics_form5_electricity",
+  "experiment_ref": null,
+  "note": "In an ohmic conductor the current is proportional to the voltage and inversely proportional to the resistance.",
+  "controls": [
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "unit": "V",
+      "min": 1.5,
+      "max": 12,
+      "value": 3,
+      "grid": 7
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance",
+      "unit": "ohm",
+      "min": 1,
+      "max": 20,
+      "value": 4,
+      "grid": 19,
+      "surface": "dial"
+    }
+  ],
+  "constants": [],
+  "models": [
+    {
+      "id": "conductor",
+      "model": "electricity.ohm",
+      "params": {},
+      "inputs": {
+        "voltage": "voltage",
+        "resistance": "resistance"
+      }
+    }
+  ],
+  "readouts": [
+    {
+      "label": "Current",
+      "unit": "A",
+      "digits": 3,
+      "source": "conductor",
+      "convert_to": null
+    }
+  ],
+  "graphs": [
+    {
+      "title": "The current rises in a straight line as the voltage rises.",
+      "x": "voltage",
+      "source": "conductor",
+      "label": "Current",
+      "unit": "A",
+      "digits": 3
+    },
+    {
+      "title": "Drag the point along the graph to change the resistance and watch the current.",
+      "x": "resistance",
+      "source": "conductor",
+      "label": "Current",
+      "unit": "A",
+      "digits": 3
+    }
+  ],
+  "table": null,
+  "experiment": null,
+  "sentences": [
+    "Try a resistance of 4 ohm and then 20 ohm at the same voltage."
+  ],
+  "steps": [
+    "The circuit already has one 1.5 V cell. Drag more cells from the tray onto it: each adds 1.5 V.",
+    "Turn the resistance knob and watch the ammeter needle.",
+    "Keep the resistance the same and double the voltage. Compare the current."
+  ],
+  "citation_ids": [
+    "ohm_v_prop",
+    "ohm_v_ir"
+  ],
+  "presentation": "stage",
+  "custom": [],
+  "concept_check": {
+    "question": "If the voltage stays the same and the resistance is doubled, what happens to the current?",
+    "options": [
+      "It doubles",
+      "It halves",
+      "It stays the same"
+    ],
+    "correct": 1,
+    "explanation": "The current is inversely proportional to the resistance, so doubling the resistance halves the current."
+  },
+  "hints": [
+    "Change one control at a time.",
+    "What happens to the current when the voltage rises and the resistance stays the same?",
+    "Current equals voltage divided by resistance."
+  ],
+  "apparatus": [
+    {
+      "kind": "circuit",
+      "label": "Circuit",
+      "channels": {
+        "current": {
+          "source": "conductor",
+          "full": 12
+        }
+      },
+      "drop": {
+        "source": "voltage",
+        "item": "1.5 V cell"
+      }
+    },
+    {
+      "kind": "gauge",
+      "label": "Ammeter",
+      "channels": {
+        "value": {
+          "source": "conductor",
+          "full": 12
+        }
+      }
+    }
+  ]
+}

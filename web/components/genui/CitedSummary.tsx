@@ -22,7 +22,7 @@ export function CitedSummary({ block }: { block: CitedSummaryBlock }) {
       return (
         <EmptyState
           title="No evidence found in your documents."
-          hint="Upload a PDF that covers this topic, or ask about something it contains."
+          hint="Synapse answers only from your own papers. It does not search the web or answer from general knowledge, so it will not guess. Try the words your papers use, upload a PDF that covers this topic, or ask about something in the sources listed below."
         />
       );
     case "error":

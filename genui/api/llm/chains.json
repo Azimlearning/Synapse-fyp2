@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "checked": "2026-11-23",
+  "note": "Candidate free models. The lineup rotates often: re-check every id before a measured run, and keep or drop each by measurement (docs/model-chain.md). Every id must end in :free so a request can never be billed by OpenRouter. 2026-11-23, live checks against OpenRouter's model list and a JSON task: nvidia/nemotron-3.5-super-vl:free answered valid JSON in 2.8 s; nvidia/nemotron-3-ultra-550b-a55b:free answered (valid JSON with a 200+ token budget; reasoning models return empty content on tiny budgets); google/gemma-4-31b-it:free, gemma-4-26b, ling-3.2-flash and ernie-5.5-flash were rate limited (HTTP 429) that evening; thinkingmachines/inkling-2-small:free is no longer listed and nemotron-3.5-lightning returned empty content, so both are dropped.",
+  "chains": {
+    "build": [
+      "nvidia/nemotron-3.5-super-vl:free",
+      "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google/gemma-4-31b-it:free"
+    ],
+    "blueprint": [
+      "nvidia/nemotron-3.5-super-vl:free",
+      "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google/gemma-4-31b-it:free"
+    ],
+    "fast": [
+      "nvidia/nemotron-3.5-super-vl:free",
+      "google/gemma-4-31b-it:free",
+      "nvidia/nemotron-3-ultra-550b-a55b:free"
+    ],
+    "reader": [
+      "nvidia/nemotron-3.5-super-vl:free",
+      "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "google/gemma-4-31b-it:free"
+    ]
+  },
+  "purposes": {
+    "route": "fast",
+    "explain": "fast",
+    "fill": "fast",
+    "patch": "fast",
+    "plan": "build",
+    "blueprint": "blueprint",
+    "build_script": "build",
+    "free": "build",
+    "wording": "reader",
+    "wording_free": "reader"
+  },
+  "default": "fast"
+}

@@ -7,7 +7,7 @@
 // total; the screen says how many are not shown. Document text renders as text, never as markup.
 
 import type { ErrorEnvelope, LintDuplicateReason, LintPageRef, VaultLintResponse } from "@arcana/schema";
-import Link from "next/link";
+import { AppNav } from "@/components/shell/AppNav";
 import { useEffect, useState } from "react";
 
 import { fetchLint } from "@/lib/api";
@@ -137,19 +137,8 @@ export function ReviewScreen() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="flex items-center gap-4 border-b border-stone-200 bg-white px-6 py-3">
-        <span className="text-lg font-semibold">Arcana</span>
-        <nav aria-label="Views" className="flex gap-3 text-sm">
-          <Link href="/" className="text-stone-600 hover:text-stone-900">
-            Chat
-          </Link>
-          <Link href="/notes" className="text-stone-600 hover:text-stone-900">
-            Notes
-          </Link>
-          <Link href="/notes/review" aria-current="page" className="font-medium text-stone-900 underline underline-offset-4">
-            Review
-          </Link>
-        </nav>
+      <header className="flex items-center gap-4 border-b border-stone-200 bg-stone-50 px-6 py-3">
+        <AppNav current="notes" />
       </header>
       <main className="mx-auto max-w-3xl space-y-4 p-6">
         <h1 className="text-xl font-semibold">Review the notes</h1>

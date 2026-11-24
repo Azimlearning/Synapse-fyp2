@@ -63,6 +63,11 @@ def _remove(doc_id: str, deps: IngestDeps) -> None:
     deps.docs.delete_document(doc_id)
 
 
+def remove_document(doc_id: str, deps: IngestDeps) -> None:
+    """Delete a stored document across all three stores (not saved: the caller saves the graph and vectors)."""
+    _remove(doc_id, deps)
+
+
 async def ingest_pdf(raw: bytes, filename: str, deps: IngestDeps) -> IngestResult:
     doc_id = doc_id_for(raw)
     fallback_title = filename.rsplit(".", 1)[0] or filename

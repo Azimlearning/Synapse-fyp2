@@ -1,0 +1,146 @@
+{
+  "experiment_ref": null,
+  "constants": [
+    {
+      "id": "va",
+      "label": "Volume of acid",
+      "unit": "cm3",
+      "value": 25
+    },
+    {
+      "id": "mb",
+      "label": "True concentration of the alkali",
+      "unit": "mol/dm3",
+      "value": 0.125
+    }
+  ],
+  "graphs": [
+    {
+      "title": "The more alkali needed to neutralise the acid, the weaker it is.",
+      "x": "vb",
+      "source": "alkali",
+      "label": "Concentration",
+      "unit": "mol/dm3",
+      "digits": 3
+    }
+  ],
+  "table": {
+    "caption": "Results",
+    "columns": [
+      {
+        "label": "Volume run in",
+        "unit": "cm3",
+        "source": "vb",
+        "digits": 0
+      },
+      {
+        "label": "Concentration",
+        "unit": "mol/dm3",
+        "source": "alkali",
+        "digits": 3
+      }
+    ]
+  },
+  "experiment": {
+    "aim": "To find the concentration of a sodium hydroxide solution by titration with hydrochloric acid",
+    "hypothesis": "The more alkali needed to neutralise the acid, the lower its concentration",
+    "independent": "Volume of alkali run in (cm3)",
+    "dependent": "Concentration of the alkali (mol/dm3)",
+    "controlled": [
+      "Volume and concentration of the acid",
+      "The indicator"
+    ],
+    "apparatus": [
+      "Burette",
+      "Pipette",
+      "Conical flask",
+      "Indicator"
+    ]
+  },
+  "sentences": [],
+  "steps": [
+    "Put 25 cm3 of 0.1 mol/dm3 hydrochloric acid in the flask.",
+    "Hold the stopcock to run in sodium hydroxide, picking up the flask to swirl it, until the indicator turns pink.",
+    "Drag the eye level with the meniscus, then press Record.",
+    "Record the volume at 10 cm3 and 40 cm3 too, and compare: only the volume at the end point gives the alkali's true concentration."
+  ],
+  "citation_ids": [
+    "titr_formula",
+    "titr_endpoint",
+    "titr_eye_level"
+  ],
+  "presentation": "stage",
+  "custom": [],
+  "id": "titration_virtual",
+  "title": "Titration: finding a concentration",
+  "goal": "Find the concentration of sodium hydroxide from the volume needed to neutralise an acid.",
+  "pattern": "virtual_experiment",
+  "topic": "chemistry_form4_acids_bases_salts",
+  "note": "The end point is where the indicator changes colour, and the acid and the alkali are then taken to have neutralised each other. For hydrochloric acid and sodium hydroxide, one mole of acid reacts with one mole of alkali.",
+  "controls": [
+    {
+      "id": "vb",
+      "label": "Alkali run in from the burette",
+      "unit": "cm3",
+      "min": 5,
+      "max": 40,
+      "value": 10,
+      "grid": 7,
+      "surface": "valve"
+    }
+  ],
+  "models": [
+    {
+      "id": "alkali",
+      "model": "chemistry.titration_concentration",
+      "params": {
+        "ma": 0.1,
+        "acid_coeff": 1,
+        "base_coeff": 1
+      },
+      "inputs": {
+        "va": "va",
+        "vb": "vb"
+      }
+    },
+    {
+      "id": "endpoint",
+      "model": "chemistry.titration_endpoint_volume",
+      "params": {
+        "ma": 0.1,
+        "acid_coeff": 1,
+        "base_coeff": 1
+      },
+      "inputs": {
+        "va": "va",
+        "mb": "mb"
+      }
+    }
+  ],
+  "readouts": [
+    {
+      "label": "Concentration worked out from this volume",
+      "unit": "mol/dm3",
+      "digits": 3,
+      "source": "alkali",
+      "convert_to": null
+    }
+  ],
+  "worked_solution": [
+    "Write the equation: HCl + NaOH gives NaCl + H2O.",
+    "The acid and the alkali react in a 1 to 1 ratio, so at the end point the moles of alkali equal the moles of acid.",
+    "Moles of acid = concentration of acid x volume of acid.",
+    "Concentration of alkali = moles of alkali / volume of alkali."
+  ],
+  "scene": {
+    "kind": "titration",
+    "source": "vb",
+    "endpoint": "endpoint",
+    "full": 50
+  },
+  "hints": [
+    "The end point is where the indicator changes colour.",
+    "Read the burette with your eye level with the bottom of the meniscus.",
+    "At the end point the acid and the alkali have just neutralised each other."
+  ]
+}

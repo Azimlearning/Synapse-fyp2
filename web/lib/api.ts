@@ -453,6 +453,14 @@ export async function reverifyPattern(id: string, options: Options = {}): Promis
   return { ok: false, error: unreadable() };
 }
 
+/** Remove a document from the corpus (its passages, vectors and graph edges). */
+export async function deleteDocument(docId: string, options: Options = {}): Promise<DeleteResult> {
+  const response = await call(`/documents/${encodeURIComponent(docId)}`, { method: "DELETE" }, options);
+  if (!(response instanceof Response)) return { ok: false, error: response };
+  if (!response.ok) return { ok: false, error: await envelopeFromResponse(response) };
+  return { ok: true };
+}
+
 export async function deletePattern(id: string, options: Options = {}): Promise<DeleteResult> {
   const response = await call(`/patterns/${encodeURIComponent(id)}`, { method: "DELETE" }, options);
   if (!(response instanceof Response)) return { ok: false, error: response };

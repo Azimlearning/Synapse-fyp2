@@ -21,7 +21,7 @@ function Pane({ block, onClose }: { block: UIBlock; onClose: (id: string) => voi
   const [view, setView] = useState<"block" | "table">("block");
   const title = blockTitle(block);
   return (
-    <section aria-label={`Pane: ${title}`} data-pane={block.id} className="flex min-h-0 min-w-0 flex-col rounded-lg border border-stone-300 bg-white">
+    <section aria-label={`Pane: ${title}`} data-pane={block.id} className="flex min-h-0 min-w-0 flex-col rounded-lg border border-stone-300 bg-white md:flex-1">
       <header className="flex flex-wrap items-center gap-2 border-b border-stone-200 px-3 py-1.5">
         <h2 className="min-w-0 flex-1 truncate text-sm font-medium text-stone-800">{title}</h2>
         {tables.length > 0 && (
@@ -107,7 +107,7 @@ export function Panes({
   onToggleFocus: () => void;
 }) {
   return (
-    <aside aria-label="Panes" className="flex min-h-0 min-w-0 flex-col gap-3">
+    <aside aria-label="Panes" className="flex min-h-0 min-w-0 flex-col gap-3 md:h-full">
       <div className="flex items-center justify-between gap-2">
         <p className="text-xs text-stone-500" role="status">
           {panes.length} {panes.length === 1 ? "pane" : "panes"} open

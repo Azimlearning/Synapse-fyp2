@@ -70,7 +70,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         log.info("started", llm_mode=loaded.arcana_llm_mode, embed_mode=loaded.arcana_embed_mode)
         yield
 
-    app = FastAPI(title="Arcana v2", lifespan=lifespan)
+    app = FastAPI(title="Synapse", lifespan=lifespan)
     app.add_middleware(BodyLimit)
     app.add_middleware(
         CORSMiddleware, allow_origins=WEB_ORIGINS, allow_methods=["GET", "POST", "DELETE"], allow_headers=["*"]

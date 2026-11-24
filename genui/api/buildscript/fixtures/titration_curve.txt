@@ -1,0 +1,98 @@
+@@BASE
+none
+@@TITLE
+Titration with a stronger or weaker alkali
+@@KICKER
+Chemistry, introductory
+@@TRY
+Drag the tap lever down the rail to let alkali run into the flask, and watch the colour.
+@@PREDICT
+Will the flask change colour slowly all the way, or suddenly near one point?
+- Slowly all the way
+- Suddenly near one point
+- It never changes colour
+Check: lower the lever a little at a time and watch the pH reading as the flask turns pink.
+@@IDEA
+The acid is neutralised when the alkali added matches it. Near that point the pH jumps.
+The volume needed is V = 25 x 0.1 / c, where c is the alkali concentration and the flask holds 25 cm3 of 0.1 mol/dm3 acid. The curve here is a smoothed picture of that jump.
+@@STEPS
+- Drag the lever down slowly and watch the pH climb.
+- Stop when the flask turns pink and read the volume added.
+- Drag the bottle ring to a stronger alkali and see how much less is needed.
+@@PARTS
+none
+@@CONTROLS
+volume_added | Alkali added (cm3) | 0 | 50 | 0.5 | 10 | cm3
+alkali_conc | Alkali strength (mol/dm3) | 0.05 | 0.2 | 0.01 | 0.1 | mol/dm3
+@@FORMULAS
+v_eq = 25 * 0.1 / alkali_conc [cm3]
+ph = 7 + 6 * (2 / pi) * atan((volume_added - v_eq) / 1.5)
+colour = max(0, min(1, (ph - 7) / 3))
+@@READOUTS
+r_v | Alkali added (cm3) | volume_added | 1
+r_eq | Needed to neutralise (cm3) | v_eq | 1
+r_ph | pH of the flask | ph | 1
+@@STYLE
+#bench-art .lbl{fill:var(--muted);font:12px system-ui,sans-serif}
+#bench-art .rail{stroke:var(--border);stroke-width:3;fill:none}
+#bench-art .glass{fill:none;stroke:var(--fg);stroke-width:3;stroke-linejoin:round}
+@@DRAWING
+<svg id="bench-art" viewBox="0 0 320 428" role="img" aria-label="A burette above a flask of acid, with a rail to run the alkali and a rail to set its strength">
+  <rect id="liquid" x="104" y="30" width="32" height="170" style="fill:var(--accent);opacity:.55"/>
+  <rect class="glass" x="102" y="20" width="36" height="200" rx="3"/>
+  <line class="glass" x1="120" y1="220" x2="120" y2="244"/>
+  <path class="glass" d="M 78 340 L 104 262 L 104 244 L 136 244 L 136 262 L 162 340 Z" fill="none"/>
+  <path id="flask" d="M 82 332 L 106 266 L 134 266 L 158 332 Z" style="fill:#e0408f;opacity:0"/>
+  <text class="lbl" x="150" y="44">burette</text>
+  <text class="lbl" x="170" y="320">flask of acid</text>
+  <line class="rail" x1="260" y1="40" x2="260" y2="210"/>
+  <text class="lbl" x="260" y="236" text-anchor="middle">alkali run in</text>
+  <line class="rail" x1="40" y1="372" x2="280" y2="372"/>
+  <text class="lbl" x="40" y="418">weak alkali</text>
+  <text class="lbl" x="280" y="418" text-anchor="end">strong alkali</text>
+  <circle id="lever" cx="260" cy="60" r="23" style="fill:var(--try);touch-action:none;cursor:grab" data-synapse-handle="volume_added" aria-hidden="true"/>
+  <circle id="bottle" cx="150" cy="372" r="23" style="fill:var(--gold);touch-action:none;cursor:grab" data-synapse-handle="alkali_conc" aria-hidden="true"/>
+</svg>
+@@SCRIPT
+var svg = document.getElementById("bench-art");
+function pt(e) {
+  var r = svg.getBoundingClientRect(), v = svg.viewBox.baseVal;
+  return { x: v.x + (e.clientX - r.left) / r.width * v.width, y: v.y + (e.clientY - r.top) / r.height * v.height };
+}
+function track(handle, id, axis, a, b, lo, hi) {
+  var held = false;
+  handle.addEventListener("pointerdown", function (e) { held = true; handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener("pointermove", function (e) {
+    if (!held) return;
+    var f = Math.min(1, Math.max(0, (pt(e)[axis] - a) / (b - a)));
+    host.set(id, lo + f * (hi - lo));
+  });
+  handle.addEventListener("pointerup", function () { held = false; });
+  handle.addEventListener("pointercancel", function () { held = false; });
+  host.on(id, function (v) { handle.setAttribute(axis === "x" ? "cx" : "cy", String(a + (v - lo) / (hi - lo) * (b - a))); });
+}
+track(document.getElementById("lever"), "volume_added", "y", 60, 210, 0, 50);
+track(document.getElementById("bottle"), "alkali_conc", "x", 40, 280, 0.05, 0.2);
+
+var liquid = document.getElementById("liquid"), flask = document.getElementById("flask");
+host.on("volume_added", function (v) {
+  var left = 170 * (50 - v) / 50;
+  liquid.setAttribute("y", String(200 - left));
+  liquid.setAttribute("height", String(left));
+});
+host.on("colour", function (c) { flask.style.opacity = String(c); });
+host.on("ph", function (p) {
+  svg.setAttribute("aria-label", "A flask of acid with the alkali added so far, at pH " + p.toFixed(1));
+  host.found("The flask is at pH " + p.toFixed(1) + (p > 8.2 ? " and has turned pink." : " and is still colourless."));
+});
+@@HINTS
+- The colour changes where the alkali added just matches the acid.
+- A stronger alkali needs a smaller volume.
+@@EXPLAIN
+Acid and alkali cancel each other. While there is still acid left over the pH stays low, and once the alkali has used it all up a little extra pushes the pH high. That is why the colour changes suddenly near one volume.
+
+A stronger alkali carries more reacting particles in each cm3, so less of it is needed. The curve drawn here is a smoothed picture of the jump, not a measured one.
+@@TWISTS
+- What if the acid were twice as strong?
+- What if the flask held a different volume of acid?
+@@END

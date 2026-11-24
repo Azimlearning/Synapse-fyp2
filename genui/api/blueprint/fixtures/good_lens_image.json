@@ -1,0 +1,39 @@
+{
+  "concept": "A lens makes an image where the bent rays from an object meet again.",
+  "goal": "Discover that moving the object closer to the lens pushes the image away and makes it bigger.",
+  "phenomenon": "An object arrow stands on a line to the left of a thin lens. Rays from its tip bend through the lens and meet on the right, where the inverted image forms.",
+  "variables": [
+    {"name": "object_dist", "unit": "cm", "min": 30, "max": 60, "role": "changed"},
+    {"name": "focal", "unit": "cm", "min": 5, "max": 15, "role": "changed"},
+    {"name": "image_dist", "unit": "cm", "min": 0, "max": 40, "role": "measured"},
+    {"name": "magnification", "unit": "", "min": 0, "max": 1, "role": "measured"}
+  ],
+  "interactions": [
+    {"variable": "object_dist", "object": "the object arrow", "gesture": "drag", "target": "left or right along the line through the lens", "response": "the rays redraw and the image slides and changes size"},
+    {"variable": "focal", "object": "the lens", "gesture": "drag", "target": "up or down to make it fatter or thinner", "response": "the rays bend more or less and the image moves"}
+  ],
+  "scene": {
+    "apparatus": "a thin lens on a long line, with an object arrow on the left and its image on the right",
+    "widthShare": 0.9,
+    "heightShare": 0.6,
+    "fills": ["a long optical axis", "two drawn rays", "labels for object, lens and image"],
+    "wideScreen": "The line runs the full width of the bench, so a wide screen shows the object and image far apart."
+  },
+  "motion": "The rays and the image move as the object is dragged. Under reduced motion they jump to their new places.",
+  "science": ["1 / v = 1 / f - 1 / u, so v = u f / (u - f)", "magnification = v / u"],
+  "expectedBehaviour": [
+    {"kind": "falls-with", "measured": "image_dist", "variable": "object_dist", "low": null, "high": null, "at": null, "value": null, "text": "the image distance falls as the object moves away"},
+    {"kind": "stays-within", "measured": "magnification", "variable": "", "low": 0, "high": 1, "at": null, "value": null, "text": "the image is never bigger than the object over this range"}
+  ],
+  "assists": [],
+  "predict": {
+    "question": "As the object comes closer to the lens, will its image get bigger or smaller?",
+    "choices": ["Bigger", "Smaller", "The same size"],
+    "check": "Drag the object slowly toward the lens and watch the image on the right."
+  },
+  "steps": [
+    "Drag the object far from the lens and read the image distance.",
+    "Drag it closer and watch the image move away and grow.",
+    "Drag the lens to make it fatter and see how the image moves."
+  ]
+}

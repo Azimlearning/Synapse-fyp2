@@ -1,0 +1,108 @@
+@@BASE
+none
+@@TITLE
+A block on a rough ramp
+@@KICKER
+Physics, introductory
+@@TRY
+Drag the top end of the ramp upward to tilt it and see when the block starts to slide.
+@@PREDICT
+On a rough ramp, will the block slide as soon as the ramp is tilted a little?
+- Yes, at any tilt
+- No, only once the ramp is steep enough
+- Never, friction always wins
+Check: tilt the ramp a little at a time with a rough surface, then make the surface smoother.
+@@IDEA
+Gravity pulls the block down the slope with g sin(angle). Friction pulls back with mu g cos(angle).
+The block slides only when g sin(angle) is bigger than mu g cos(angle), and then a = g (sin(angle) - mu cos(angle)).
+@@STEPS
+- Tilt the ramp slowly and watch for the angle where the acceleration stops being zero.
+- Make the surface smoother by dragging the grip ring and tilt again.
+- Find an angle where a rough ramp still holds the block but a smooth one does not.
+@@PARTS
+none
+@@CONTROLS
+angle | Ramp angle (deg) | 0 | 60 | 1 | 25 | deg
+mu | Grip of the surface | 0 | 1 | 0.05 | 0.5 | ratio
+@@FORMULAS
+a_net = max(0, g_earth * (sin(rad(angle)) - mu * cos(rad(angle)))) [m/s^2]
+v_end = sqrt(2 * a_net * 1.5) [m/s]
+@@READOUTS
+r_a | Acceleration down the slope (m/s^2) | a_net | 2
+r_v | Speed after sliding 1.5 m (m/s) | v_end | 2
+@@STYLE
+#bench-art .lbl{fill:var(--muted);font:12px system-ui,sans-serif}
+#bench-art .rail{stroke:var(--border);stroke-width:3;fill:none}
+#bench-art .ramp{fill:var(--card);stroke:var(--fg);stroke-width:3;stroke-linejoin:round}
+@@DRAWING
+<svg id="bench-art" viewBox="0 0 320 360" role="img" aria-label="A block on a ramp that can be tilted, with a rail for the grip of the surface">
+  <polygon id="ramp" class="ramp" points="30,300 30,300 30,300"/>
+  <line id="grip" x1="30" y1="300" x2="270" y2="300" stroke="var(--try)" stroke-width="6" stroke-dasharray="3 4" opacity=".5"/>
+  <g id="block"><rect x="-16" y="-16" width="32" height="32" rx="4" style="fill:var(--accent)"/></g>
+  <line id="pull" x1="0" y1="0" x2="0" y2="0" stroke="var(--gold)" stroke-width="5"/>
+  <text class="lbl" x="34" y="326">ramp</text>
+  <line class="rail" x1="296" y1="60" x2="296" y2="250"/>
+  <text class="lbl" x="316" y="276" text-anchor="end">smooth</text>
+  <text class="lbl" x="316" y="46" text-anchor="end">rough</text>
+  <circle id="tip" cx="238" cy="130" r="23" style="fill:var(--step);touch-action:none;cursor:grab" data-synapse-handle="angle" aria-hidden="true"/>
+  <circle id="gripring" cx="296" cy="150" r="23" style="fill:var(--try);touch-action:none;cursor:grab" data-synapse-handle="mu" aria-hidden="true"/>
+</svg>
+@@SCRIPT
+var svg = document.getElementById("bench-art");
+function pt(e) {
+  var r = svg.getBoundingClientRect(), v = svg.viewBox.baseVal;
+  return { x: v.x + (e.clientX - r.left) / r.width * v.width, y: v.y + (e.clientY - r.top) / r.height * v.height };
+}
+var ramp = document.getElementById("ramp"), tip = document.getElementById("tip");
+var block = document.getElementById("block"), pull = document.getElementById("pull");
+var gripLine = document.getElementById("grip"), ring = document.getElementById("gripring");
+var held = false, ringHeld = false, LEN = 240, X0 = 30, Y0 = 300;
+tip.addEventListener("pointerdown", function (e) { held = true; tip.setPointerCapture(e.pointerId); });
+tip.addEventListener("pointermove", function (e) {
+  if (!held) return;
+  var p = pt(e);
+  host.set("angle", Math.atan2(Y0 - p.y, Math.max(1, p.x - X0)) * 180 / Math.PI);
+});
+tip.addEventListener("pointerup", function () { held = false; });
+tip.addEventListener("pointercancel", function () { held = false; });
+ring.addEventListener("pointerdown", function (e) { ringHeld = true; ring.setPointerCapture(e.pointerId); });
+ring.addEventListener("pointermove", function (e) {
+  if (!ringHeld) return;
+  var f = Math.min(1, Math.max(0, (pt(e).y - 60) / 190));
+  host.set("mu", 1 - f);
+});
+ring.addEventListener("pointerup", function () { ringHeld = false; });
+ring.addEventListener("pointercancel", function () { ringHeld = false; });
+host.on("mu", function (m) {
+  ring.setAttribute("cy", String(60 + (1 - m) * 190));
+  gripLine.setAttribute("opacity", String(0.15 + m * 0.7));
+});
+function draw() {
+  var a = host.value("angle") * Math.PI / 180, acc = host.value("a_net");
+  var tx = X0 + LEN * Math.cos(a), ty = Y0 - LEN * Math.sin(a);
+  ramp.setAttribute("points", X0 + "," + Y0 + " " + (X0 + LEN) + "," + Y0 + " " + tx + "," + ty);
+  tip.setAttribute("cx", String(tx));
+  tip.setAttribute("cy", String(ty));
+  var s = 150, bx = X0 + s * Math.cos(a) - 17 * Math.sin(a), by = Y0 - s * Math.sin(a) - 17 * Math.cos(a);
+  block.setAttribute("transform", "translate(" + bx + " " + by + ") rotate(" + (-host.value("angle")) + ")");
+  var len = Math.min(70, acc * 12);
+  pull.setAttribute("x1", String(bx));
+  pull.setAttribute("y1", String(by));
+  pull.setAttribute("x2", String(bx - len * Math.cos(a)));
+  pull.setAttribute("y2", String(by + len * Math.sin(a)));
+  svg.setAttribute("aria-label", acc > 0 ? "A block sliding down a ramp" : "A block held still on a ramp by friction");
+  host.found(acc > 0 ? "The block slides, speeding up at " + acc.toFixed(2) + " m/s^2." : "Friction holds the block still.");
+}
+host.on("angle", draw);
+host.on("a_net", draw);
+@@HINTS
+- Friction depends on how hard the block presses on the ramp, and that gets smaller as the ramp gets steeper.
+- The block starts to slide when the pull down the slope beats the grip.
+@@EXPLAIN
+Gravity splits into a part along the ramp and a part pressing into it. The steeper the ramp, the bigger the part along it and the smaller the part pressing in.
+
+Friction grows with how hard the block presses, so on a steeper ramp there is more pull and less grip. At some angle the pull wins and the block starts to slide. A rougher surface moves that angle higher.
+@@TWISTS
+- What if the block were twice as heavy?
+- What if the ramp were on the Moon?
+@@END

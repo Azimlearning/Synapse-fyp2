@@ -1,0 +1,136 @@
+{
+  "concept": "Two springs in series share the same pull, so together they are softer than either one.",
+  "goal": "Discover that the total stretch is the weight divided by the combined stiffness, and that Mars pulls less than Earth.",
+  "phenomenon": "Two springs hang one below the other from a bar. A mass hangs from the lower spring. Both springs stretch as the mass settles, and each stretches in proportion to its own softness.",
+  "variables": [
+    {
+      "name": "mass_g",
+      "unit": "g",
+      "min": 0,
+      "max": 500,
+      "role": "changed"
+    },
+    {
+      "name": "g_planet",
+      "unit": "N/kg",
+      "min": 1,
+      "max": 25,
+      "role": "changed"
+    },
+    {
+      "name": "k1",
+      "unit": "N/m",
+      "min": 10,
+      "max": 50,
+      "role": "changed"
+    },
+    {
+      "name": "k2",
+      "unit": "N/m",
+      "min": 10,
+      "max": 50,
+      "role": "changed"
+    },
+    {
+      "name": "x_cm",
+      "unit": "cm",
+      "min": 0,
+      "max": 300,
+      "role": "measured"
+    }
+  ],
+  "interactions": [
+    {
+      "variable": "mass_g",
+      "object": "the mass tray",
+      "gesture": "drop",
+      "target": "the hanger under the lower spring",
+      "response": "the springs stretch as the mass settles"
+    },
+    {
+      "variable": "g_planet",
+      "object": "the gravity marker",
+      "gesture": "drag",
+      "target": "along the weak to strong gravity scale",
+      "response": "the springs shorten or lengthen as gravity changes"
+    },
+    {
+      "variable": "k1",
+      "object": "the upper spring's end ring",
+      "gesture": "drag",
+      "target": "along the stiffness scale beside the spring",
+      "response": "the upper spring's coils tighten or loosen"
+    },
+    {
+      "variable": "k2",
+      "object": "the lower spring's end ring",
+      "gesture": "drag",
+      "target": "along the stiffness scale beside the spring",
+      "response": "the lower spring's coils tighten or loosen"
+    }
+  ],
+  "scene": {
+    "apparatus": "two springs hanging from a bar with a mass hanger and a mass tray",
+    "widthShare": 0.7,
+    "heightShare": 0.85,
+    "fills": [
+      "a ruler beside the springs",
+      "a stiffness scale for each spring",
+      "a planet backdrop"
+    ],
+    "wideScreen": "The bench is centred; the ruler and the stiffness scales stand to its left and right so no side is empty."
+  },
+  "motion": "The springs stretch smoothly as the mass settles and ease back when it is lifted. Under reduced motion they jump to the final length.",
+  "science": [
+    "mechanics.hookes",
+    "physics.weight",
+    "k_total = 1 / (1/k1 + 1/k2)"
+  ],
+  "expectedBehaviour": [
+    {
+      "kind": "rises-with",
+      "measured": "x_cm",
+      "variable": "mass_g",
+      "low": null,
+      "high": null,
+      "at": null,
+      "value": null,
+      "text": "the total stretch rises as the mass rises"
+    },
+    {
+      "kind": "falls-with",
+      "measured": "x_cm",
+      "variable": "k1",
+      "low": null,
+      "high": null,
+      "at": null,
+      "value": null,
+      "text": "the total extension falls as spring 1 gets stiffer"
+    },
+    {
+      "kind": "stays-within",
+      "measured": "x_cm",
+      "variable": "",
+      "low": 0,
+      "high": 300,
+      "at": null,
+      "value": null,
+      "text": "the total stretch stays between 0 and 300 cm"
+    }
+  ],
+  "assists": [],
+  "predict": {
+    "question": "On Mars, will the same mass stretch the two springs more or less than on Earth?",
+    "choices": [
+      "More",
+      "Less",
+      "The same"
+    ],
+    "check": "Drop 200 g on the hanger, then drag the gravity marker to a weaker value."
+  },
+  "steps": [
+    "Drop 200 g from the tray onto the hanger and read the extension on Earth.",
+    "Drag the gravity marker to a weaker planet and read the stretch again.",
+    "Drag the end ring of spring 2 along its scale to make it stiffer and watch the total stretch fall."
+  ]
+}

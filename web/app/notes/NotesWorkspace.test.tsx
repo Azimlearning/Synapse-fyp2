@@ -68,7 +68,7 @@ describe("NotesWorkspace", () => {
     expect(calls[0]!.search).toBe("");
     expect(screen.getByText("Choose a page in the graph, or search for a concept.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Chat" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "Notes" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Knowledge graph" })).toHaveAttribute("aria-current", "page");
   });
 
   it("opens a page when its name is chosen in the graph, and shows the page beside the graph", async () => {

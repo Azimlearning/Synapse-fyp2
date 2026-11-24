@@ -1,0 +1,59 @@
+{
+  "set": "R",
+  "purpose": "Repeats: exact questions already in the library (data/library_questions.json). The cache must serve each in about 1 s with no model call (V5-D01). Evaluation plan section 1.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Set approved to true, then run: uv run python -m eval.v5.sets --pin R. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {
+      "id": "r01",
+      "question": "Why does a spring stretch when I hang a weight on it?",
+      "library": "hookes_amali"
+    },
+    {
+      "id": "r02",
+      "question": "How does the extension of a spring depend on the load?",
+      "library": "hookes_amali"
+    },
+    {
+      "id": "r03",
+      "question": "What happens to the current if I raise the resistance in a circuit?",
+      "library": "ohm_explorer"
+    },
+    {
+      "id": "r04",
+      "question": "How does the pressure change as a diver goes deeper in water?",
+      "library": "pressure_depth"
+    },
+    {
+      "id": "r05",
+      "question": "How do I find the concentration of an acid by titration?",
+      "library": "titration_virtual"
+    },
+    {
+      "id": "r06",
+      "question": "Why does yeast make limewater go milky?",
+      "library": "yeast_fermentation_lab"
+    },
+    {
+      "id": "r07",
+      "question": "What is Newton's cannonball, and how does a satellite stay in orbit?",
+      "library": "newton_cannonball"
+    },
+    {
+      "id": "r08",
+      "question": "How much would I weigh on Jupiter compared with Earth?",
+      "library": "planet_gravity"
+    },
+    {
+      "id": "r09",
+      "question": "How does gravity change on different planets?",
+      "library": "planet_gravity"
+    },
+    {
+      "id": "r10",
+      "question": "Can you simulate the difference in gravitational strength on each planet in my solar system?",
+      "library": "planet_gravity"
+    }
+  ]
+}

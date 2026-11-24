@@ -1,0 +1,19 @@
+{
+  "set": "N",
+  "purpose": "New: science questions with no library Environment. The Free end of the ladder. Evaluation plan section 1.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Edit or keep the questions, set approved to true, then run: uv run python -m eval.v5.sets --pin. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {"id": "n01", "question": "How does a black hole bend light?"},
+    {"id": "n02", "question": "Why do clouds form at a certain height?"},
+    {"id": "n03", "question": "How does a lever balance a see-saw?"},
+    {"id": "n04", "question": "How does a transformer change the voltage?"},
+    {"id": "n05", "question": "Why does ice float on water?"},
+    {"id": "n06", "question": "How does the Moon cause the tides?"},
+    {"id": "n07", "question": "How does a heat pump move heat from cold to warm?"},
+    {"id": "n08", "question": "Why does a ball thrown at an angle land where it does?"},
+    {"id": "n09", "question": "How does osmosis move water into a cell?"},
+    {"id": "n10", "question": "How does a sound wave become louder or higher in pitch?"}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "reference-fermentation",
+  "title": "Yeast fermentation: the products and the energy",
+  "lane": "instantiate",
+  "label": "model-checked",
+  "kitVersion": "0.1.0",
+  "planSummary": "See what yeast fermentation produces, and how little energy it releases compared with aerobic respiration.",
+  "citations": [
+    {
+      "source": "UNVERIFIED (fixture, no corpus)",
+      "page": null,
+      "quote": null,
+      "verified": false
+    }
+  ],
+  "controls": [
+    "glucose"
+  ],
+  "readouts": [
+    "Energy from fermentation",
+    "Energy if aerobic"
+  ],
+  "models": [
+    {
+      "id": "biology.respiration_energy",
+      "params": {
+        "energy_per_mole": 210.0
+      },
+      "readouts": [
+        "Energy from fermentation"
+      ],
+      "series": [
+        "Energy from fermentation",
+        "Energy, fermentation"
+      ],
+      "scene": true
+    },
+    {
+      "id": "biology.respiration_energy",
+      "params": {
+        "energy_per_mole": 2898.0
+      },
+      "readouts": [
+        "Energy if aerobic"
+      ],
+      "series": [
+        "Energy if aerobic",
+        "Energy, aerobic"
+      ]
+    }
+  ]
+}

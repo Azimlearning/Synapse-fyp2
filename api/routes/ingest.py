@@ -5,11 +5,11 @@ status "failed" and the reason: the request itself was well formed. A malformed 
 wrong type, too large) is a 400 with the error envelope.
 """
 
-from fastapi import APIRouter, Request, UploadFile
+from fastapi import APIRouter, Request, Response, UploadFile
 
-from api.core.errors import BadRequest
+from api.core.errors import BadRequest, NotFound
 from api.genui.generated import IngestResponse
-from api.ingestion.pipeline import ingest_pdf
+from api.ingestion.pipeline import ingest_pdf, remove_document
 from api.ingestion.types import doc_id_for
 
 router = APIRouter()
@@ -41,3 +41,21 @@ async def ingest(file: UploadFile, request: Request) -> IngestResponse:
         chunkCount=result.chunk_count,
         error=result.error,
     )
+
+
+@router.delete("/documents/{doc_id}", status_code=204)
+def delete_document(doc_id: str, request: Request) -> Response:
+    """Remove a document from every store (passages, vectors, its graph edges and the nodes only it mentioned) and its kept PDF.
+    Retrieval reads the stores on every question, so the next answer no longer sees it. The notes (the vault) are compiled
+    separately and keep what they had until they are rebuilt."""
+    container = request.app.state.container
+    deps = container.ingest_deps
+    if deps.docs.get_document(doc_id) is None:
+        raise NotFound("No such document.")
+    remove_document(doc_id, deps)
+    deps.graph.save()
+    deps.vectors.save()
+    kept = container.uploads_dir / f"{doc_id}.pdf"
+    if kept.exists():
+        kept.unlink()
+    return Response(status_code=204)

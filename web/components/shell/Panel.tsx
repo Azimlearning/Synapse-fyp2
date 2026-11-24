@@ -40,6 +40,8 @@ export function Panel({
       aria-hidden={collapsed || undefined}
       inert={collapsed}
       className={`relative flex min-h-0 min-w-0 overflow-y-auto [overflow-wrap:anywhere] ${
+        collapsed ? "" : "px-5 py-4 md:border-r md:border-stone-200 md:last:border-r-0"
+      } ${
         spec.direction === "columns" ? "flex-row gap-4 max-md:flex-col" : "flex-col gap-4"
       } ${MOTION} ${STACKED} ${STACK_ORDER[spec.id]} ${collapsed ? "max-md:hidden" : ""}`}
       style={{ flexGrow: spec.width, flexShrink: 0, flexBasis: 0 }}

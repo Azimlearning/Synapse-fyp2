@@ -53,6 +53,8 @@ def _normalise(model: str) -> str:
 def price_for(provider: str, model: str) -> tuple[float, float]:
     if provider in FREE_PROVIDERS:
         return (0.0, 0.0)
+    if provider == "openrouter" and model.endswith(":free"):
+        return (0.0, 0.0)  # OpenRouter never bills a ":free" id
     return PRICES_PER_MTOK.get(_normalise(model), _FALLBACK_PRICE)
 
 

@@ -1,0 +1,144 @@
+@@BASE
+none
+@@TITLE
+Two springs in series on another planet
+@@KICKER
+Physics, introductory
+@@TRY
+Drag the mass tile from the tray onto the hanger under the lower spring.
+@@PREDICT
+On a planet with weaker gravity, will the same mass stretch the two springs more or less than on Earth?
+- More
+- Less
+- The same
+Check: drop a mass on the hanger, then drag the gravity marker along the planet scale and watch the stretch.
+@@IDEA
+Two springs in series feel the same pull, so together they are softer than either one.
+The combined stiffness is k_total = 1 / (1 / k1 + 1 / k2), and the stretch is x = W / k_total, where W = m g.
+@@STEPS
+- Drop a mass on the hanger and read the total stretch.
+- Drag the gravity marker to a weaker planet and read it again.
+- Drag the ring of the lower spring to make it stiffer and watch the total stretch fall.
+@@PARTS
+none
+@@CONTROLS
+mass_g | Mass (g) | 0 | 500 | 50 | 100 | g
+g_planet | Gravity here (N/kg) | 1 | 25 | 0.5 | 3.5 | N/kg
+k1 | Stiffness of spring 1 (N/m) | 10 | 50 | 5 | 20 | N/m
+k2 | Stiffness of spring 2 (N/m) | 10 | 50 | 5 | 30 | N/m
+@@FORMULAS
+mass = mass_g / 1000 [kg]
+weight = mass * g_planet [N]
+k_total = 1 / (1 / k1 + 1 / k2) [N/m]
+x1 = weight / k1 [m]
+x2 = weight / k2 [m]
+x = x1 + x2 [m]
+x_cm = x * 100 [cm]
+@@READOUTS
+r_w | Weight (N) | weight | 2
+r_k | Combined stiffness (N/m) | k_total | 1
+r_x | Total stretch (cm) | x_cm | 1
+@@STYLE
+#bench-art .lbl{fill:var(--muted);font:12px system-ui,sans-serif}
+#bench-art .rail{stroke:var(--border);stroke-width:3;fill:none}
+#bench-art .spring{fill:none;stroke:var(--fg);stroke-width:3;stroke-linejoin:round}
+@@DRAWING
+<svg id="bench-art" viewBox="0 0 320 392" role="img" aria-label="Two springs hanging in a row from a bar, with a mass hanger below">
+  <rect x="70" y="14" width="120" height="10" rx="3" style="fill:var(--muted)"/>
+  <polyline id="spring1" class="spring" points="130,24 130,84"/>
+  <polyline id="spring2" class="spring" points="130,96 130,156"/>
+  <rect id="load" x="112" y="160" width="36" height="20" rx="4" style="fill:var(--gold)"/>
+  <rect id="hanger" x="62" y="150" width="136" height="70" rx="10" fill="none" stroke="var(--border)" stroke-dasharray="6 5"/>
+  <text class="lbl" x="152" y="44">spring 1</text>
+  <text class="lbl" x="152" y="116">spring 2</text>
+  <line class="rail" x1="226" y1="60" x2="226" y2="230"/>
+  <line class="rail" x1="288" y1="60" x2="288" y2="230"/>
+  <text class="lbl" x="257" y="40" text-anchor="middle">stiffness</text>
+  <text class="lbl" x="226" y="258" text-anchor="middle">upper</text>
+  <text class="lbl" x="288" y="258" text-anchor="middle">lower</text>
+  <text class="lbl" x="54" y="304" text-anchor="middle">tray</text>
+  <line class="rail" x1="120" y1="338" x2="296" y2="338"/>
+  <text class="lbl" x="120" y="382">weak gravity</text>
+  <text class="lbl" x="296" y="382" text-anchor="end">strong gravity</text>
+  <rect id="tile" x="30" y="312" width="48" height="48" rx="8" style="fill:var(--accent);touch-action:none;cursor:grab" data-synapse-handle="mass_g" data-synapse-target="hanger" aria-hidden="true"/>
+  <circle id="ring1" cx="226" cy="100" r="23" style="fill:var(--try);touch-action:none;cursor:grab" data-synapse-handle="k1" aria-hidden="true"/>
+  <circle id="ring2" cx="288" cy="100" r="23" style="fill:var(--step);touch-action:none;cursor:grab" data-synapse-handle="k2" aria-hidden="true"/>
+  <circle id="gmark" cx="150" cy="338" r="23" style="fill:var(--gold);touch-action:none;cursor:grab" data-synapse-handle="g_planet" aria-hidden="true"/>
+</svg>
+@@SCRIPT
+var svg = document.getElementById("bench-art");
+function pt(e) {
+  var r = svg.getBoundingClientRect(), v = svg.viewBox.baseVal;
+  return { x: v.x + (e.clientX - r.left) / r.width * v.width, y: v.y + (e.clientY - r.top) / r.height * v.height };
+}
+function track(handle, id, axis, a, b, lo, hi) {
+  var held = false;
+  handle.addEventListener("pointerdown", function (e) { held = true; handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener("pointermove", function (e) {
+    if (!held) return;
+    var f = Math.min(1, Math.max(0, (pt(e)[axis] - a) / (b - a)));
+    host.set(id, lo + f * (hi - lo));
+  });
+  handle.addEventListener("pointerup", function () { held = false; });
+  handle.addEventListener("pointercancel", function () { held = false; });
+  host.on(id, function (v) { handle.setAttribute(axis === "x" ? "cx" : "cy", String(a + (v - lo) / (hi - lo) * (b - a))); });
+}
+function drop(handle, id, target, step, lo, hi, home) {
+  var held = false;
+  handle.addEventListener("pointerdown", function (e) { held = true; handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener("pointermove", function (e) {
+    if (!held) return;
+    var p = pt(e);
+    handle.setAttribute("transform", "translate(" + (p.x - home.x) + " " + (p.y - home.y) + ")");
+  });
+  handle.addEventListener("pointerup", function (e) {
+    if (!held) return;
+    held = false;
+    handle.removeAttribute("transform");
+    var t = document.getElementById(target).getBoundingClientRect();
+    if (e.clientX >= t.left && e.clientX <= t.right && e.clientY >= t.top && e.clientY <= t.bottom) {
+      var next = host.value(id) + step;
+      host.set(id, next > hi + 1e-9 ? lo : next);
+    }
+  });
+  handle.addEventListener("pointercancel", function () { held = false; handle.removeAttribute("transform"); });
+}
+track(document.getElementById("ring1"), "k1", "y", 60, 230, 10, 50);
+track(document.getElementById("ring2"), "k2", "y", 60, 230, 10, 50);
+track(document.getElementById("gmark"), "g_planet", "x", 120, 296, 1, 25);
+drop(document.getElementById("tile"), "mass_g", "hanger", 50, 0, 500, { x: 54, y: 336 });
+
+var s1 = document.getElementById("spring1"), s2 = document.getElementById("spring2");
+var load = document.getElementById("load"), hanger = document.getElementById("hanger");
+function coil(x, y0, y1) {
+  var pts = [x + "," + y0], n = 8;
+  for (var i = 0; i < n; i++) pts.push((x + (i % 2 ? -14 : 14)) + "," + (y0 + (i + 0.5) * (y1 - y0) / n));
+  pts.push(x + "," + y1);
+  return pts.join(" ");
+}
+function draw() {
+  var x1 = host.value("x1"), x2 = host.value("x2"), m = host.value("mass");
+  var e1 = 24 + 60 + x1 * 45, e2 = e1 + 12 + 60 + x2 * 45;
+  s1.setAttribute("points", coil(130, 24, e1));
+  s2.setAttribute("points", coil(130, e1 + 12, e2));
+  var h = 6 + m * 60;
+  load.setAttribute("y", String(e2 + 4));
+  load.setAttribute("height", String(h));
+  hanger.setAttribute("y", String(e2 - 10));
+  svg.setAttribute("aria-label", "Two springs stretched by " + (host.value("x") * 100).toFixed(1) + " centimetres in total");
+}
+host.on("x1", draw);
+host.on("x2", draw);
+host.on("mass", draw);
+host.on("x_cm", function (v) { host.found("Together the two springs stretch " + v.toFixed(1) + " cm."); });
+@@HINTS
+- Both springs carry the whole weight, so each one stretches as if it hung alone.
+- A weaker planet pulls the same mass with less force.
+@@EXPLAIN
+Each spring in the row feels the whole weight, and each stretches by the weight divided by its own stiffness. The two stretches add, so the pair behaves like one softer spring.
+
+A planet with weaker gravity pulls the same mass with a smaller weight, so every stretch gets smaller in the same proportion.
+@@TWISTS
+- What if the springs hung side by side instead?
+- What if one spring were much stiffer than the other?
+@@END

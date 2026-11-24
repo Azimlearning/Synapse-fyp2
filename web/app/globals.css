@@ -1,7 +1,76 @@
 @import "tailwindcss";
 
+/* The "studious notebook" look carried over from the FYP1 design (Azimlearning/Arcana v1, web/app/globals.css @ 9a3d67f and the
+   interim-report mockup): warm paper, ink text, a serif display face. Every screen here is written with Tailwind's stone scale,
+   so the scale itself is remapped to the paper and ink tones; no component needs to change to take the look. */
+@theme {
+  --color-stone-50: #faf8f4;   /* paper */
+  --color-stone-100: #f3efe6;
+  --color-stone-200: #e2ddd2;  /* line */
+  --color-stone-300: #d6cfc0;
+  --color-stone-400: #b3ab99;
+  --color-stone-500: #8a8473;  /* ink, softer */
+  --color-stone-600: #6b6657;  /* ink, soft */
+  --color-stone-700: #4a463c;
+  --color-stone-800: #33302a;
+  --color-stone-900: #23211c;  /* ink */
+  --color-stone-950: #171511;
+
+  --color-accent: #2f5fa8;
+  --color-accent-soft: #e8eef8;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* Dark mode (the header's Light / Dark switch sets <html data-theme>; light is the default). The same scale, reversed, so every
+   screen follows without a change of its own; "white" surfaces become the dark card colour. */
+[data-theme="dark"] {
+  --color-stone-50: #161512;
+  --color-stone-100: #1f1d19;
+  --color-stone-200: #34312b;
+  --color-stone-300: #4a463d;
+  --color-stone-400: #6b665a;
+  --color-stone-500: #9a9483;
+  --color-stone-600: #b9b3a3;
+  --color-stone-700: #d6d0c2;
+  --color-stone-800: #e8e3d8;
+  --color-stone-900: #f5f1e8;
+  --color-stone-950: #fbf9f4;
+  --color-white: #201e1a;
+  --color-accent: #7fa6e3;
+  color-scheme: dark;
+}
+
 body {
-  background: #fafaf9;
-  color: #1c1917;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  background: var(--color-stone-50);
+  color: var(--color-stone-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes axi-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Panel and section labels: small caps label, then an italic serif aside (as in the mockup: "SOURCES your corpus"). */
+.nb-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-stone-600);
+}
+.nb-aside {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-stone-500);
+  margin-left: 0.4rem;
 }

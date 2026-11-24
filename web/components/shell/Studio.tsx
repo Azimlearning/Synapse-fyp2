@@ -30,31 +30,64 @@ export const STARTERS: readonly StudioStarter[] = [
   { id: "audio", label: "Audio overview", hint: "A script to listen to", request: "Make an audio overview of ", submit: false },
 ];
 
+/** The icon tile for each tool, in the FYP1 notebook design's colours (a glyph on a coloured square). */
+const TILES: Record<string, { glyph: string; bg: string }> = {
+  quiz: { glyph: "?", bg: "bg-[#3d7a52]" },
+  flashcards: { glyph: "▤", bg: "bg-[#3d7a52]" },
+  blurt: { glyph: "✎", bg: "bg-[#9a6b18]" },
+  cornell: { glyph: "▥", bg: "bg-[#3d7a52]" },
+  socratic: { glyph: "◎", bg: "bg-[#6a4ea8]" },
+  insights: { glyph: "◔", bg: "bg-[#2f5fa8]" },
+  review: { glyph: "◷", bg: "bg-[#9a6b18]" },
+  brief: { glyph: "≡", bg: "bg-[#2f5fa8]" },
+  sheet: { glyph: "▦", bg: "bg-[#9a6b18]" },
+  write: { glyph: "§", bg: "bg-[#23211c]" },
+  litreview: { glyph: "⊞", bg: "bg-[#2f5fa8]" },
+  abstract: { glyph: "¶", bg: "bg-[#23211c]" },
+  audio: { glyph: "♪", bg: "bg-[#a8423a]" },
+  notes: { glyph: "✱", bg: "bg-[#6a4ea8]" },
+};
+
+const TILE = "flex h-full w-full items-start gap-2 rounded-xl bg-white p-2 text-left text-[13px] leading-snug shadow-[0_1px_2px_rgba(35,33,28,0.06),0_0_0_1px_var(--color-stone-200)] transition hover:-translate-y-px hover:shadow-[0_6px_16px_rgba(35,33,28,0.10),0_0_0_1px_var(--color-stone-300)] disabled:cursor-not-allowed disabled:opacity-60";
+
+function Glyph({ id }: { id: string }) {
+  const t = TILES[id] ?? { glyph: "•", bg: "bg-stone-700" };
+  return (
+    // Drawn as a pseudo-element so the glyph is decoration only: not in the tile's text, not read aloud.
+    <span
+      aria-hidden
+      data-glyph={t.glyph}
+      className={`grid h-6 w-6 shrink-0 place-items-center rounded-md text-xs text-[#fff] before:content-[attr(data-glyph)] ${t.bg}`}
+    />
+  );
+}
+
 export function Studio({ onStart }: { onStart?: (request: string, submit: boolean) => void }) {
   return (
-    <section aria-label="Studio" className="space-y-2">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">Studio</h2>
-      <ul className="grid grid-cols-2 gap-2 text-sm">
+    <section aria-label="Studio" className="shrink-0 space-y-2">
+      <h2 className="nb-label border-b border-stone-200 pb-3">
+        Studio<span className="nb-aside">{STARTERS.length + 1} tools</span>
+      </h2>
+      {/* Two tiles a row when the panel is wide enough, one when it is narrow, so a label never breaks letter by letter. */}
+      <ul className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-2 text-sm">
         {STARTERS.map((s) => (
           <li key={s.id}>
-            <button
-              type="button"
-              disabled={!onStart}
-              onClick={() => onStart?.(s.request, s.submit)}
-              className="h-full w-full rounded-lg border border-stone-300 bg-white p-2 text-left hover:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              <span className="block font-medium text-stone-800">{s.label}</span>
-              <span className="block text-xs text-stone-500">{s.hint}</span>
+            <button type="button" disabled={!onStart} onClick={() => onStart?.(s.request, s.submit)} className={TILE}>
+              <Glyph id={s.id} />
+              <span className="min-w-0">
+                <span className="block font-medium text-stone-800">{s.label}</span>
+                <span className="block font-serif text-xs italic text-stone-500">{s.hint}</span>
+              </span>
             </button>
           </li>
         ))}
         <li>
-          <a
-            href="/notes"
-            className="block h-full rounded-lg border border-stone-300 bg-white p-2 hover:border-stone-500"
-          >
-            <span className="block font-medium text-stone-800">Notes</span>
-            <span className="block text-xs text-stone-500">Pages, graph, quiz</span>
+          <a href="/notes" className={TILE}>
+            <Glyph id="notes" />
+            <span className="min-w-0">
+              <span className="block font-medium text-stone-800">Notes</span>
+              <span className="block font-serif text-xs italic text-stone-500">Pages, graph, quiz</span>
+            </span>
           </a>
         </li>
       </ul>

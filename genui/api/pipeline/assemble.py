@@ -1,0 +1,342 @@
+"""Layer 6: the deterministic assembler. A Plan plus a generation skeleton gives a complete page with no model call.
+
+Skeletons are HTML files with named slots (`/*SLOT:name*/`) in `api/pipeline/skeletons/`. The assembler fills each slot with Kit calls written
+from the Plan; it never invents anything the Plan does not say. A Plan the skeleton cannot take is a `gap` (reported, not guessed at). The
+only model-written text is a `custom` slot fill, which has already been through the slot contract (fill.py).
+
+Naming: the PRD's Composer places blocks in the UI (hard constraint 5); this is the assembler, a different thing (D-23).
+"""
+
+from __future__ import annotations
+
+import html
+import json
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+
+from api.kitmanifest import Manifest
+from api.pipeline.plan import Plan
+
+SKELETONS = Path(__file__).resolve().parent / "skeletons"
+_TOKEN = re.compile(r"/\*SLOT:(?P<slot>\w+)\*/|\{\{(?P<var>\w+)\}\}")
+
+# Which Plan parts each skeleton can take. A part outside the set is a gap.
+SKELETON_PARTS: dict[str, frozenset[str]] = {
+    "simulation": frozenset(
+        {
+            "controls",
+            "constants",
+            "models",
+            "readouts",
+            "graphs",
+            "scene",
+            "apparatus",
+            "steps",
+            "table",
+            "sentences",
+            "custom",
+            "predict",
+            "hints",
+            "check",
+            "worked",
+        }
+    ),
+    "virtual_experiment": frozenset(
+        {
+            "experiment",
+            "steps",
+            "controls",
+            "constants",
+            "models",
+            "readouts",
+            "graphs",
+            "scene",
+            "apparatus",
+            "table",
+            "sentences",
+            "custom",
+            "predict",
+            "hints",
+            "check",
+            "worked",
+        }
+    ),
+}
+
+
+class AssemblyGap(Exception):
+    """The skeleton cannot take this Plan. `part` names what it cannot place."""
+
+    def __init__(self, part: str, reason: str):
+        super().__init__(f"{part}: {reason}")
+        self.part = part
+        self.reason = reason
+
+
+@dataclass(frozen=True)
+class Assembled:
+    html: str
+    scope: tuple[str, ...]
+    """The JavaScript names a custom fill may use (`env` and one variable per control, constant and model)."""
+    slots_used: tuple[str, ...] = field(default=())
+
+
+def js(value: object) -> str:
+    """A JSON literal safe inside an inline script: `</` and the line separators cannot end or break it."""
+    return (
+        json.dumps(value, ensure_ascii=False)
+        .replace("</", "<\\/")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
+def var(kind: str, ident: str) -> str:
+    return f"{kind}_{ident}"
+
+
+def present_parts(plan: Plan) -> set[str]:
+    parts = {"controls", "models", "readouts"}
+    for name, present in (
+        ("constants", plan.constants),
+        ("graphs", plan.graphs),
+        ("scene", plan.scene),
+        ("apparatus", plan.apparatus),
+        ("steps", plan.steps),
+        ("table", plan.table),
+        ("sentences", plan.sentences),
+        ("experiment", plan.experiment),
+        ("predict", plan.predict),
+        ("hints", plan.hints),
+        ("check", plan.concept_check),
+        ("worked", plan.worked_solution),
+        ("custom", plan.custom),
+    ):
+        if present:
+            parts.add(name)
+    return parts
+
+
+KICKER = {
+    "en": lambda subject: f"Interactive {subject} lab",
+    "ms": lambda subject: f"Makmal {({'physics': 'fizik', 'chemistry': 'kimia', 'biology': 'biologi'})[subject]} interaktif",
+}
+LANGS = frozenset(KICKER)
+
+
+def _header_extras(plan: Plan, lang: str = "en") -> str:
+    """The kicker and the "Try this" line, from the Plan's subject and goal. A goal with a digit in it is left out: a digit on the page must be backed by a control."""
+    subject = plan.topic.split("_", 1)[0]
+    parts = []
+    if subject in ("physics", "chemistry", "biology"):
+        parts.append(f", kicker: {js(KICKER[lang](subject))}")
+    if plan.goal and not re.search(r"\d", plan.goal):
+        parts.append(f", tryThis: {js(plan.goal)}")
+    if lang != "en":
+        parts.append(f", lang: {js(lang)}")
+    return "".join(parts)
+
+
+def _slots(plan: Plan, manifest: Manifest, lang: str = "en") -> dict[str, str]:
+    dropped = {p.drop.source for p in plan.apparatus if p.drop is not None}
+
+    def controls_js() -> str:
+        return "\n  ".join(
+            f"var {var('c', c.id)} = Synapse.{ {'masses': 'massHanger', 'valve': 'valve', 'dial': 'dial', 'planets': 'planetPicker'}.get(c.surface, 'slider') }(env, "
+            + js(
+                # the planets (W18) are always the eight, so the picker takes only its id, label and starting planet
+                {"id": c.id, "label": c.label, "value": c.value}
+                if c.surface == "planets"
+                else {
+                    "id": c.id,
+                    "label": c.label,
+                    "unit": c.unit,
+                    "min": c.min,
+                    "max": c.max,
+                    "value": c.value,
+                    "grid": c.grid,
+                    **({"snap": True} if c.id in dropped else {}),  # a drop's items are whole steps (W17, D-70)
+                }
+            )
+            + ");"
+            for c in plan.controls
+        )
+
+    def constants_js() -> str:
+        return "\n  ".join(
+            f"var {var('k', k.id)} = Synapse.constant({js(k.value)}, " + js({"label": k.label, "unit": k.unit}) + ");"
+            for k in plan.constants
+        )
+
+    def models_js() -> str:
+        lines = []
+        for m in plan.models:
+            entry = manifest.models[m.model]
+            args = [f"{name}: {js(value)}" for name, value in sorted(m.params.items())]
+            for name, bound in sorted(m.inputs.items()):
+                # a control, a model defined earlier (W18: gravity feeds weight, weight feeds a spring), else a constant
+                kind = "c" if any(c.id == bound for c in plan.controls) else "m" if any(x.id == bound for x in plan.models) else "k"
+                args.append(f"{name}: {var(kind, bound)}")
+            lines.append(f"var {var('m', m.id)} = Synapse.{entry.export_name}({{ {', '.join(args)} }});")
+        return "\n  ".join(lines)
+
+    def source_expr(source: str) -> str:
+        return var("c", source) if any(c.id == source for c in plan.controls) else var("m", source)
+
+    def readouts_js() -> str:
+        lines = []
+        for r in plan.readouts:
+            entry = manifest.models[next(m.model for m in plan.models if m.id == r.source)]
+            value = var("m", r.source)
+            if r.convert_to:
+                value = f"Synapse.convert({value}, {js(entry.output_unit)}, {js(r.convert_to)})"
+            lines.append(
+                f"Synapse.readout(env, {{ label: {js(r.label)}, unit: {js(r.unit)}, value: {value}, digits: {r.digits} }});"
+            )
+        return "\n  ".join(lines)
+
+    def scene_js() -> str:
+        s = plan.scene
+        if not s:
+            return ""
+        if s.kind == "fermentation":
+            return f"Synapse.fermentationScene(env, {{ fermented: {var('c', s.source)}, energy: {var('m', s.model or '')}, full: {js(s.full)} }});"
+        if s.kind == "orbit":
+            return f"Synapse.orbitScene(env, {{ speed: {var('c', s.source)}, circular: {var('m', s.model or '')}, escape: {var('m', s.escape or '')}, full: {js(s.full)} }});"
+        if s.kind == "pressure":
+            return f"Synapse.pressureScene(env, {{ pressure: {var('m', s.source)}, full: {js(s.full)} }});"
+        if s.kind == "refraction":
+            return f"Synapse.refractionScene(env, {{ incidence: {var('c', s.source)}, refraction: {var('m', s.model or '')} }});"
+        if s.kind == "titration":
+            return f"Synapse.titrationScene(env, {{ added: {var('c', s.source)}, endpoint: {var('m', s.endpoint or '')}, full: {js(s.full)} }});"
+        return f"Synapse.springScene(env, {{ extension: {var('m', s.source)}, full: {js(s.full)} }});"
+
+    def apparatus_js() -> str:
+        lines = []
+        for part in plan.apparatus:
+            chans = ", ".join(
+                f"{js(name)}: {{ value: {source_expr(ch.source)}" + (f", full: {js(ch.full)}" if ch.full is not None else "") + " }"
+                for name, ch in sorted(part.channels.items())
+            )
+            drop = f", drop: {{ value: {var('c', part.drop.source)}, item: {js(part.drop.item)} }}" if part.drop is not None else ""
+            lines.append(f"Synapse.apparatus(env, {{ kind: {js(part.kind)}, label: {js(part.label)}, channels: {{ {chans} }}{drop} }});")
+        return "\n  ".join(lines)
+
+    def graphs_js() -> str:
+        return "\n  ".join(
+            f"Synapse.graph(env, {{ title: {js(g.title)}, x: {var('c', g.x)}, y: {var('m', g.source)}, yLabel: {js(g.label)}, yUnit: {js(g.unit)}, digits: {g.digits} }});"
+            for g in plan.graphs
+        )
+
+    def table_js() -> str:
+        if not plan.table:
+            return ""
+        cols = ",\n    ".join(
+            f"{{ label: {js(c.label)}, unit: {js(c.unit)}, value: {source_expr(c.source)}, digits: {c.digits} }}"
+            for c in plan.table.columns
+        )
+        return f"Synapse.table(env, {{ caption: {js(plan.table.caption)}, columns: [\n    {cols}\n  ] }});"
+
+    def experiment_js() -> str:
+        e = plan.experiment
+        if not e:
+            return ""
+        return (
+            "Synapse.experiment(env, "
+            + js(
+                {
+                    "aim": e.aim,
+                    "hypothesis": e.hypothesis,
+                    "independent": e.independent,
+                    "dependent": e.dependent,
+                    "controlled": e.controlled,
+                    "apparatus": e.apparatus,
+                }
+            )
+            + ");"
+        )
+
+    return {
+        "environment": f"var env = Synapse.environment({{ title: {js(plan.title)}, note: {js(plan.note)}{_header_extras(plan, lang)} }});",
+        "controls": controls_js(),
+        "constants": constants_js(),
+        "models": models_js(),
+        "readouts": readouts_js(),
+        "graphs": graphs_js(),
+        "scene": scene_js(),
+        "apparatus": apparatus_js(),
+        "steps": f"Synapse.stepper(env, {{ steps: {js(list(plan.steps))} }});" if plan.steps else "",
+        "table": table_js(),
+        "sentences": "\n  ".join(f"Synapse.text(env, {js(s)});" for s in plan.sentences),
+        "experiment": experiment_js(),
+        "predict": "Synapse.predictCard(env, "
+        + js({"prompt": plan.predict.prompt, "choices": plan.predict.choices, "reveal": plan.predict.reveal})
+        + ");"
+        if plan.predict
+        else "",
+        "hints": f"Synapse.hintLadder(env, {{ hints: {js(list(plan.hints))} }});" if plan.hints else "",
+        "check": "Synapse.conceptCheck(env, "
+        + js(
+            {
+                "question": plan.concept_check.question,
+                "options": plan.concept_check.options,
+                "correct": plan.concept_check.correct,
+                "explanation": plan.concept_check.explanation,
+            }
+        )
+        + ");"
+        if plan.concept_check
+        else "",
+        "worked": f"Synapse.workedSolution(env, {{ steps: {js(list(plan.worked_solution))} }});"
+        if plan.worked_solution
+        else "",
+    }
+
+
+def scope_names(plan: Plan) -> tuple[str, ...]:
+    return (
+        "env",
+        *(var("c", c.id) for c in plan.controls),
+        *(var("k", k.id) for k in plan.constants),
+        *(var("m", m.id) for m in plan.models),
+    )
+
+
+def assemble(plan: Plan, manifest: Manifest, fills: dict[str, str] | None = None, *, lang: str = "en") -> Assembled:
+    """Raises AssemblyGap when the pattern has no skeleton or the skeleton cannot take a part of the Plan. `lang` is the language of the Plan's words and of the Kit's own fixed words (D-62)."""
+    if lang not in LANGS:
+        raise AssemblyGap("lang", f"there is no language '{lang}'")
+    fills = fills or {}
+    allowed = SKELETON_PARTS.get(plan.pattern)
+    if allowed is None:
+        raise AssemblyGap("pattern", f"there is no skeleton for the pattern '{plan.pattern}'")
+    for part in sorted(present_parts(plan) - allowed):
+        raise AssemblyGap(part, f"the '{plan.pattern}' skeleton has no slot for '{part}'")
+    for slot in plan.custom:
+        if slot.name not in fills:
+            raise AssemblyGap(f"custom:{slot.name}", "no fill was supplied for this custom slot")
+    template = (SKELETONS / f"{plan.pattern}.html").read_text(encoding="utf-8")
+    slots = _slots(plan, manifest, lang)
+    slots["custom"] = "\n  ".join(f"/* custom: {s.name} */\n  {fills[s.name].strip()}" for s in plan.custom)
+    used = []
+    variables = {"title": html.escape(plan.title), "kit_version": manifest.version, "lang": lang}
+
+    def fill(m: re.Match[str]) -> str:
+        # One pass over the TEMPLATE: text that came from the plan is never scanned again for slots or variables (S3).
+        if m.group("slot") is not None:
+            name = m.group("slot")
+            if name not in slots:
+                raise AssemblyGap(name, "the skeleton names a slot the assembler does not know")
+            text = slots[name]
+            if text:
+                used.append(name)
+            return text
+        name = m.group("var")
+        if name not in variables:
+            raise AssemblyGap(name, "the skeleton names a variable the assembler does not know")
+        return variables[name]
+
+    page = _TOKEN.sub(fill, template)
+    page = re.sub(r"\n[ \t]*\n(?=[ \t]*\n)", "\n", page)  # collapse the empty lines left by empty slots
+    return Assembled(page, scope_names(plan), tuple(used))

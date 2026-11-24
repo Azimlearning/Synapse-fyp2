@@ -10,11 +10,11 @@
 // concept just answered (its colour is the new mastery), while the questions stay as they are; "More questions" fetches a new quiz.
 
 import type { ErrorEnvelope, LayoutSpec, PanelId, QuizAnswerResponse, RegionId, UIBlock } from "@arcana/schema";
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { renderBlock } from "@/components/genui/registry";
 import { NotesNav } from "@/components/genui/notesNav";
+import { AppNav } from "@/components/shell/AppNav";
 import { Shell } from "@/components/shell/Shell";
 import type { LearnerSignal } from "@arcana/schema";
 
@@ -92,6 +92,12 @@ export function NotesWorkspace() {
     setQuiz(false);
     setPage(id);
   }, []);
+  // The open page's name, from the graph around it (its focus node), for "Ask in chat".
+  const pageLabel = useMemo(() => {
+    if (page === null || view.state !== "ready") return null;
+    const graph = view.blocks.find((b) => b.type === "NotesGraph");
+    return graph?.type === "NotesGraph" && graph.meta.status === "ready" ? (graph.data.nodes.find((n) => n.id === page)?.label ?? null) : null;
+  }, [page, view]);
   const nav = useMemo(
     () => ({ openPage, rate, ...(quiz ? { answer: checkChoice, moreQuestions } : {}) }),
     [openPage, rate, quiz, checkChoice, moreQuestions],
@@ -154,20 +160,7 @@ export function NotesWorkspace() {
         layout={fallback}
         header={
           <>
-            <div className="flex items-center gap-4">
-              <span className="text-lg font-semibold text-stone-900">Arcana</span>
-              <nav aria-label="Views" className="flex gap-3 text-sm">
-                <Link href="/" className="text-stone-600 hover:text-stone-900">
-                  Chat
-                </Link>
-                <Link href="/notes" aria-current="page" className="font-medium text-stone-900 underline underline-offset-4">
-                  Notes
-                </Link>
-                <Link href="/notes/review" className="text-stone-600 hover:text-stone-900">
-                  Review
-                </Link>
-              </nav>
-            </div>
+            <AppNav current="notes" />
             <form
               className="flex gap-2"
               onSubmit={(e) => {
@@ -212,6 +205,18 @@ export function NotesWorkspace() {
                   All pages
                 </button>
               )}
+              {pageLabel && (
+                <a
+                  href={`/?ask=${encodeURIComponent(`What is ${pageLabel}?`)}`}
+                  className="rounded-lg bg-stone-900 px-3 py-1.5 text-sm text-white"
+                  title="Ask about this concept in the Chat (answered from your documents, with citations)"
+                >
+                  Ask in chat
+                </a>
+              )}
+              <a href="/notes/review" className="rounded-lg px-3 py-1.5 text-sm text-stone-600 underline-offset-4 hover:text-stone-900 hover:underline">
+                Review notes
+              </a>
             </form>
           </>
         }

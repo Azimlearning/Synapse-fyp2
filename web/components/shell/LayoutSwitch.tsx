@@ -19,9 +19,12 @@ export function LayoutSwitch({
       aria-pressed={choice === value}
       disabled={disabled}
       aria-describedby={disabled ? "adaptive-hint" : undefined}
+      title={disabled ? "Adaptive is available after your first answer." : value === "adaptive" ? "The layout composed for this answer" : "The fixed layout"}
       onClick={() => onChoose(value)}
-      className={`px-3 py-1 text-sm first:rounded-l-md last:rounded-r-md border border-stone-300 disabled:opacity-40 ${
-        choice === value ? "bg-stone-900 text-white" : "bg-white text-stone-700 hover:bg-stone-100"
+      className={`rounded-full px-3 py-1 text-xs disabled:cursor-not-allowed disabled:opacity-40 ${
+        choice === value
+          ? "bg-white font-medium text-stone-900 shadow-[0_0_0_1px_var(--color-stone-200)]"
+          : "text-stone-600 hover:text-stone-900"
       }`}
     >
       {label}
@@ -29,12 +32,12 @@ export function LayoutSwitch({
   );
   return (
     <div className="flex items-center gap-2">
-      <div role="group" aria-label="Layout" className="flex">
+      <div role="group" aria-label="Layout" className="flex gap-0.5 rounded-full border border-stone-200 bg-stone-100 p-0.5">
         {button("basic", "Basic")}
         {button("adaptive", "Adaptive", !adaptiveAvailable)}
       </div>
       {!adaptiveAvailable && (
-        <span id="adaptive-hint" className="text-xs text-stone-500">
+        <span id="adaptive-hint" className="sr-only">
           Adaptive is available after your first answer.
         </span>
       )}

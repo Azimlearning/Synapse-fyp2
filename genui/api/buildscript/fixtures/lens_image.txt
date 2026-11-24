@@ -1,0 +1,104 @@
+@@BASE
+none
+@@TITLE
+Where does a lens put the image?
+@@KICKER
+Physics, introductory
+@@TRY
+Drag the object, the arrow on the left, toward the lens and watch the image move.
+@@PREDICT
+As the object comes closer to the lens, will its image get bigger or smaller?
+- Bigger
+- Smaller
+- The same size
+Check: drag the object slowly toward the lens and watch the image on the right.
+@@IDEA
+A lens bends light so that an object at distance u makes an image at distance v.
+1 / v = 1 / f - 1 / u, so v = u f / (u - f). The image is bigger than the object when v is bigger than u.
+@@STEPS
+- Drag the object far from the lens and read the image distance.
+- Drag it closer and watch the image move away and grow.
+- Drag the ring on the lens to make it fatter and see how the image moves.
+@@PARTS
+none
+@@CONTROLS
+object_dist | Object distance (cm) | 30 | 60 | 1 | 50 | cm
+focal | Focal length (cm) | 5 | 15 | 1 | 10 | cm
+@@FORMULAS
+image_dist = object_dist * focal / (object_dist - focal) [cm]
+magnification = image_dist / object_dist
+@@READOUTS
+r_v | Image distance (cm) | image_dist | 1
+r_m | Size of image compared with object (times) | magnification | 2
+@@STYLE
+#bench-art .lbl{fill:var(--muted);font:12px system-ui,sans-serif}
+#bench-art .axis{stroke:var(--border);stroke-width:2;fill:none}
+#bench-art .ray{stroke:var(--gold);stroke-width:2;fill:none}
+#bench-art .thing{stroke:var(--fg);stroke-width:4}
+@@DRAWING
+<svg id="bench-art" viewBox="0 0 320 300" role="img" aria-label="A thin lens on a line, with an object arrow on the left and the image on the right">
+  <line class="axis" x1="10" y1="170" x2="310" y2="170"/>
+  <path d="M 160 90 Q 184 170 160 250 Q 136 170 160 90 Z" style="fill:var(--card);stroke:var(--fg);stroke-width:3"/>
+  <line id="ray1" class="ray" x1="60" y1="110" x2="190" y2="170"/>
+  <line id="ray1b" class="ray" x1="190" y1="170" x2="300" y2="220"/>
+  <line id="ray2" class="ray" x1="60" y1="110" x2="190" y2="110"/>
+  <line id="ray2b" class="ray" x1="190" y1="110" x2="300" y2="220"/>
+  <line id="obj" class="thing" x1="60" y1="170" x2="60" y2="110"/>
+  <line id="img" class="thing" x1="300" y1="170" x2="300" y2="220"/>
+  <text class="lbl" x="20" y="200">object</text>
+  <text class="lbl" x="160" y="272" text-anchor="middle">lens</text>
+  <text class="lbl" x="300" y="200" text-anchor="end">image</text>
+  <circle id="otip" cx="60" cy="110" r="23" style="fill:var(--accent);touch-action:none;cursor:grab" data-synapse-handle="object_dist" aria-hidden="true"/>
+  <circle id="fring" cx="160" cy="80" r="23" style="fill:var(--try);touch-action:none;cursor:grab" data-synapse-handle="focal" aria-hidden="true"/>
+</svg>
+@@SCRIPT
+var svg = document.getElementById("bench-art");
+function pt(e) {
+  var r = svg.getBoundingClientRect(), v = svg.viewBox.baseVal;
+  return { x: v.x + (e.clientX - r.left) / r.width * v.width, y: v.y + (e.clientY - r.top) / r.height * v.height };
+}
+function track(handle, id, axis, a, b, lo, hi, fixed) {
+  var held = false;
+  handle.addEventListener("pointerdown", function (e) { held = true; handle.setPointerCapture(e.pointerId); });
+  handle.addEventListener("pointermove", function (e) {
+    if (!held) return;
+    var f = Math.min(1, Math.max(0, (pt(e)[axis] - a) / (b - a)));
+    host.set(id, lo + f * (hi - lo));
+  });
+  handle.addEventListener("pointerup", function () { held = false; });
+  handle.addEventListener("pointercancel", function () { held = false; });
+  host.on(id, function (v) { handle.setAttribute(axis === "x" ? "cx" : "cy", String(a + (v - lo) / (hi - lo) * (b - a))); });
+}
+var K = 2.0, LX = 160, AY = 170, H = 70;
+track(document.getElementById("otip"), "object_dist", "x", LX - 60 * K, LX - 30 * K, 60, 30);
+track(document.getElementById("fring"), "focal", "y", 60, 120, 5, 15);
+function set(id, x1, y1, x2, y2) {
+  var n = document.getElementById(id);
+  n.setAttribute("x1", String(x1)); n.setAttribute("y1", String(y1));
+  n.setAttribute("x2", String(x2)); n.setAttribute("y2", String(y2));
+}
+function draw() {
+  var u = host.value("object_dist"), v = host.value("image_dist"), m = host.value("magnification");
+  var ox = LX - u * K, ix = LX + v * K, ih = AY + m * H;
+  set("obj", ox, AY, ox, AY - H);
+  set("img", ix, AY, ix, ih);
+  set("ray1", ox, AY - H, LX, AY);
+  set("ray1b", LX, AY, ix, ih);
+  set("ray2", ox, AY - H, LX, AY - H);
+  set("ray2b", LX, AY - H, ix, ih);
+  svg.setAttribute("aria-label", "An object, a lens and an image that is " + m.toFixed(1) + " times the size of the object");
+  host.found("The image is " + v.toFixed(1) + " cm from the lens and " + m.toFixed(2) + " times the size of the object.");
+}
+host.on("image_dist", draw);
+host.on("magnification", draw);
+@@HINTS
+- The image is real: it forms where the bent rays meet on the far side of the lens.
+- Moving the object toward the lens pushes the image farther away.
+@@EXPLAIN
+A lens bends the rays that leave the top of the object so that they meet again on the other side. The place where they meet is where the image of that point forms.
+
+Moving the object toward the lens makes the rays spread more when they arrive, so they need more distance to come together. The image moves away and gets bigger. A fatter lens bends light more, so the rays meet sooner.
+@@TWISTS
+- What if the object were closer than the focal length?
+- What if a second lens were placed behind the first?
+@@END

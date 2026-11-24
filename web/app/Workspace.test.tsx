@@ -363,7 +363,7 @@ describe("Workspace", () => {
     fireEvent.click(screen.getByRole("button", { name: "Adaptive" })); // un-pins
     expect(screen.getByRole("button", { name: "Adaptive" })).toHaveAttribute("aria-pressed", "true");
     expect(useWorkspace.getState().pinned).toBe(false);
-  });
+  }, 15_000); // two full turns: about 5 s when the whole suite runs in parallel
 
   it("a layout that arrives before the blocks is applied to them as they arrive", async () => {
     routes["/workspace"] = () => jsonResponse(workspace());

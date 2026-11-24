@@ -1,0 +1,81 @@
+{
+  "id": "pressure_depth",
+  "title": "Pressure in a liquid",
+  "goal": "See how the pressure in a liquid grows with depth.",
+  "pattern": "simulation",
+  "topic": "physics_form5_forces_and_pressure",
+  "experiment_ref": null,
+  "note": "Pressure in a liquid increases with depth. Here water has a density of 1000 kg/m3 and g is taken as 9.81 m/s2.",
+  "controls": [
+    {
+      "id": "depth",
+      "label": "Depth",
+      "unit": "m",
+      "min": 0,
+      "max": 20,
+      "value": 5,
+      "grid": 20,
+      "surface": "dial"
+    }
+  ],
+  "constants": [],
+  "models": [
+    {
+      "id": "water",
+      "model": "fluids.pressure_depth",
+      "params": {
+        "density": 1000,
+        "g": 9.81
+      },
+      "inputs": {
+        "depth": "depth"
+      }
+    }
+  ],
+  "readouts": [
+    {
+      "label": "Pressure",
+      "unit": "kPa",
+      "digits": 1,
+      "source": "water",
+      "convert_to": "kPa"
+    }
+  ],
+  "graphs": [
+    {
+      "title": "The pressure rises in a straight line with the depth.",
+      "x": "depth",
+      "source": "water",
+      "label": "Pressure",
+      "unit": "Pa",
+      "digits": 0
+    }
+  ],
+  "table": null,
+  "experiment": null,
+  "sentences": [
+    "Turn the depth knob from 0 m to 20 m and watch the pressure grow."
+  ],
+  "steps": [
+    "Turn the depth knob to take the probe deeper into the water.",
+    "Watch the arrows on the probe grow as the water presses harder.",
+    "Compare the pressure at 5 m and at 10 m."
+  ],
+  "citation_ids": [
+    "pressure_liquid",
+    "pressure_g"
+  ],
+  "presentation": "stage",
+  "custom": [],
+  "hints": [
+    "Pressure depends on how deep you are.",
+    "Compare the pressure at two different depths.",
+    "Try a depth of 5 m and then 10 m."
+  ],
+  "scene": {
+    "kind": "pressure",
+    "source": "water",
+    "full": 200000
+  },
+  "apparatus": []
+}

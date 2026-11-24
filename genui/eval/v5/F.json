@@ -1,0 +1,19 @@
+{
+  "set": "F",
+  "purpose": "Follow-ups: an Environment plus a change request (\"change this Environment\", V5-7). Each item names the base question (a library Environment) and the change the student asks for. Evaluation plan section 1.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Edit or keep the items, set approved to true, then run: uv run python -m eval.v5.sets --pin. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {"id": "f01", "question": "Why does a spring stretch when I hang a weight on it?", "change": "Make the spring twice as stiff."},
+    {"id": "f02", "question": "Why does a spring stretch when I hang a weight on it?", "change": "Show it on Mars."},
+    {"id": "f03", "question": "What happens to the current if I raise the resistance in a circuit?", "change": "Add a second resistor in parallel."},
+    {"id": "f04", "question": "What happens to the current if I raise the resistance in a circuit?", "change": "Double the voltage."},
+    {"id": "f05", "question": "How does the pressure change as a diver goes deeper in water?", "change": "Use salt water."},
+    {"id": "f06", "question": "How does the pressure change as a diver goes deeper in water?", "change": "Let the diver go twice as deep."},
+    {"id": "f07", "question": "How do I find the concentration of an acid by titration?", "change": "Use a weaker alkali."},
+    {"id": "f08", "question": "How much would I weigh on Jupiter compared with Earth?", "change": "Add Saturn."},
+    {"id": "f09", "question": "What is Newton's cannonball, and how does a satellite stay in orbit?", "change": "Fire it from a higher mountain."},
+    {"id": "f10", "question": "Why does yeast make limewater go milky?", "change": "Keep the flask in a warmer room."}
+  ]
+}

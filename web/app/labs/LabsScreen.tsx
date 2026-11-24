@@ -6,7 +6,7 @@
 // registry like every other block. This screen never inspects a block, and the code in it can only run inside the registry's sandboxed iframe.
 
 import type { ErrorEnvelope, LabSummary, UIBlock } from "@arcana/schema";
-import Link from "next/link";
+import { AppNav } from "@/components/shell/AppNav";
 import { useEffect, useState } from "react";
 
 import { renderBlock } from "@/components/genui/registry";
@@ -36,19 +36,8 @@ export function LabsScreen() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <header className="flex items-center gap-4 border-b border-stone-200 bg-white px-6 py-3">
-        <span className="text-lg font-semibold">Arcana</span>
-        <nav aria-label="Views" className="flex gap-3 text-sm">
-          <Link href="/" className="text-stone-600 hover:text-stone-900">
-            Chat
-          </Link>
-          <Link href="/notes" className="text-stone-600 hover:text-stone-900">
-            Notes
-          </Link>
-          <Link href="/labs" aria-current="page" className="font-medium text-stone-900 underline underline-offset-4">
-            Labs
-          </Link>
-        </nav>
+      <header className="flex items-center gap-4 border-b border-stone-200 bg-stone-50 px-6 py-3">
+        <AppNav current="labs" />
       </header>
       <main className="mx-auto max-w-3xl space-y-4 p-6">
         <h1 className="text-xl font-semibold">Labs</h1>

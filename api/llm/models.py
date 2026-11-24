@@ -15,8 +15,17 @@ ANTHROPIC_MODELS: dict[Tier, str] = {
     "light": "claude-haiku-4-5",
 }
 
+# Routing (2026-11-23): 1. Anthropic direct (the primary, above); 2. if it fails, the same Claude tier through OpenRouter; 3. if
+# that fails too, OpenRouter's FREE models, tried in order inside the same request (OpenRouter's `models` routing). Free ids end in
+# ":free", so OpenRouter never bills them; each answered live on 2026-11-23. A free reasoning model (nemotron-3-ultra) is left out:
+# it spent the token budget thinking and returned truncated JSON on a writing task.
 OPENROUTER_MODELS: dict[Tier, str] = {
     "heavy": "anthropic/claude-opus-5.5",
     "standard": "anthropic/claude-sonnet-5.5",
     "light": "anthropic/claude-haiku-4.5",
 }
+
+OPENROUTER_FREE_FALLBACKS: tuple[str, ...] = (
+    "google/gemma-4-31b-it:free",
+    "thinkingmachines/inkling-2-small:free",
+)

@@ -1,0 +1,14 @@
+{
+  "set": "W",
+  "purpose": "Wild: off-syllabus or playful questions, for the demo's \"ask anything\". Evaluation plan section 1.",
+  "status": "DRAFT written by Claude on 2026-11-17: not yet approved by the owner",
+  "approved": false,
+  "how_to_approve": "Edit or keep the questions, set approved to true, then run: uv run python -m eval.v5.sets --pin. The change of hash is a declared amendment (record it in the changelog).",
+  "questions": [
+    {"id": "w01", "question": "Simulate a cat falling on its feet."},
+    {"id": "w02", "question": "Show me how a roller coaster loop keeps the cars on the track."},
+    {"id": "w03", "question": "Let me play with a bouncing basketball and see how high it goes."},
+    {"id": "w04", "question": "How does a rainbow form from sunlight and raindrops?"},
+    {"id": "w05", "question": "Let me cool a cup of tea and watch the temperature fall."}
+  ]
+}

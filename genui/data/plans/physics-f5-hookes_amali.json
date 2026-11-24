@@ -1,0 +1,127 @@
+{
+  "id": "hookes_amali",
+  "title": "Hooke's law: how does a spring stretch?",
+  "goal": "Investigate how the extension of a spring depends on the load.",
+  "pattern": "virtual_experiment",
+  "topic": "physics_form5_force_and_elasticity",
+  "experiment_ref": null,
+  "note": "Hang a load on a spring and it stretches. Within the elastic limit the extension is proportional to the load: extension = load / k.",
+  "controls": [
+    {
+      "id": "load",
+      "label": "Load",
+      "unit": "N",
+      "min": 0,
+      "max": 10,
+      "value": 2,
+      "grid": 5,
+      "surface": "masses"
+    }
+  ],
+  "constants": [],
+  "models": [
+    {
+      "id": "spring",
+      "model": "mechanics.hookes",
+      "params": {
+        "k": 50
+      },
+      "inputs": {
+        "load": "load"
+      }
+    }
+  ],
+  "readouts": [
+    {
+      "label": "Extension",
+      "unit": "m",
+      "digits": 3,
+      "source": "spring",
+      "convert_to": null
+    }
+  ],
+  "scene": {
+    "kind": "spring",
+    "source": "spring",
+    "full": 0.25
+  },
+  "graphs": [
+    {
+      "title": "The extension rises in a straight line with the load.",
+      "x": "load",
+      "source": "spring",
+      "label": "Extension",
+      "unit": "m",
+      "digits": 3
+    }
+  ],
+  "table": {
+    "caption": "Results",
+    "columns": [
+      {
+        "label": "Load",
+        "unit": "N",
+        "source": "load",
+        "digits": 1
+      },
+      {
+        "label": "Extension",
+        "unit": "m",
+        "source": "spring",
+        "digits": 3
+      }
+    ]
+  },
+  "experiment": {
+    "aim": "To find how the extension of a spring depends on the load",
+    "hypothesis": "The extension is directly proportional to the load",
+    "independent": "Load (N)",
+    "dependent": "Extension (m)",
+    "controlled": [
+      "The same spring"
+    ],
+    "apparatus": [
+      "Spring",
+      "Slotted weights",
+      "Metre rule"
+    ]
+  },
+  "sentences": [
+    "The spring constant is 50 N/m."
+  ],
+  "steps": [
+    "Hang masses until the load is 2 N, then press Record.",
+    "Hang more masses until the load is 4 N, then press Record.",
+    "Hang all the masses so the load is 10 N, then press Record.",
+    "Compare the extension each time the load doubles."
+  ],
+  "citation_ids": [
+    "hooke_law"
+  ],
+  "presentation": "stage",
+  "custom": [],
+  "predict": {
+    "prompt": "What will happen to the extension if you double the load?",
+    "choices": [
+      "It will be less",
+      "It will double",
+      "It will stay the same"
+    ],
+    "reveal": "Set the load to 2 N, then to 4 N, and compare the two extensions."
+  },
+  "concept_check": {
+    "question": "Within the elastic limit, what happens to the extension of the spring when the load is doubled?",
+    "options": [
+      "It halves",
+      "It doubles",
+      "It stays the same"
+    ],
+    "correct": 1,
+    "explanation": "Within the elastic limit the extension is proportional to the load, so doubling the load doubles the extension."
+  },
+  "hints": [
+    "Extension is how much longer the spring gets, measured from its original length.",
+    "Look at your table. Does the force divided by the extension change when you add a mass?",
+    "Add one mass at a time and record the extension each time."
+  ]
+}

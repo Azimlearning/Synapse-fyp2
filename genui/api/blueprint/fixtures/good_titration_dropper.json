@@ -1,0 +1,88 @@
+{
+  "concept": "An acid is neutralised when the alkali added matches it, and the pH jumps at that point.",
+  "goal": "Find the volume of alkali at which the acid is neutralised by watching the colour and the pH.",
+  "phenomenon": "A burette holds alkali above a flask of acid with indicator. Drops fall into the flask, the liquid swirls, the colour changes near the end point and the pH climbs steeply.",
+  "variables": [
+    {
+      "name": "volume_added",
+      "unit": "cm3",
+      "min": 0,
+      "max": 50,
+      "role": "changed"
+    },
+    {
+      "name": "ph",
+      "unit": "",
+      "min": 0,
+      "max": 14,
+      "role": "measured"
+    },
+    {
+      "name": "colour",
+      "unit": "",
+      "min": 0,
+      "max": 1,
+      "role": "measured"
+    }
+  ],
+  "interactions": [
+    {
+      "variable": "volume_added",
+      "object": "the burette tap lever",
+      "gesture": "drag",
+      "target": "down to open the tap a little at a time",
+      "response": "drops fall into the flask and the liquid level in the burette drops"
+    }
+  ],
+  "scene": {
+    "apparatus": "a burette above a flask of acid on a white tile",
+    "widthShare": 0.6,
+    "heightShare": 0.9,
+    "fills": [
+      "a burette scale",
+      "a pH meter dial",
+      "a white tile behind the flask"
+    ],
+    "wideScreen": "The pH meter dial and a pH against volume graph stand beside the burette."
+  },
+  "motion": "Drops fall, the liquid swirls, and the colour fades in as the end point nears. Under reduced motion the flask changes colour without the swirl.",
+  "science": [
+    "pH against volume added: computed by model code with a steep rise at the end point"
+  ],
+  "expectedBehaviour": [
+    {
+      "kind": "rises-with",
+      "measured": "ph",
+      "variable": "volume_added",
+      "low": null,
+      "high": null,
+      "at": null,
+      "value": null,
+      "text": "the pH rises as more alkali is added"
+    },
+    {
+      "kind": "stays-within",
+      "measured": "ph",
+      "variable": "",
+      "low": 0,
+      "high": 14,
+      "at": null,
+      "value": null,
+      "text": "the pH stays between 0 and 14"
+    }
+  ],
+  "assists": [],
+  "predict": {
+    "question": "Will the pH change slowly and evenly as alkali is added?",
+    "choices": [
+      "Yes, evenly",
+      "No, it jumps near the end point"
+    ],
+    "check": "Open the tap a little at a time and watch the pH dial near 25 cm3."
+  },
+  "steps": [
+    "Drag the burette tap lever down a little and watch the first drops.",
+    "Keep adding until the colour begins to change.",
+    "Add single drops past the end point and read the pH."
+  ]
+}
