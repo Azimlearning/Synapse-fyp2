@@ -4,6 +4,11 @@
 question, and get a cited answer, study tools built from your own documents, and, for science questions, an
 interactive simulation that was tested in a real browser before you could touch it.
 
+**Live demo: [synapse-fyp2-demo.vercel.app](https://synapse-fyp2-demo.vercel.app)** (simulations on their own:
+[synapse-fyp2-simulations.vercel.app](https://synapse-fyp2-simulations.vercel.app)). The demo is the real interface replaying
+answers recorded from the real system on its 16 research papers; no model runs there, so it answers the recorded questions and
+every Studio tool, not new ones. See [`demo/README.md`](demo/README.md).
+
 Final Year Project 2, Bachelor of Computer Science (Hons), Universiti Teknologi PETRONAS.
 Fakhrul Azim Bin Ahmed Mardzukie. Supervisor: Dr Mazeyanti Bt M Ariffin. Co-supervisor: AP Dr Noreen Izza Bt Arshad.
 

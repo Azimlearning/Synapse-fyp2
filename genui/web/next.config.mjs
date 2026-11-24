@@ -6,6 +6,8 @@ const apiBase = (process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000"
 const nextConfig = {
   // A second build (for example one pointed at another API port) can live beside the default one.
   distDir: process.env.NEXT_DIST_DIR || ".next",
+  // The hosted demo's replay route reads the recorded responses and the Kit at run time; they must ship with its function.
+  outputFileTracingIncludes: { "/demo-api/[...path]": ["./demo-data/**/*"] },
   async rewrites() {
     return [{ source: "/vendor/:path*", destination: `${apiBase}/vendor/:path*` }];
   },

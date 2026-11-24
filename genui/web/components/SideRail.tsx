@@ -6,7 +6,17 @@
 import { useLang } from "../lib/i18n";
 import type { RecentItem } from "../lib/recent";
 
-export const STARTERS = [
+const LIBRARY_STARTERS = [
+  "Why does a spring stretch when I hang a weight on it?",
+  "What happens to the current if I raise the resistance in a circuit?",
+  "How much would I weigh on Jupiter compared with Earth?",
+  "How does a black hole bend light?",
+  "How does the length of a pendulum change how long each swing takes?",
+  "How does reciprocal rank fusion merge a keyword search ranking and a vector search ranking into one list?",
+];
+
+/** The quick starts. The hosted demo (NEXT_PUBLIC_DEMO=1) replays the stored library only, so it offers library questions. */
+export const STARTERS = process.env.NEXT_PUBLIC_DEMO === "1" ? LIBRARY_STARTERS : [
   "Why does a spring stretch when I hang a weight on it?",
   "What happens to the current if I raise the resistance in a circuit?",
   "How does the pressure change as a diver goes deeper in water?",

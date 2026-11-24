@@ -1,0 +1,2150 @@
+{
+  "version": "0.1.0",
+  "bundle": "core.js",
+  "bundleSha256": "cee6673166f52d482cb7bcfef3c1843a9cc7aab6ace0e2bc715b8e7d76eab16b",
+  "components": [
+    {
+      "id": "observable",
+      "kind": "core",
+      "signature": "observable<T>(initial: T, {transform?: (v: T) => T}?): Observable<T>",
+      "precondition": "UI state only. A readout cannot show a value that depends on a free observable, or on arithmetic you wrote with map.",
+      "doc": "A value you can get, set and subscribe to. Not a source of science: the verifier refuses a readout that depends on one.",
+      "useWhen": "Use for UI-only state the student toggles; never for a quantity that a readout shows."
+    },
+    {
+      "id": "environment",
+      "kind": "ui",
+      "signature": "environment({title: string, note: string, kicker?: string, tryThis?: string, stageText?: string, lang?: \"en\" | \"ms\", into?: HTMLElement}): Environment",
+      "precondition": "Called once, before any other component, in a page whose first script is the Kit.",
+      "doc": "Mounts the header (kicker, title, a Try this line, the key idea), the illustrated stage on the left, the controls and readouts on the right, and a region for the pedagogy cards below. stageText is the screen-reader text for the stage. lang (\"en\" by default, or \"ms\") sets the language of the Kit's own fixed words on the page; the words from the Plan are the caller's. Returns the env passed to the other components.",
+      "useWhen": "Use first, once, on every page: it mounts the header, the stage, the controls and readouts, and the region for the study cards."
+    },
+    {
+      "id": "slider",
+      "kind": "interaction",
+      "signature": "slider(env, {id, label, unit, min, max, value, step?, grid?}): Observable<number>",
+      "precondition": "min is below max; id is unique in the page; grid is an integer from 1 to 200 (default 10). The returned observable clamps to [min, max].",
+      "doc": "A labelled range control. The verifier tries every grid position and both extremes. Reports each change to the host.",
+      "useWhen": "Use for any quantity the student varies continuously: a load, a voltage, a depth, a temperature."
+    },
+    {
+      "id": "massHanger",
+      "kind": "interaction",
+      "signature": "massHanger(env, {id, label, unit, min, max, value, grid}): Observable<number>",
+      "precondition": "Use it INSTEAD of slider for a quantity a student adds in equal steps, such as hanging slotted masses. grid is the number of masses, an integer from 2 to 8; value must sit on a step (min plus a whole number of steps); id is unique in the page. The returned observable is a control exactly as a slider's is.",
+      "doc": "Drag masses from a tray onto a hanger, or press a mass to move it. The control's value is min plus one step per hung mass. A range input with the same id stays on the page for the keyboard and screen readers.",
+      "useWhen": "Use for a load, a stack of weights or any quantity added in equal whole steps that a student can hang or place by hand."
+    },
+    {
+      "id": "planetPicker",
+      "kind": "interaction",
+      "signature": "planetPicker(env, {id, label, value}): Observable<number>",
+      "precondition": "Use it INSTEAD of slider for which planet of the Solar System something is on: the value is 1 (Mercury) to 8 (Neptune), unit planet; value is the planet it starts on. Feed it to planetGravity. id is unique in the page.",
+      "doc": "Eight planets drawn in a row in space; the student drags a test mass on a spring balance from planet to planet, or taps a planet. A range input with the same id stays for the keyboard and screen readers.",
+      "useWhen": "Use whenever a question compares planets: gravity, weight, falling or jumping on different planets."
+    },
+    {
+      "id": "valve",
+      "kind": "interaction",
+      "signature": "valve(env, {id, label, unit, min, max, value, grid}): Observable<number>",
+      "precondition": "Use it INSTEAD of slider for a quantity a student runs in by turning a stopcock, such as the volume of liquid let out of a burette. grid is the number of steps, an integer from 2 to 40; value must sit on a step (min plus a whole number of steps); id is unique in the page. The returned observable is a control exactly as a slider's is.",
+      "doc": "A stopcock the student holds to run the liquid in (one step every moment it is held), taps to let out one measure, or presses from the keyboard. Letting go stops the flow. A range input with the same id stays on the page for the keyboard and screen readers.",
+      "useWhen": "Use for the volume added from a burette in a titration, or any quantity let in by a tap that a student opens and closes by hand."
+    },
+    {
+      "id": "dial",
+      "kind": "interaction",
+      "signature": "dial(env, {id, label, unit, min, max, value, grid}): Observable<number>",
+      "precondition": "Use it INSTEAD of slider for a quantity a student sets by turning a knob. grid is the number of steps, an integer from 2 to 40; value must sit on a step (min plus a whole number of steps); id is unique in the page. The returned observable is a control exactly as a slider's is.",
+      "doc": "A knob the student turns by dragging round it, from the first mark at the lower left to the last at the lower right. The control's value follows the pointer's angle and snaps to a step. A range input with the same id stays on the page and is the keyboard and screen-reader path (arrow keys, Home, End); the knob itself is a pointer surface.",
+      "useWhen": "Use for an amount or a setting a student winds up or down by hand, such as how far a reaction has gone."
+    },
+    {
+      "id": "fermentationScene",
+      "kind": "scene",
+      "signature": "fermentationScene(env, {fermented: Observable<number>, energy: Observable<number>, full: number}): HTMLDivElement",
+      "precondition": "fermented is a control in mol (the one a dial makes); energy is the output of the respiration-energy model (Synapse.respirationEnergy) fed by that same control; full is the glucose, in mol, at which the bubbling is drawn fullest: at least the control's maximum and at most twice it. Create it after the model.",
+      "doc": "The textbook's yeast fermentation apparatus: boiling tubes A (with yeast) and B (the control) under paraffin oil, each with a delivery tube into limewater and a thermometer. Once glucose is fermented, tube A bubbles, its limewater turns cloudy and it warms; tube B stays as it was. It draws and prints no number; its text says in words what the student would observe.",
+      "useWhen": "Use beside a fermentation readout so the student sees the products and the control, as in the yeast fermentation activity (Cellular Respiration)."
+    },
+    {
+      "id": "orbitScene",
+      "kind": "scene",
+      "signature": "orbitScene(env, {speed: Observable<number>, circular: Observable<number>, escape: Observable<number>, full: number}): HTMLDivElement",
+      "precondition": "speed is a control in km/s (a slider); circular is the output of Synapse.circularSpeed and escape of Synapse.escapeSpeed, BOTH fed by the same declared radius constant (Earth's, 6371 km, unit km) and with Earth's mass (5.972e24 kg); full is the launch speed, in km/s, at which the launch arrow is drawn longest: at least the control's maximum and at most twice it. The control's range should include the circular speed and the escape speed. Create it after both models.",
+      "doc": "Newton's cannonball: a cannon on a tall mountain fires sideways over Earth. The path follows the launch speed: below the circular speed it curves down and lands, at the circular speed it circles Earth, between that and the escape speed it goes round in an oval, at the escape speed or more it leaves. It draws quantities and never prints a number; its text says in words which of the four it is, and that the picture is a sketch.",
+      "useWhen": "Use beside a launch-speed slider and readouts of the circular and escape speeds so the student sees why a satellite stays up and what it takes to leave (Circular Motion and Gravitation)."
+    },
+    {
+      "id": "refractionScene",
+      "kind": "scene",
+      "signature": "refractionScene(env, {incidence: Observable<number>, refraction: Observable<number>}): HTMLDivElement",
+      "precondition": "incidence is a control in deg (a slider) whose range is within 0 to 90; refraction is the output of Synapse.refractionAngle, fed by that same control as its incidence_angle. Create it after the model.",
+      "doc": "A ray of light passing from air into a denser medium: the incident ray meets the boundary at the angle of incidence from the normal and the refracted ray leaves at the angle of refraction. It draws the angles and never prints a number; its text says in words whether the ray goes straight on, does not bend, or bends towards the normal.",
+      "useWhen": "Use beside an angle-of-incidence slider and an angle-of-refraction readout so the student sees the ray bend as the angle and the refractive index change (Light and Optics)."
+    },
+    {
+      "id": "apparatus",
+      "kind": "scene",
+      "signature": "apparatus(env, {kind: string, label: string, channels: {[name]: {value: Observable<number>, full?: number}}, drop?: {value: Observable<number>, item: string}}): SVGSVGElement",
+      "precondition": "kind is a part in the apparatus catalogue (the manifest's `apparatus`); every required channel of that part is bound to a control or a science model's output, never a constant; a fraction channel has full > 0, the value drawn as full, at least the value's largest and at most four times it; an angle channel is in deg (0 to 60), a pH channel in pH (0 to 14). At most four parts on one bench. Create each part after the models it draws. A drop's value is a slider with 2 to 8 steps that starts on a step, used by no other drop; its item is 1 to 40 characters.",
+      "doc": "One reusable piece of lab apparatus on the bench (glassware, heat, measuring instruments, mechanics, circuits, waves, orbits, particles, plants and cells): each channel draws its number (a level, a flame, a needle, a speed) and never prints it, and parts that move (bubbles, a flame, flowing charge, an orbit, a wave, particles, a swing) move at a speed that follows their channel and stop under reduced motion. Its words say each channel's level in words, with the Plan's label. A channel bound to a slider gets a grip the student drags on the drawing when the part has one there; a drop is a tray of items the student drags onto the part, one step each.",
+      "useWhen": "Use on every lab with equipment a student would recognise: up to four parts on the bench, each bound to the control or model it shows."
+    },
+    {
+      "id": "pressureScene",
+      "kind": "scene",
+      "signature": "pressureScene(env, {pressure: Observable<number>, full: number}): HTMLDivElement",
+      "precondition": "pressure is the output of Synapse.pressureDepth (fluids.pressure_depth), in Pa. full is the pressure, in Pa, at which the probe is drawn at the bottom of the tank: at least the model's output at the controls' maximum and at most twice it. Create it after the model.",
+      "doc": "A tank of liquid with a small probe that sits as deep as the pressure says, with arrows pressing on it from every side that grow with the pressure. It draws the quantity and never prints a number; its text says in words how hard the liquid presses.",
+      "useWhen": "Use beside a depth slider and a pressure readout so the student sees the liquid press harder as the probe goes deeper (Forces and Pressure)."
+    },
+    {
+      "id": "titrationScene",
+      "kind": "scene",
+      "signature": "titrationScene(env, {added: Observable<number>, endpoint: Observable<number>, full: number}): HTMLDivElement",
+      "precondition": "added is a control in cm3 (the one a valve makes); endpoint is the output of the end-point model (Synapse.titrationEndpoint), in cm3; full is the burette's capacity in cm3, at least the control's maximum and at most twice it. Create it after the model.",
+      "doc": "A burette over a flask, and an eye the student drags up and down the burette to read the meniscus. The burette empties as the control rises; the flask turns pink when the volume run in reaches the end point. It draws quantities and never prints a number; its text says in words how full the burette is, the flask's colour, and whether the eye is level, above or below the meniscus.",
+      "useWhen": "Use beside a titration readout so the student sees the burette empty, the indicator change colour, and practises reading a burette at eye level."
+    },
+    {
+      "id": "springScene",
+      "kind": "scene",
+      "signature": "springScene(env, {extension: Observable<number>, full: number}): SVGSVGElement",
+      "precondition": "extension is the output of a science model whose unit is metres (mechanics.hookes). full is the extension, in the same unit, at which the spring is drawn fully stretched; it is a drawing scale and is never shown. Create it after the model.",
+      "doc": "A picture of a spring hanging from a bracket that stretches as the extension grows. It draws the quantity and never prints a number; its text equivalent says how stretched it is in words.",
+      "useWhen": "Use beside a Hooke's law readout so the student sees the spring stretch as the load changes."
+    },
+    {
+      "id": "readout",
+      "kind": "ui",
+      "signature": "readout(env, {label, unit, value: Observable<number>, digits?}): HTMLOutputElement",
+      "precondition": "value derives from a control through a science model (a unit change with convert is allowed). A declared constant alone, a free observable and arithmetic written in the page are refused.",
+      "doc": "Shows an observable's current value with its unit, announced politely to screen readers. Do not edit the element.",
+      "useWhen": "Use to show a computed or measured quantity that a science model produced, with its unit."
+    },
+    {
+      "id": "reset",
+      "kind": "interaction",
+      "signature": "reset(env, {label?: string}?): HTMLButtonElement",
+      "precondition": "Create it on any page with at least one slider; it restores every control to its starting value when pressed.",
+      "doc": "A button that returns every control to its starting value. The readouts follow.",
+      "useWhen": "Use whenever a page has sliders and the student may want to start again."
+    },
+    {
+      "id": "table",
+      "kind": "ui",
+      "signature": "table(env, {caption: string, columns: {label, unit, value: Observable<number>, digits?}[]}): HTMLTableElement",
+      "precondition": "1 to 6 columns, each a Kit observable that derives from a control through a science model. At most 30 rows.",
+      "doc": "A results table with Record and Clear buttons. Record appends one row of the columns' current values.",
+      "useWhen": "Use when the student should record readings across several settings to see a pattern, as in an experiment."
+    },
+    {
+      "id": "graph",
+      "kind": "ui",
+      "signature": "graph(env, {title: string, x: Observable<number>, y: Observable<number>, yLabel: string, yUnit: string, digits?: number}): SVGSVGElement",
+      "precondition": "x is a slider created before the graph; y derives from controls through a science model. Create it after every slider so it redraws when they change.",
+      "doc": "Plots y against the whole range of x, with a marker at the current value and a hidden table as the text equivalent.",
+      "useWhen": "Use to show how one quantity depends on another over the whole range of a slider, with a marker at the current value."
+    },
+    {
+      "id": "stepper",
+      "kind": "pedagogy",
+      "signature": "stepper(env, {steps: string[]}): HTMLOListElement",
+      "precondition": "1 to 8 steps. Any number in a step must be a slider value, a model setting or a declared constant.",
+      "doc": "The procedure of an experiment as an ordered list.",
+      "useWhen": "Use to give the student the procedure of an experiment as short ordered steps."
+    },
+    {
+      "id": "experiment",
+      "kind": "pedagogy",
+      "signature": "experiment(env, {aim, hypothesis, independent, dependent, controlled: string[], apparatus: string[]}): HTMLElement",
+      "precondition": "Every field has text; at most 6 controlled variables and 8 apparatus items. Numbers in it must be backed like any sentence.",
+      "doc": "The practical-work card: aim, hypothesis, what is changed, what is measured, what is kept the same, what is used.",
+      "useWhen": "Use for a virtual experiment (Amali) so the student sees the aim, the variables and the apparatus before experimenting."
+    },
+    {
+      "id": "hintLadder",
+      "kind": "pedagogy",
+      "signature": "hintLadder(env, {hints: string[]}): HTMLElement",
+      "precondition": "1 to 5 hints, most general first. Numbers in a hint must be backed like any sentence.",
+      "doc": "Help given one step at a time: each press of the button reveals the next hint.",
+      "useWhen": "Use when a student may get stuck and should be nudged gradually instead of being told the answer."
+    },
+    {
+      "id": "conceptCheck",
+      "kind": "pedagogy",
+      "signature": "conceptCheck(env, {question, options: string[], correct: number, explanation}): HTMLElement",
+      "precondition": "2 to 4 options; correct is the zero-based index of the right one. The Kit cannot check the claim: it is the author's, and a person should review it.",
+      "doc": "One multiple-choice question with immediate feedback and an explanation.",
+      "useWhen": "Use to check one idea after the student has explored, such as which way a quantity changes."
+    },
+    {
+      "id": "predictCard",
+      "kind": "pedagogy",
+      "signature": "predictCard(env, {prompt, choices: string[], reveal}): HTMLElement",
+      "precondition": "2 to 4 choices. Place it before the sliders so the student commits first. It stores and grades nothing.",
+      "doc": "Predict, observe, explain: the student picks a prediction, then sees what to look for.",
+      "useWhen": "Use for a phenomenon with a surprising or commonly misjudged result, so the student predicts before experimenting."
+    },
+    {
+      "id": "workedSolution",
+      "kind": "pedagogy",
+      "signature": "workedSolution(env, {steps: string[]}): HTMLElement",
+      "precondition": "1 to 6 steps. Numbers in a step must be slider values, grid positions, constants or model settings, never a computed result.",
+      "doc": "A worked answer the student opens when ready.",
+      "useWhen": "Use for a calculation the student will meet in exams, shown after they have tried it."
+    },
+    {
+      "id": "text",
+      "kind": "ui",
+      "signature": "text(env, content: string): HTMLParagraphElement",
+      "precondition": "Any number in content must be a model parameter, a control range or grid value, a declared constant, or a step marker such as 'Step 2'.",
+      "doc": "The sanctioned way to write a sentence on the stage. The element cannot be edited afterwards.",
+      "useWhen": "Use for a short explanatory sentence on the stage; any number in it must be a slider value, a constant or a model setting."
+    },
+    {
+      "id": "constant",
+      "kind": "core",
+      "signature": "constant(value: number, {label: string, unit: string}): Observable<number>",
+      "precondition": "A fixed quantity of the experiment (a spring's constant). value is finite.",
+      "doc": "Declares a fixed quantity so it can feed a model or a readout and be treated as backed.",
+      "useWhen": "Use to give a model a fixed given value (a spring constant, a resistor, a liquid density) that the page also states."
+    },
+    {
+      "id": "convert",
+      "kind": "core",
+      "signature": "convert(source: Observable<number>, from: string, to: string): Observable<number>",
+      "precondition": "from and to are known units of the same dimension (m, cm, mm, km, kg, g, s, ms, min, Pa, kPa, A, mA, J, kJ, N, V, mV, W, cm3, dm3, mL, L).",
+      "doc": "A unit change by a known factor, the only arithmetic allowed on a model's output.",
+      "useWhen": "Use to show a model's output in a different unit of the same kind (Pa to kPa, m to cm)."
+    },
+    {
+      "id": "hookes",
+      "kind": "science",
+      "signature": "hookes({k: number, load: Observable<number>}): Observable<number>",
+      "precondition": "Within the elastic limit. Domain: k above 0 N/m, load 0 N or more. Units: load N, k N/m, extension m.",
+      "doc": "Hooke's law: extension = load / k. A read-only observable that follows the load.",
+      "useWhen": "Use for a spring or elastic material stretching under a load, within the elastic limit (Force and Elasticity).",
+      "modelId": "mechanics.hookes",
+      "topics": [
+        "physics_form5_force_and_elasticity",
+        "physics_form4_circular_motion_and_gravitation"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "load": "N",
+        "k": "N/m",
+        "output": "m"
+      },
+      "inputs": {
+        "load": {
+          "unit": "N",
+          "min": 0
+        }
+      },
+      "params": {
+        "k": {
+          "unit": "N/m",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "m"
+      }
+    },
+    {
+      "id": "ohm",
+      "kind": "science",
+      "signature": "ohm({voltage: Observable<number>, resistance: Observable<number>}): Observable<number>",
+      "precondition": "An ohmic conductor at steady state. Domain: voltage 0 V or more, resistance above 0 ohm. Units: voltage V, resistance ohm, current A.",
+      "doc": "Ohm's law: current = voltage / resistance. A read-only observable that follows both inputs.",
+      "useWhen": "Use for the current through a resistor given the voltage and resistance (Electricity).",
+      "modelId": "electricity.ohm",
+      "topics": [
+        "physics_form5_electricity"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "voltage": "V",
+        "resistance": "ohm",
+        "output": "A"
+      },
+      "inputs": {
+        "voltage": {
+          "unit": "V",
+          "min": 0
+        },
+        "resistance": {
+          "unit": "ohm",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "A"
+      }
+    },
+    {
+      "id": "pressureDepth",
+      "kind": "science",
+      "signature": "pressureDepth({depth: Observable<number>, density: number, g: number}): Observable<number>",
+      "precondition": "A liquid of uniform density at rest. Domain: depth 0 m or more, density and g above 0. Units: depth m, density kg/m3, g m/s2, pressure Pa (gauge).",
+      "doc": "Liquid pressure: P = depth x density x g. g is recorded so the student sees whether 9.81 or 10 was used.",
+      "useWhen": "Use for the pressure of a liquid at a depth, such as water pressure on a diver going deeper (Forces and Pressure).",
+      "modelId": "fluids.pressure_depth",
+      "topics": [
+        "physics_form5_forces_and_pressure"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "depth": "m",
+        "density": "kg/m3",
+        "g": "m/s2",
+        "output": "Pa"
+      },
+      "inputs": {
+        "depth": {
+          "unit": "m",
+          "min": 0
+        }
+      },
+      "params": {
+        "density": {
+          "unit": "kg/m3",
+          "min": 0,
+          "exclusive": true
+        },
+        "g": {
+          "unit": "m/s2",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "Pa"
+      }
+    },
+    {
+      "id": "magnification",
+      "kind": "science",
+      "signature": "magnification({image: Observable<number>, actual: Observable<number>}): Observable<number>",
+      "precondition": "Both sizes in the same unit. Domain: image 0 mm or more, actual above 0 mm. Units: image mm, actual mm, magnification times.",
+      "doc": "Magnification = image size / actual size. A read-only observable that follows both inputs.",
+      "useWhen": "Use for how much a microscope or a drawing enlarges a cell or specimen (Cell Structure and Function).",
+      "modelId": "biology.magnification",
+      "topics": [
+        "biology_form4_cell_structure_function"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "image": "mm",
+        "actual": "mm",
+        "output": "times"
+      },
+      "inputs": {
+        "image": {
+          "unit": "mm",
+          "min": 0
+        },
+        "actual": {
+          "unit": "mm",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "times"
+      }
+    },
+    {
+      "id": "surfaceAreaToVolume",
+      "kind": "science",
+      "signature": "surfaceAreaToVolume({side: Observable<number>}): Observable<number>",
+      "precondition": "A cube-shaped cell. Domain: side above 0 cm. Units: side cm, ratio per cm.",
+      "doc": "Surface area to volume ratio of a cube, 6 / side. A read-only observable that follows the side.",
+      "useWhen": "Use to show why cells are small: the surface area to volume ratio falls as a cell grows (Movement of Substances).",
+      "modelId": "biology.sa_to_v_cube",
+      "topics": [
+        "biology_form4_movement_of_substances"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "side": "cm",
+        "output": "/cm"
+      },
+      "inputs": {
+        "side": {
+          "unit": "cm",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "/cm"
+      }
+    },
+    {
+      "id": "netPhotosynthesis",
+      "kind": "science",
+      "signature": "netPhotosynthesis({light: Observable<number>, pmax: number, k: number, resp: number}): Observable<number>",
+      "precondition": "A STYLISED saturating curve for teaching, not measured data. Domain: light 0 klux or more; pmax, k above 0; resp 0 or more. Units: klux, mg/h.",
+      "doc": "Net CO2 uptake = pmax x light / (k + light) - respiration. Shows the compensation point and saturation.",
+      "useWhen": "Use for how photosynthesis rate changes with light intensity and where it equals respiration (Leaf Structure and Function).",
+      "modelId": "biology.photosynthesis_net",
+      "topics": [
+        "biology_form5_leaf_structure_function"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "light": "klux",
+        "pmax": "mg/h",
+        "k": "klux",
+        "resp": "mg/h",
+        "output": "mg/h"
+      },
+      "inputs": {
+        "light": {
+          "unit": "klux",
+          "min": 0
+        }
+      },
+      "params": {
+        "pmax": {
+          "unit": "mg/h",
+          "min": 0,
+          "exclusive": true
+        },
+        "k": {
+          "unit": "klux",
+          "min": 0,
+          "exclusive": true
+        },
+        "resp": {
+          "unit": "mg/h",
+          "min": 0
+        }
+      },
+      "output": {
+        "unit": "mg/h"
+      }
+    },
+    {
+      "id": "moles",
+      "kind": "science",
+      "signature": "moles({mass: Observable<number>, molar_mass: number}): Observable<number>",
+      "precondition": "Domain: mass 0 g or more, molar mass above 0 g/mol. Units: mass g, molar mass g/mol, amount mol.",
+      "doc": "Amount of substance n = mass / molar mass. A read-only observable that follows the mass.",
+      "useWhen": "Use to convert a mass of a substance to moles (Chemical Formulae and Equations).",
+      "modelId": "chemistry.moles_from_mass",
+      "topics": [
+        "chemistry_form4_chemical_formulae_and_equations"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "mass": "g",
+        "molar_mass": "g/mol",
+        "output": "mol"
+      },
+      "inputs": {
+        "mass": {
+          "unit": "g",
+          "min": 0
+        }
+      },
+      "params": {
+        "molar_mass": {
+          "unit": "g/mol",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "mol"
+      }
+    },
+    {
+      "id": "titration",
+      "kind": "science",
+      "signature": "titration({va: Observable<number>, vb: Observable<number>, ma: number, acid_coeff: number, base_coeff: number}): Observable<number>",
+      "precondition": "Volumes in the same unit; coefficients from the balanced equation. Domain: all above 0. Units: cm3, mol/dm3.",
+      "doc": "Concentration of the base Mb = Ma x Va x b / (a x Vb). A read-only observable that follows both volumes.",
+      "useWhen": "Use for a titration: finding an unknown concentration from the volumes at the end point (Acids, Bases and Salts).",
+      "modelId": "chemistry.titration_concentration",
+      "topics": [
+        "chemistry_form4_acids_bases_salts"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "va": "cm3",
+        "vb": "cm3",
+        "ma": "mol/dm3",
+        "acid_coeff": "1",
+        "base_coeff": "1",
+        "output": "mol/dm3"
+      },
+      "inputs": {
+        "va": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        },
+        "vb": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "ma": {
+          "unit": "mol/dm3",
+          "min": 0,
+          "exclusive": true
+        },
+        "acid_coeff": {
+          "unit": "1",
+          "min": 0,
+          "exclusive": true
+        },
+        "base_coeff": {
+          "unit": "1",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "mol/dm3"
+      }
+    },
+    {
+      "id": "titrationEndpoint",
+      "kind": "science",
+      "signature": "titrationEndpoint({va: Observable<number>, mb: Observable<number>, ma: number, acid_coeff: number, base_coeff: number}): Observable<number>",
+      "precondition": "Domain: all above 0. Units: va cm3, mb mol/dm3, ma mol/dm3, coefficients from the balanced equation. The output is the volume of base, in cm3, that neutralises va of the acid.",
+      "doc": "Volume of base at the end point Vb = Ma x Va x b / (a x Mb). A read-only observable that follows the acid's volume and the base's concentration.",
+      "useWhen": "Use to say where the indicator changes colour in a titration, given the base's concentration (Acids, Bases and Salts).",
+      "modelId": "chemistry.titration_endpoint_volume",
+      "topics": [
+        "chemistry_form4_acids_bases_salts"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "va": "cm3",
+        "mb": "mol/dm3",
+        "ma": "mol/dm3",
+        "acid_coeff": "1",
+        "base_coeff": "1",
+        "output": "cm3"
+      },
+      "inputs": {
+        "va": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        },
+        "mb": {
+          "unit": "mol/dm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "ma": {
+          "unit": "mol/dm3",
+          "min": 0,
+          "exclusive": true
+        },
+        "acid_coeff": {
+          "unit": "1",
+          "min": 0,
+          "exclusive": true
+        },
+        "base_coeff": {
+          "unit": "1",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "cm3"
+      }
+    },
+    {
+      "id": "respirationEnergy",
+      "kind": "science",
+      "signature": "respirationEnergy({glucose: Observable<number>, energy_per_mole: number}): Observable<number>",
+      "precondition": "Domain: glucose 0 mol or more, energy_per_mole above 0. Units: glucose mol, energy_per_mole kJ/mol, energy kJ. The figure for energy_per_mole depends on the pathway: 210 for alcohol fermentation, 150 for lactic acid fermentation, 2898 for aerobic respiration.",
+      "doc": "Energy released E = n x e when n mol of glucose is broken down by a pathway that gives e kJ per mole. A read-only observable that follows the amount of glucose.",
+      "useWhen": "Use to compare the energy from glucose by fermentation and by aerobic respiration (Cellular Respiration).",
+      "modelId": "biology.respiration_energy",
+      "topics": [
+        "biology_form4_respiration"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "glucose": "mol",
+        "energy_per_mole": "kJ/mol",
+        "output": "kJ"
+      },
+      "inputs": {
+        "glucose": {
+          "unit": "mol",
+          "min": 0
+        }
+      },
+      "params": {
+        "energy_per_mole": {
+          "unit": "kJ/mol",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "kJ"
+      }
+    },
+    {
+      "id": "circularSpeed",
+      "kind": "science",
+      "signature": "circularSpeed({radius: Observable<number>, central_mass: number}): Observable<number>",
+      "precondition": "Domain: radius above 0 km, central_mass above 0 kg. Units: radius km (from the CENTRE of the central body, a declared constant), central_mass kg, speed km/s. For Earth use central_mass 5.972e24 and radius 6371. G is fixed inside the model.",
+      "doc": "Orbital speed of a satellite in a circular orbit v = sqrt(G M / r). A read-only observable that follows the radius.",
+      "useWhen": "Use for how fast a satellite or a cannonball must go to circle Earth, and how that changes with distance (Circular Motion and Gravitation).",
+      "modelId": "physics.circular_speed",
+      "topics": [
+        "physics_form4_circular_motion_and_gravitation"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "radius": "km",
+        "central_mass": "kg",
+        "output": "km/s"
+      },
+      "inputs": {
+        "radius": {
+          "unit": "km",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "central_mass": {
+          "unit": "kg",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "km/s"
+      }
+    },
+    {
+      "id": "escapeSpeed",
+      "kind": "science",
+      "signature": "escapeSpeed({radius: Observable<number>, central_mass: number}): Observable<number>",
+      "precondition": "Domain: radius above 0 km, central_mass above 0 kg. Units: radius km (from the CENTRE of the central body, a declared constant), central_mass kg, speed km/s. For Earth use central_mass 5.972e24 and radius 6371. G is fixed inside the model.",
+      "doc": "Escape speed v = sqrt(2 G M / r): the least launch speed that lets an object leave a central body for good. A read-only observable that follows the radius.",
+      "useWhen": "Use for how fast a rocket must go to leave Earth, compared with the speed that only keeps it in orbit (Circular Motion and Gravitation).",
+      "modelId": "physics.escape_speed",
+      "topics": [
+        "physics_form4_circular_motion_and_gravitation"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "radius": "km",
+        "central_mass": "kg",
+        "output": "km/s"
+      },
+      "inputs": {
+        "radius": {
+          "unit": "km",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "central_mass": {
+          "unit": "kg",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "km/s"
+      }
+    },
+    {
+      "id": "planetGravity",
+      "kind": "science",
+      "signature": "planetGravity({planet: Observable<number>}): Observable<number>",
+      "precondition": "Domain: planet is a whole number from 1 (Mercury) to 8 (Neptune), from a planetPicker control (unit planet). Each planet's mass and radius are fixed inside the model.",
+      "doc": "Gravitational acceleration on the surface of a planet, g = G M / R squared, in N/kg. A read-only observable that follows the chosen planet.",
+      "useWhen": "Use to compare gravity on the planets of the Solar System, and with weight to compare what one mass weighs on each (Gravitation).",
+      "modelId": "physics.planet_gravity",
+      "topics": [
+        "physics_form4_circular_motion_and_gravitation"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "planet": "planet",
+        "output": "N/kg"
+      },
+      "inputs": {
+        "planet": {
+          "unit": "planet",
+          "min": 1,
+          "max": 8
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "N/kg"
+      }
+    },
+    {
+      "id": "weight",
+      "kind": "science",
+      "signature": "weight({mass: Observable<number>, gravity: Observable<number>}): Observable<number>",
+      "precondition": "Domain: mass at least 0 kg, gravity at least 0 N/kg (a control, a constant, or the output of planetGravity). Units: mass kg, gravity N/kg, weight N.",
+      "doc": "Weight W = m g, in newtons. A read-only observable that follows the mass and the gravitational field strength.",
+      "useWhen": "Use for the weight of a mass on Earth or on another planet, or to feed a spring balance (Hooke's law) with that weight (Gravitation, Force).",
+      "modelId": "physics.weight",
+      "topics": [
+        "physics_form4_circular_motion_and_gravitation",
+        "physics_form4_kinematics_dynamics_momentum"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "mass": "kg",
+        "gravity": "N/kg",
+        "output": "N"
+      },
+      "inputs": {
+        "mass": {
+          "unit": "kg",
+          "min": 0
+        },
+        "gravity": {
+          "unit": "N/kg",
+          "min": 0
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "N"
+      }
+    },
+    {
+      "id": "centripetalAcceleration",
+      "kind": "science",
+      "signature": "centripetalAcceleration({speed: Observable<number>, radius: Observable<number>}): Observable<number>",
+      "precondition": "Domain: speed 0 km/s or more, radius above 0 km. Units: speed km/s, radius km (from the centre of the circle), acceleration m/s2.",
+      "doc": "Centripetal acceleration a = v^2 / r: the acceleration towards the centre that keeps an object on a circle. A read-only observable that follows the speed and the radius.",
+      "useWhen": "Use for what it takes to move in a circle, and to compare with the pull of gravity for a satellite (Circular Motion and Gravitation).",
+      "modelId": "physics.centripetal_acceleration",
+      "topics": [
+        "physics_form4_circular_motion_and_gravitation"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "speed": "km/s",
+        "radius": "km",
+        "output": "m/s2"
+      },
+      "inputs": {
+        "speed": {
+          "unit": "km/s",
+          "min": 0
+        },
+        "radius": {
+          "unit": "km",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "m/s2"
+      }
+    },
+    {
+      "id": "dilution",
+      "kind": "science",
+      "signature": "dilution({v2: Observable<number>, m1: number, v1: number}): Observable<number>",
+      "precondition": "Volumes in the same unit; the final volume is at least the starting volume in a real dilution. Domain: all above 0. Units: cm3, mol/dm3.",
+      "doc": "Concentration after dilution M2 = M1 x V1 / V2. A read-only observable that follows the final volume.",
+      "useWhen": "Use to show how adding water lowers a solution's concentration (Acids, Bases and Salts).",
+      "modelId": "chemistry.dilution",
+      "topics": [
+        "chemistry_form4_acids_bases_salts"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "v2": "cm3",
+        "m1": "mol/dm3",
+        "v1": "cm3",
+        "output": "mol/dm3"
+      },
+      "inputs": {
+        "v2": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "m1": {
+          "unit": "mol/dm3",
+          "min": 0,
+          "exclusive": true
+        },
+        "v1": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "mol/dm3"
+      }
+    },
+    {
+      "id": "heatEnergy",
+      "kind": "science",
+      "signature": "heatEnergy({delta_t: Observable<number>, mass: number, c: number}): Observable<number>",
+      "precondition": "Domain: temperature change 0 C or more, mass and specific heat capacity above 0. Units: C, g, J/(g C), J.",
+      "doc": "Heat energy Q = m c change in temperature. A read-only observable that follows the temperature change.",
+      "useWhen": "Use for the heat released or absorbed when a solution changes temperature (Thermochemistry).",
+      "modelId": "chemistry.heat_energy",
+      "topics": [
+        "chemistry_form5_thermochemistry"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "delta_t": "°C",
+        "mass": "g",
+        "c": "J/(g°C)",
+        "output": "J"
+      },
+      "inputs": {
+        "delta_t": {
+          "unit": "°C",
+          "min": 0
+        }
+      },
+      "params": {
+        "mass": {
+          "unit": "g",
+          "min": 0,
+          "exclusive": true
+        },
+        "c": {
+          "unit": "J/(g°C)",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "J"
+      }
+    },
+    {
+      "id": "averageRate",
+      "kind": "science",
+      "signature": "averageRate({volume: Observable<number>, time: Observable<number>}): Observable<number>",
+      "precondition": "Domain: volume 0 cm3 or more, time above 0 s. Units: cm3, s, cm3/s.",
+      "doc": "Average rate of reaction = volume of gas / time. A read-only observable that follows both inputs.",
+      "useWhen": "Use for the average rate of a reaction from the gas collected over a time (Rate of Reaction).",
+      "modelId": "chemistry.average_rate",
+      "topics": [
+        "chemistry_form4_rate_of_reaction"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "volume": "cm3",
+        "time": "s",
+        "output": "cm3/s"
+      },
+      "inputs": {
+        "volume": {
+          "unit": "cm3",
+          "min": 0
+        },
+        "time": {
+          "unit": "s",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "cm3/s"
+      }
+    },
+    {
+      "id": "waveSpeed",
+      "kind": "science",
+      "signature": "waveSpeed({frequency: Observable<number>, wavelength: Observable<number>}): Observable<number>",
+      "precondition": "A wave travelling in one medium. Domain: frequency and wavelength above 0. Units: Hz, m, m/s.",
+      "doc": "Wave speed v = f x wavelength. A read-only observable that follows both inputs.",
+      "useWhen": "Use for the speed of a wave from its frequency and wavelength (Waves).",
+      "modelId": "physics.wave_speed",
+      "topics": [
+        "physics_form4_waves"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "frequency": "Hz",
+        "wavelength": "m",
+        "output": "m/s"
+      },
+      "inputs": {
+        "frequency": {
+          "unit": "Hz",
+          "min": 0,
+          "exclusive": true
+        },
+        "wavelength": {
+          "unit": "m",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "m/s"
+      }
+    },
+    {
+      "id": "newtonSecond",
+      "kind": "science",
+      "signature": "newtonSecond({force: Observable<number>, mass: Observable<number>}): Observable<number>",
+      "precondition": "One resultant force on one object. Domain: force 0 N or more, mass above 0 kg. Units: N, kg, m/s2.",
+      "doc": "Newton's second law: acceleration = resultant force / mass. A read-only observable that follows both inputs.",
+      "useWhen": "Use for the acceleration of an object given the resultant force and its mass (Force and Motion).",
+      "modelId": "physics.newton_second",
+      "topics": [
+        "physics_form4_kinematics_dynamics_momentum"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "force": "N",
+        "mass": "kg",
+        "output": "m/s2"
+      },
+      "inputs": {
+        "force": {
+          "unit": "N",
+          "min": 0
+        },
+        "mass": {
+          "unit": "kg",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "m/s2"
+      }
+    },
+    {
+      "id": "cardiacOutput",
+      "kind": "science",
+      "signature": "cardiacOutput({heart_rate: Observable<number>, stroke_volume: Observable<number>}): Observable<number>",
+      "precondition": "Domain: heart rate and stroke volume 0 or more. Units: beats/min, mL per beat, L/min.",
+      "doc": "Cardiac output = heart rate x stroke volume, converted from mL/min to L/min. A read-only observable that follows both inputs.",
+      "useWhen": "Use only when a question is about how much blood the heart pumps each minute (Circulatory System). No KSSM textbook states this relation, so an Environment built on it can never be kit-verified.",
+      "modelId": "biology.cardiac_output",
+      "topics": [
+        "biology_form4_circulatory_system"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "heart_rate": "beats/min",
+        "stroke_volume": "mL",
+        "output": "L/min"
+      },
+      "inputs": {
+        "heart_rate": {
+          "unit": "beats/min",
+          "min": 0
+        },
+        "stroke_volume": {
+          "unit": "mL",
+          "min": 0
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "L/min"
+      }
+    },
+    {
+      "id": "percentChangeMass",
+      "kind": "science",
+      "signature": "percentChangeMass({final_mass: Observable<number>, initial_mass: number}): Observable<number>",
+      "precondition": "Domain: final mass 0 g or more, initial mass above 0 g. Units: g, per cent.",
+      "doc": "Percentage change in mass = (final - initial) / initial x 100. Negative means the tissue lost mass.",
+      "useWhen": "Use for the percentage change in mass of plant tissue in an osmosis practical (Movement of Substances).",
+      "modelId": "biology.percent_change_mass",
+      "topics": [
+        "biology_form4_movement_of_substances"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "final_mass": "g",
+        "initial_mass": "g",
+        "output": "%"
+      },
+      "inputs": {
+        "final_mass": {
+          "unit": "g",
+          "min": 0
+        }
+      },
+      "params": {
+        "initial_mass": {
+          "unit": "g",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "%"
+      }
+    },
+    {
+      "id": "ph",
+      "kind": "science",
+      "signature": "ph({h_conc: Observable<number>}): Observable<number>",
+      "precondition": "Domain: hydrogen ion concentration above 0 mol/dm3. Units: mol/dm3, pH.",
+      "doc": "pH = -log10 of the hydrogen ion concentration. A read-only observable that follows the concentration.",
+      "useWhen": "Use for the pH of a solution given its hydrogen ion concentration (Acids, Bases and Salts).",
+      "modelId": "chemistry.ph_from_h",
+      "topics": [
+        "chemistry_form4_acids_bases_salts"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "h_conc": "mol/dm3",
+        "output": "pH"
+      },
+      "inputs": {
+        "h_conc": {
+          "unit": "mol/dm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "pH"
+      }
+    },
+    {
+      "id": "gasVolume",
+      "kind": "science",
+      "signature": "gasVolume({moles: Observable<number>, molar_volume: number}): Observable<number>",
+      "precondition": "Gas at the stated conditions. Domain: moles 0 or more, molar volume above 0. Units: mol, dm3/mol, dm3. Molar volume is 24 at room conditions and 22.4 at STP.",
+      "doc": "Gas volume V = n x molar volume. A read-only observable that follows the amount.",
+      "useWhen": "Use for the volume of a gas from its amount in moles (Chemical Formulae and Equations).",
+      "modelId": "chemistry.gas_volume",
+      "topics": [
+        "chemistry_form4_chemical_formulae_and_equations"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "moles": "mol",
+        "molar_volume": "dm3/mol",
+        "output": "dm3"
+      },
+      "inputs": {
+        "moles": {
+          "unit": "mol",
+          "min": 0
+        }
+      },
+      "params": {
+        "molar_volume": {
+          "unit": "dm3/mol",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "dm3"
+      }
+    },
+    {
+      "id": "refractionAngle",
+      "kind": "science",
+      "signature": "refractionAngle({incidence_angle: Observable<number>, refractive_index: Observable<number>}): Observable<number>",
+      "precondition": "Light travelling from air into a denser medium. Domain: incidence_angle from 0 up to but not including 90 degrees, refractive_index 1 or more. Units: degrees, ratio, degrees. For air to glass use 1.5, to water 1.33.",
+      "doc": "Snell's law: the angle of refraction r from sin r = sin i / n, in degrees. A read-only observable that follows both inputs.",
+      "useWhen": "Use for how far a ray bends when it enters glass or water from air (Light and Optics: refraction).",
+      "modelId": "physics.refraction_angle",
+      "topics": [
+        "physics_form4_light_and_optics"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "incidence_angle": "deg",
+        "refractive_index": "ratio",
+        "output": "deg"
+      },
+      "inputs": {
+        "incidence_angle": {
+          "unit": "deg",
+          "min": 0,
+          "max": 90,
+          "maxExclusive": true
+        },
+        "refractive_index": {
+          "unit": "ratio",
+          "min": 1
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "deg"
+      }
+    },
+    {
+      "id": "criticalAngle",
+      "kind": "science",
+      "signature": "criticalAngle({refractive_index: Observable<number>}): Observable<number>",
+      "precondition": "Light inside a medium meeting its boundary with air. Domain: refractive_index 1 or more. Units: ratio, degrees. The medium must be denser than air for total internal reflection to be possible.",
+      "doc": "The critical angle c from sin c = 1 / n, in degrees. Above this angle of incidence the light is totally internally reflected. A read-only observable that follows the refractive index.",
+      "useWhen": "Use for the angle beyond which light stays inside glass, water or an optical fibre (Light and Optics: total internal reflection).",
+      "modelId": "physics.critical_angle",
+      "topics": [
+        "physics_form4_light_and_optics"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "refractive_index": "ratio",
+        "output": "deg"
+      },
+      "inputs": {
+        "refractive_index": {
+          "unit": "ratio",
+          "min": 1
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "deg"
+      }
+    },
+    {
+      "id": "specificHeat",
+      "kind": "science",
+      "signature": "specificHeat({mass: Observable<number>, temperature_change: Observable<number>, specific_heat: number}): Observable<number>",
+      "precondition": "One substance, no heat lost to the surroundings. Domain: mass above 0 kg, temperature_change 0 degrees C or more (a rise), specific_heat above 0. Units: kg, degrees C, J/kg degrees C, J. For water use 4200, aluminium 900, copper 390.",
+      "doc": "Heat needed Q = m c (delta theta), in joules. A read-only observable that follows the mass and the temperature change.",
+      "useWhen": "Use for how much heat a mass of a substance needs for a rise in temperature, in the textbook's SI units (Heat: specific heat capacity).",
+      "modelId": "physics.specific_heat",
+      "topics": [
+        "physics_form4_heat"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "mass": "kg",
+        "temperature_change": "°C",
+        "specific_heat": "J/kg°C",
+        "output": "J"
+      },
+      "inputs": {
+        "mass": {
+          "unit": "kg",
+          "min": 0,
+          "exclusive": true
+        },
+        "temperature_change": {
+          "unit": "°C",
+          "min": 0
+        }
+      },
+      "params": {
+        "specific_heat": {
+          "unit": "J/kg°C",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "J"
+      }
+    },
+    {
+      "id": "transformerVoltage",
+      "kind": "science",
+      "signature": "transformerVoltage({primary_turns: Observable<number>, secondary_turns: Observable<number>, primary_voltage: number}): Observable<number>",
+      "precondition": "An ideal transformer (no energy lost) on an alternating supply. Domain: primary_turns and secondary_turns above 0, primary_voltage above 0 V. Units: turns, V. Step-up when the secondary has more turns, step-down when it has fewer.",
+      "doc": "Output voltage Vs = Vp x Ns / Np of an ideal transformer, in volts. A read-only observable that follows both numbers of turns.",
+      "useWhen": "Use for the voltage a transformer delivers from its turns (Electromagnetism: transformers).",
+      "modelId": "physics.transformer_voltage",
+      "topics": [
+        "physics_form5_electromagnetism"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "primary_turns": "turns",
+        "secondary_turns": "turns",
+        "primary_voltage": "V",
+        "output": "V"
+      },
+      "inputs": {
+        "primary_turns": {
+          "unit": "turns",
+          "min": 0,
+          "exclusive": true
+        },
+        "secondary_turns": {
+          "unit": "turns",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "primary_voltage": {
+          "unit": "V",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "V"
+      }
+    },
+    {
+      "id": "halfLifeDecay",
+      "kind": "science",
+      "signature": "halfLifeDecay({time: Observable<number>, half_life: number, initial: number}): Observable<number>",
+      "precondition": "One radioactive substance. Domain: time 0 or more, half_life above 0, initial above 0. Units: minutes for time and half_life; initial and the result are an activity in per second. The textbook states the rule for a whole number of half-lives, so keep the time control on whole multiples of the half-life.",
+      "doc": "What is left of a radioactive sample, N = N0 x (1/2)^(t / T). A read-only observable that follows the time.",
+      "useWhen": "Use for the activity (per second) left after a time, given the half-life (Nuclear Physics: half-life).",
+      "modelId": "physics.half_life_decay",
+      "topics": [
+        "physics_form5_nuclear_physics"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "time": "min",
+        "half_life": "min",
+        "initial": "/s",
+        "output": "/s"
+      },
+      "inputs": {
+        "time": {
+          "unit": "min",
+          "min": 0
+        }
+      },
+      "params": {
+        "half_life": {
+          "unit": "min",
+          "min": 0,
+          "exclusive": true
+        },
+        "initial": {
+          "unit": "/s",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "/s"
+      }
+    },
+    {
+      "id": "relativeAtomicMass",
+      "kind": "science",
+      "signature": "relativeAtomicMass({abundance_1: Observable<number>, mass_1: number, mass_2: number}): Observable<number>",
+      "precondition": "An element with exactly two isotopes. Domain: abundance_1 from 0 to 100 percent (the other isotope makes up the rest), mass_1 and mass_2 above 0. Units: percent for the abundance; the masses are relative isotopic masses (nucleon numbers) and the result is a relative atomic mass.",
+      "doc": "Relative atomic mass = (abundance_1 x mass_1 + (100 - abundance_1) x mass_2) / 100. A read-only observable that follows the abundance.",
+      "useWhen": "Use for the relative atomic mass of an element from the natural abundance and mass of two isotopes (Matter and the Atomic Structure: isotopes).",
+      "modelId": "chemistry.relative_atomic_mass",
+      "topics": [
+        "chemistry_form4_matter_and_atomic_structure"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "abundance_1": "%",
+        "mass_1": "u",
+        "mass_2": "u",
+        "output": "u"
+      },
+      "inputs": {
+        "abundance_1": {
+          "unit": "%",
+          "min": 0,
+          "max": 100
+        }
+      },
+      "params": {
+        "mass_1": {
+          "unit": "u",
+          "min": 0,
+          "exclusive": true
+        },
+        "mass_2": {
+          "unit": "u",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "u"
+      }
+    },
+    {
+      "id": "foodEnergyValue",
+      "kind": "science",
+      "signature": "foodEnergyValue({temperature_rise: Observable<number>, food_mass: Observable<number>, water_mass: number}): Observable<number>",
+      "precondition": "Food burnt under water in a boiling tube, all the heat assumed to reach the water. Domain: temperature_rise 0 or more, food_mass and water_mass above 0. Units: grams for both masses, degrees Celsius for the rise; the result is kJ per gram. Uses 4.2 J/g degC for water, as the textbook does.",
+      "doc": "Energy value = water_mass x 4.2 x temperature_rise / (food_mass x 1000), in kJ/g. A read-only observable that follows the rise in temperature and the food mass.",
+      "useWhen": "Use for the energy value of a food sample from the warming of water it heats (Digestive System and Digestion: energy value of food).",
+      "modelId": "biology.food_energy_value",
+      "topics": [
+        "biology_form4_digestion"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "temperature_rise": "°C",
+        "food_mass": "g",
+        "water_mass": "g",
+        "output": "kJ/g"
+      },
+      "inputs": {
+        "temperature_rise": {
+          "unit": "°C",
+          "min": 0
+        },
+        "food_mass": {
+          "unit": "g",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "water_mass": {
+          "unit": "g",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "kJ/g"
+      }
+    },
+    {
+      "id": "boyleLaw",
+      "kind": "science",
+      "signature": "boyleLaw({final_volume: Observable<number>, initial_pressure: number, initial_volume: number}): Observable<number>",
+      "precondition": "A fixed mass of gas at constant temperature. Domain: final_volume, initial_pressure and initial_volume all above 0. Units: kPa for pressure, cm3 for volume. The pressure falls as the volume rises.",
+      "doc": "Final pressure P2 = P1 x V1 / V2 (Boyle's law), in kPa. A read-only observable that follows the final volume.",
+      "useWhen": "Use for the pressure of a fixed mass of gas after its volume changes at constant temperature (Heat: Boyle's law).",
+      "modelId": "physics.boyle_law",
+      "topics": [
+        "physics_form4_heat"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "final_volume": "cm3",
+        "initial_pressure": "kPa",
+        "initial_volume": "cm3",
+        "output": "kPa"
+      },
+      "inputs": {
+        "final_volume": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {
+        "initial_pressure": {
+          "unit": "kPa",
+          "min": 0,
+          "exclusive": true
+        },
+        "initial_volume": {
+          "unit": "cm3",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "kPa"
+      }
+    },
+    {
+      "id": "parallelResistance",
+      "kind": "science",
+      "signature": "parallelResistance({resistance_1: Observable<number>, resistance_2: Observable<number>}): Observable<number>",
+      "precondition": "Exactly two resistors connected in parallel to one supply. Domain: both resistances above 0 ohm. Units: ohm. The effective resistance is less than either resistance.",
+      "doc": "Effective resistance R = R1 x R2 / (R1 + R2) of two resistors in parallel, in ohms. A read-only observable that follows both resistances.",
+      "useWhen": "Use for the effective resistance of two resistors in parallel (Electricity: series and parallel circuits).",
+      "modelId": "physics.parallel_resistance",
+      "topics": [
+        "physics_form5_electricity"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "resistance_1": "ohm",
+        "resistance_2": "ohm",
+        "output": "ohm"
+      },
+      "inputs": {
+        "resistance_1": {
+          "unit": "ohm",
+          "min": 0,
+          "exclusive": true
+        },
+        "resistance_2": {
+          "unit": "ohm",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "params": {},
+      "output": {
+        "unit": "ohm"
+      }
+    },
+    {
+      "id": "buoyantForce",
+      "kind": "science",
+      "signature": "buoyantForce({volume: Observable<number>, density: number, g: number}): Observable<number>",
+      "precondition": "An object fully or partly immersed in one fluid. Domain: volume (of fluid displaced) 0 m3 or more, density and g above 0. Units: m3, kg/m3, m/s2; the result is in newtons.",
+      "doc": "Buoyant force F = density x volume x g, in newtons. A read-only observable that follows the volume of fluid displaced.",
+      "useWhen": "Use for the buoyant force on an object from the volume of fluid it displaces (Pressure: Archimedes' principle).",
+      "modelId": "physics.buoyant_force",
+      "topics": [
+        "physics_form5_forces_and_pressure"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "volume": "m3",
+        "density": "kg/m3",
+        "g": "m/s2",
+        "output": "N"
+      },
+      "inputs": {
+        "volume": {
+          "unit": "m3",
+          "min": 0
+        }
+      },
+      "params": {
+        "density": {
+          "unit": "kg/m3",
+          "min": 0,
+          "exclusive": true
+        },
+        "g": {
+          "unit": "m/s2",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "N"
+      }
+    },
+    {
+      "id": "cellVoltage",
+      "kind": "science",
+      "signature": "cellVoltage({cathode_potential: Observable<number>, anode_potential: number}): Observable<number>",
+      "precondition": "A voltaic cell of two half-cells at standard conditions (1.0 mol/dm3, 25 degC). Domain: both standard electrode potentials from -3.1 V to +3.0 V. Units: V. The cathode has the more positive potential; a negative result means the two half-cells are the wrong way round.",
+      "doc": "Standard cell voltage E0 cell = E0 (cathode) - E0 (anode), in volts. A read-only observable that follows the cathode potential.",
+      "useWhen": "Use for the voltage of a voltaic cell from the standard electrode potentials of its two half-cells (Electrochemistry and Redox Reactions: the Daniell cell).",
+      "modelId": "chemistry.cell_voltage",
+      "topics": [
+        "chemistry_form5_electrochemistry_and_redox"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "cathode_potential": "V",
+        "anode_potential": "V",
+        "output": "V"
+      },
+      "inputs": {
+        "cathode_potential": {
+          "unit": "V",
+          "min": -3.1,
+          "max": 3
+        }
+      },
+      "params": {
+        "anode_potential": {
+          "unit": "V",
+          "min": -3.1,
+          "max": 3
+        }
+      },
+      "output": {
+        "unit": "V"
+      }
+    },
+    {
+      "id": "populationDensity",
+      "kind": "science",
+      "signature": "populationDensity({total_count: Observable<number>, quadrats: number, quadrat_area: number}): Observable<number>",
+      "precondition": "One species counted in quadrats placed at random in one habitat. Domain: total_count 0 or more, quadrats and quadrat_area above 0. Units: individuals, quadrats, m2; the result is individuals per m2.",
+      "doc": "Population density = total count / (number of quadrats x quadrat area), in individuals per m2. A read-only observable that follows the total count.",
+      "useWhen": "Use for the population density of a plant species estimated by quadrat sampling (Ecosystem: estimation of population size).",
+      "modelId": "biology.population_density",
+      "topics": [
+        "biology_form5_dynamic_ecosystem"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "total_count": "individuals",
+        "quadrats": "quadrats",
+        "quadrat_area": "m2",
+        "output": "per m2"
+      },
+      "inputs": {
+        "total_count": {
+          "unit": "individuals",
+          "min": 0
+        }
+      },
+      "params": {
+        "quadrats": {
+          "unit": "quadrats",
+          "min": 0,
+          "exclusive": true
+        },
+        "quadrat_area": {
+          "unit": "m2",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "per m2"
+      }
+    },
+    {
+      "id": "electricalEnergy",
+      "kind": "science",
+      "signature": "electricalEnergy({current: Observable<number>, time: Observable<number>, voltage: number}): Observable<number>",
+      "precondition": "A device of steady current for a stated time. Domain: current and time 0 or more, voltage above 0. Units: A, s, V; the result is in joules.",
+      "doc": "Electrical energy E = V x I x t, in joules. A read-only observable that follows the current and the time.",
+      "useWhen": "Use for the electrical energy a lamp or appliance uses from its potential difference, current and time (Electricity: electrical energy and power).",
+      "modelId": "physics.electrical_energy",
+      "topics": [
+        "physics_form5_electricity"
+      ],
+      "citation": "UNVERIFIED (the Kit holds no textbook text; a Plan's citations decide its label)",
+      "units": {
+        "current": "A",
+        "time": "s",
+        "voltage": "V",
+        "output": "J"
+      },
+      "inputs": {
+        "current": {
+          "unit": "A",
+          "min": 0
+        },
+        "time": {
+          "unit": "s",
+          "min": 0
+        }
+      },
+      "params": {
+        "voltage": {
+          "unit": "V",
+          "min": 0,
+          "exclusive": true
+        }
+      },
+      "output": {
+        "unit": "J"
+      }
+    },
+    {
+      "id": "bridge",
+      "kind": "core",
+      "signature": "bridge.ready() | bridge.event(control, value) | bridge.error(message) | bridge.installErrorHandlers()",
+      "precondition": "Call bridge.ready() once after the components are mounted.",
+      "doc": "Messages to the host: synapse_ready after first paint, synapse_event on control change, synapse_error on a caught error.",
+      "useWhen": "Use once at the end of the page to tell the host the Environment is ready."
+    }
+  ],
+  "apparatus": {
+    "beaker": {
+      "group": "glassware",
+      "doc": "A beaker of liquid.",
+      "useWhen": "a liquid that is measured, mixed, heated or diluted; a reaction that gives off gas (with bubbles)",
+      "channels": {
+        "level": {
+          "type": "fraction",
+          "doc": "how full it is: the liquid's volume (or any amount) over full"
+        },
+        "bubbles": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "how hard it fizzes: more and faster bubbles as the value nears full (a gas given off, a rate)"
+        }
+      },
+      "grabs": {
+        "level": {
+          "from": [
+            60,
+            130
+          ],
+          "to": [
+            60,
+            38
+          ]
+        }
+      }
+    },
+    "flask": {
+      "group": "glassware",
+      "doc": "A conical flask of liquid.",
+      "useWhen": "a titration flask, a reaction flask, a culture",
+      "channels": {
+        "level": {
+          "type": "fraction",
+          "doc": "how full it is: the liquid's volume (or any amount) over full"
+        },
+        "bubbles": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "how hard it fizzes: more and faster bubbles as the value nears full (a gas given off, a rate)"
+        }
+      },
+      "grabs": {
+        "level": {
+          "from": [
+            60,
+            132
+          ],
+          "to": [
+            60,
+            52
+          ]
+        }
+      }
+    },
+    "test_tube": {
+      "group": "glassware",
+      "doc": "A test tube of liquid.",
+      "useWhen": "a small-scale reaction, a food test, fermentation, an enzyme test",
+      "channels": {
+        "level": {
+          "type": "fraction",
+          "doc": "how full it is: the liquid's volume (or any amount) over full"
+        },
+        "bubbles": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "how hard it fizzes: more and faster bubbles as the value nears full (a gas given off, a rate)"
+        }
+      },
+      "grabs": {
+        "level": {
+          "from": [
+            60,
+            126
+          ],
+          "to": [
+            60,
+            30
+          ]
+        }
+      }
+    },
+    "cylinder": {
+      "group": "glassware",
+      "doc": "A measuring cylinder with marks (no numbers on it).",
+      "useWhen": "measuring a volume of liquid; gas collected over water",
+      "channels": {
+        "level": {
+          "type": "fraction",
+          "doc": "how full it is: the liquid's volume (or any amount) over full"
+        }
+      },
+      "grabs": {
+        "level": {
+          "from": [
+            60,
+            126
+          ],
+          "to": [
+            60,
+            16
+          ]
+        }
+      }
+    },
+    "solution": {
+      "group": "chemistry",
+      "doc": "A beaker of solution with dissolved particles drawn in it.",
+      "useWhen": "concentration, dilution, dissolving, solubility",
+      "channels": {
+        "concentration": {
+          "type": "fraction",
+          "doc": "how concentrated: more particles drawn as the value nears full"
+        },
+        "level": {
+          "type": "fraction",
+          "doc": "how full it is: the liquid's volume (or any amount) over full",
+          "optional": true
+        }
+      },
+      "grabs": {
+        "level": {
+          "from": [
+            60,
+            130
+          ],
+          "to": [
+            60,
+            38
+          ]
+        }
+      }
+    },
+    "indicator": {
+      "group": "chemistry",
+      "doc": "A tube of solution in universal-indicator colours.",
+      "useWhen": "acids and alkalis, pH, neutralisation",
+      "channels": {
+        "ph": {
+          "type": "ph",
+          "doc": "the pH, 0 to 14",
+          "units": [
+            "pH"
+          ]
+        }
+      }
+    },
+    "syringe": {
+      "group": "glassware",
+      "doc": "A gas syringe whose plunger moves out as the gas grows.",
+      "useWhen": "the volume of a gas: collected in a reaction, compressed (Boyle's law), heated",
+      "channels": {
+        "volume": {
+          "type": "fraction",
+          "doc": "the gas volume over full"
+        }
+      },
+      "grabs": {
+        "volume": {
+          "from": [
+            16.5,
+            65
+          ],
+          "to": [
+            94.5,
+            65
+          ]
+        }
+      }
+    },
+    "burner": {
+      "group": "heat",
+      "doc": "A Bunsen burner whose flame grows with the heat.",
+      "useWhen": "heating: specific heat capacity, a reaction rate with temperature, latent heat",
+      "channels": {
+        "heat": {
+          "type": "fraction",
+          "doc": "the heating power or heat supplied over full"
+        }
+      },
+      "grabs": {
+        "heat": {
+          "from": [
+            60,
+            76
+          ],
+          "to": [
+            60,
+            22
+          ]
+        }
+      }
+    },
+    "thermometer": {
+      "group": "measurement",
+      "doc": "A thermometer whose column rises (no scale numbers).",
+      "useWhen": "a temperature that changes: heating, cooling, an exothermic reaction",
+      "channels": {
+        "temperature": {
+          "type": "fraction",
+          "doc": "the temperature (or its rise) over full"
+        }
+      },
+      "grabs": {
+        "temperature": {
+          "from": [
+            60,
+            112
+          ],
+          "to": [
+            60,
+            18
+          ]
+        }
+      }
+    },
+    "balance": {
+      "group": "measurement",
+      "doc": "An electronic balance with a load on its pan and a bar display.",
+      "useWhen": "a mass that is measured or changes: a reaction that loses gas, osmosis, food",
+      "channels": {
+        "mass": {
+          "type": "fraction",
+          "doc": "the mass over full"
+        }
+      },
+      "grabs": {
+        "mass": {
+          "from": [
+            60,
+            90
+          ],
+          "to": [
+            60,
+            56
+          ]
+        }
+      }
+    },
+    "gauge": {
+      "group": "measurement",
+      "doc": "A dial gauge whose needle swings with the value (no numbers on its face).",
+      "useWhen": "any pressure, force, speed or meter reading",
+      "channels": {
+        "value": {
+          "type": "fraction",
+          "doc": "the reading over full"
+        }
+      }
+    },
+    "weights": {
+      "group": "mechanics",
+      "doc": "Slotted masses stacked on a hanger.",
+      "useWhen": "a load or weight that is added in steps",
+      "channels": {
+        "load": {
+          "type": "fraction",
+          "doc": "the load over full: up to eight masses drawn"
+        }
+      },
+      "grabs": {
+        "load": {
+          "from": [
+            60,
+            128
+          ],
+          "to": [
+            60,
+            38
+          ]
+        }
+      }
+    },
+    "spring": {
+      "group": "mechanics",
+      "doc": "A coiled spring that stretches.",
+      "useWhen": "an extension, a compression, elastic potential energy",
+      "channels": {
+        "extension": {
+          "type": "fraction",
+          "doc": "the extension over full"
+        }
+      },
+      "grabs": {
+        "extension": {
+          "from": [
+            60,
+            55
+          ],
+          "to": [
+            60,
+            125
+          ]
+        }
+      }
+    },
+    "trolley": {
+      "group": "mechanics",
+      "doc": "A trolley on a track.",
+      "useWhen": "motion: distance, speed, acceleration, momentum, a collision",
+      "channels": {
+        "position": {
+          "type": "fraction",
+          "doc": "how far along the track"
+        },
+        "speed": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "how fast its wheels turn"
+        }
+      },
+      "grabs": {
+        "position": {
+          "from": [
+            23,
+            93
+          ],
+          "to": [
+            97,
+            93
+          ]
+        }
+      }
+    },
+    "ramp": {
+      "group": "mechanics",
+      "doc": "A block on a slope.",
+      "useWhen": "a slope: forces on an inclined plane, friction, resolving forces",
+      "channels": {
+        "angle": {
+          "type": "angle",
+          "doc": "the slope's angle, 0 to 60 degrees",
+          "units": [
+            "deg"
+          ]
+        }
+      },
+      "grabs": {
+        "angle": {
+          "pivot": [
+            10,
+            126
+          ],
+          "radius": 55
+        }
+      }
+    },
+    "pendulum": {
+      "group": "mechanics",
+      "doc": "A simple pendulum that swings.",
+      "useWhen": "oscillation, period, energy changes in a swing",
+      "channels": {
+        "length": {
+          "type": "fraction",
+          "doc": "the string's length over full (a longer string swings more slowly)"
+        }
+      },
+      "grabs": {
+        "length": {
+          "from": [
+            60,
+            39
+          ],
+          "to": [
+            60,
+            123
+          ]
+        }
+      }
+    },
+    "bulb": {
+      "group": "electricity",
+      "doc": "A light bulb that glows.",
+      "useWhen": "electrical power, energy, a brighter or dimmer lamp",
+      "channels": {
+        "brightness": {
+          "type": "fraction",
+          "doc": "the power, current or energy over full"
+        }
+      }
+    },
+    "circuit": {
+      "group": "electricity",
+      "doc": "A circuit loop with a cell, a resistor and a lamp; charge flows round it.",
+      "useWhen": "current, voltage, resistance, Ohm's law, series and parallel circuits",
+      "channels": {
+        "current": {
+          "type": "fraction",
+          "doc": "the current over full: faster flow, brighter lamp"
+        }
+      }
+    },
+    "coils": {
+      "group": "electricity",
+      "doc": "A transformer: two coils on an iron core.",
+      "useWhen": "transformers, electromagnetic induction",
+      "channels": {
+        "primary": {
+          "type": "fraction",
+          "doc": "the primary turns over full"
+        },
+        "secondary": {
+          "type": "fraction",
+          "doc": "the secondary turns over full"
+        }
+      },
+      "grabs": {
+        "primary": {
+          "from": [
+            30,
+            36
+          ],
+          "to": [
+            30,
+            99
+          ]
+        },
+        "secondary": {
+          "from": [
+            90,
+            36
+          ],
+          "to": [
+            90,
+            99
+          ]
+        }
+      }
+    },
+    "wave": {
+      "group": "waves",
+      "doc": "A travelling wave.",
+      "useWhen": "wave speed, frequency, wavelength, amplitude, sound and light as waves",
+      "channels": {
+        "amplitude": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "the amplitude over full (drawn at half height when not bound)"
+        },
+        "wavelength": {
+          "type": "fraction",
+          "doc": "the wavelength over full"
+        },
+        "frequency": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "how fast it travels across"
+        }
+      },
+      "grabs": {
+        "wavelength": {
+          "from": [
+            20,
+            112
+          ],
+          "to": [
+            80,
+            112
+          ]
+        }
+      }
+    },
+    "orbit": {
+      "group": "space",
+      "doc": "A planet or satellite going round a star or planet.",
+      "useWhen": "gravitation, orbits, satellites, the solar system",
+      "channels": {
+        "speed": {
+          "type": "fraction",
+          "doc": "how fast it goes round"
+        },
+        "radius": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "the orbit's radius over full"
+        }
+      },
+      "grabs": {
+        "radius": {
+          "from": [
+            84,
+            70
+          ],
+          "to": [
+            114,
+            70
+          ]
+        }
+      }
+    },
+    "particles": {
+      "group": "particles",
+      "doc": "A box of gas particles that jostle.",
+      "useWhen": "kinetic theory: temperature, gas pressure, states of matter, diffusion",
+      "channels": {
+        "speed": {
+          "type": "fraction",
+          "doc": "how fast they move: the temperature or kinetic energy over full"
+        }
+      }
+    },
+    "nuclei": {
+      "group": "particles",
+      "doc": "A grid of nuclei, some still undecayed.",
+      "useWhen": "radioactive decay, half-life, activity",
+      "channels": {
+        "remaining": {
+          "type": "fraction",
+          "doc": "the share still undecayed: the amount left over full"
+        }
+      }
+    },
+    "leaf": {
+      "group": "biology",
+      "doc": "A water plant in light, giving off oxygen bubbles.",
+      "useWhen": "photosynthesis: light intensity, rate, compensation point",
+      "channels": {
+        "light": {
+          "type": "fraction",
+          "doc": "the light intensity over full"
+        },
+        "rate": {
+          "type": "fraction",
+          "optional": true,
+          "doc": "the rate of photosynthesis over full: more bubbles"
+        }
+      }
+    },
+    "cell": {
+      "group": "biology",
+      "doc": "A cell that grows or shrinks.",
+      "useWhen": "cell size, surface area to volume, osmosis, magnification",
+      "channels": {
+        "size": {
+          "type": "fraction",
+          "doc": "the cell's size over full"
+        }
+      },
+      "grabs": {
+        "size": {
+          "from": [
+            70,
+            70
+          ],
+          "to": [
+            118,
+            70
+          ]
+        }
+      }
+    },
+    "field": {
+      "group": "biology",
+      "doc": "A field with a quadrat and plants in it.",
+      "useWhen": "population, quadrat sampling, density, distribution",
+      "channels": {
+        "density": {
+          "type": "fraction",
+          "doc": "the population density over full: up to forty plants drawn"
+        }
+      }
+    }
+  }
+}

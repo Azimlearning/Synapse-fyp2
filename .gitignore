@@ -37,6 +37,7 @@ dist/
 build/
 .next/
 .next-embed/
+.next-demo/
 out/
 coverage/
 *.tsbuildinfo

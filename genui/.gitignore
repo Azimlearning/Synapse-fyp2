@@ -78,3 +78,6 @@ refdocs/business/
 
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Vercel CLI link (the hosted demo)
+.vercel/

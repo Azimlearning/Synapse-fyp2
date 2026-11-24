@@ -1,0 +1,4258 @@
+{
+ "claim-1024~large_language_model": {
+  "answer": {
+   "id": "large_language_model",
+   "label": "open information extractors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_e87f329df1814e23",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 18,
+   "quote": "Zhou, \u201cLarge language models can be easily distracted by irrelevant context,\u201d in International Conference on Machine Learning."
+  }
+ },
+ "claim-1028~large_language_model": {
+  "answer": {
+   "id": "large_language_model",
+   "label": "open information extractors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_edf44178ff442ebf",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 1,
+   "quote": "As research progressed, the enhancement of RAG was no longer limited to the inference stage but began to incorporate more with LLM fine-tuning techniques."
+  }
+ },
+ "claim-1033~large_language_model": {
+  "answer": {
+   "id": "large_language_model",
+   "label": "open information extractors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_edf44178ff442ebf",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 1,
+   "quote": "This early stage was characterized by foundational work aimed at refining pre-training techniques [3]\u2013[5].The subsequent arrival of ChatGPT [6] marked a pivotal moment, with LLM demonstrating powerful in context learning (ICL) capabilities."
+  }
+ },
+ "claim-1044~large_language_model": {
+  "answer": {
+   "id": "large_language_model",
+   "label": "open information extractors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f2896d5f55e04d17",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 4,
+   "quote": "The Memory module leverages the LLM\u2019s memory to guide retrieval, creating an unbounded memory pool that 5 aligns the text more closely with data distribution through iter- ative self-enhancement [17], [18]."
+  }
+ },
+ "claim-1045~large_language_model": {
+  "answer": {
+   "id": "large_language_model",
+   "label": "open information extractors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f2896d5f55e04d17",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 4,
+   "quote": "The Predict module aims to reduce redundancy and noise by generating context directly through the LLM, ensuring relevance and accuracy [13]."
+  }
+ },
+ "claim-1010~retrieval": {
+  "answer": {
+   "id": "retrieval",
+   "label": "retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_ddf649e3ff90d1e8",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 2,
+   "quote": "\u2022 We identify and discuss the central technologies integral to the RAG process, specifically focusing on the aspects of \u201cRetrieval\u201d, \u201cGeneration\u201d and \u201cAugmentation\u201d, and delve into their synergies, elucidating how these com- ponents"
+  }
+ },
+ "claim-1383~retrieval": {
+  "answer": {
+   "id": "retrieval",
+   "label": "retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive NLP."
+  }
+ },
+ "claim-1387~retrieval": {
+  "answer": {
+   "id": "retrieval",
+   "label": "retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Latent retrieval for weakly supervised open do- main question answering."
+  }
+ },
+ "claim-1524~retrieval": {
+  "answer": {
+   "id": "retrieval",
+   "label": "retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_61a648e4f503467d",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 13,
+   "quote": "Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive nlp."
+  }
+ },
+ "claim-1674~retrieval": {
+  "answer": {
+   "id": "retrieval",
+   "label": "retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f33b63884369fa88",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 2,
+   "quote": "In canonical RAG approaches, the retrieval process returns a set number of records that are seman- tically similar to the query and the generated answer uses only the information in those retrieved records."
+  }
+ },
+ "claim-1010~generation": {
+  "answer": {
+   "id": "generation",
+   "label": "generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_ddf649e3ff90d1e8",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 2,
+   "quote": "\u2022 We identify and discuss the central technologies integral to the RAG process, specifically focusing on the aspects of \u201cRetrieval\u201d, \u201cGeneration\u201d and \u201cAugmentation\u201d, and delve into their synergies, elucidating how these com- ponents"
+  }
+ },
+ "claim-3225~generation": {
+  "answer": {
+   "id": "generation",
+   "label": "generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_f5edef1f89ea1d6d",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 1,
+   "quote": "1 Introduction In Retrieval-Augmented Generation (RAG) sys- tems, cutting documents into smaller units called \u201cchunks\u201d has a crucial effect on the quality of both retrieval and generation tasks (Chen et al., 2023; Wadhwa et al., 2024; Shi"
+  }
+ },
+ "claim-3420~generation": {
+  "answer": {
+   "id": "generation",
+   "label": "generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_f8cbee80a6da657d",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "A method named Corrective Retrieval-Augmented Generation (CRAG) is proposed to self-correct the results of retriever and improve the utilization of documents for augmenting generation."
+  }
+ },
+ "claim-3422~generation": {
+  "answer": {
+   "id": "generation",
+   "label": "generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_f8cbee80a6da657d",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "But a considerable portion of the text within these retrieved documents is often non- essential for generation, which should not have been equally referred to and involved in RAG."
+  }
+ },
+ "claim-3537~generation": {
+  "answer": {
+   "id": "generation",
+   "label": "generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_91ccaaf2847d7a42",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 7,
+   "quote": "5 RESULTS We evaluate both the retrieval and generation parts of RAG for the three different RAG pipelines."
+  }
+ },
+ "claim-1000~graph_based_retrieval_augmented_generation": {
+  "answer": {
+   "id": "graph_based_retrieval_augmented_generation",
+   "label": "Self-Reflective Retrieval-Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d53fc0f7e399c539",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 15,
+   "quote": "The mutual growth of RAG models and their technology stacks is evident; technological advancements continuously establish new standards for existing infrastructure."
+  }
+ },
+ "claim-1005~graph_based_retrieval_augmented_generation": {
+  "answer": {
+   "id": "graph_based_retrieval_augmented_generation",
+   "label": "Self-Reflective Retrieval-Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d833c861b460e226",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 5,
+   "quote": "In multiple evaluations of their performance on various knowledge-intensive tasks across different topics, [28] re- vealed that while unsupervised fine-tuning shows some im- provement, RAG consistently outperforms it, for both exist- ing"
+  }
+ },
+ "claim-1006~graph_based_retrieval_augmented_generation": {
+  "answer": {
+   "id": "graph_based_retrieval_augmented_generation",
+   "label": "Self-Reflective Retrieval-Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d833c861b460e226",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 5,
+   "quote": "RAG and FT are not mutually exclusive and can complement each other, enhancing a model\u2019s capabilities at different levels."
+  }
+ },
+ "claim-1007~graph_based_retrieval_augmented_generation": {
+  "answer": {
+   "id": "graph_based_retrieval_augmented_generation",
+   "label": "Self-Reflective Retrieval-Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d833c861b460e226",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 5,
+   "quote": "The choice between RAG and FT depends on the specific needs for data dynamics, customization, and com- putational capabilities in the application context."
+  }
+ },
+ "claim-1008~graph_based_retrieval_augmented_generation": {
+  "answer": {
+   "id": "graph_based_retrieval_augmented_generation",
+   "label": "Self-Reflective Retrieval-Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d833c861b460e226",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 5,
+   "quote": "The optimization process involving RAG and FT may require multiple iterations to achieve satisfactory results."
+  }
+ },
+ "claim-1562~graph": {
+  "answer": {
+   "id": "graph",
+   "label": "graph"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_855fd3f62d583391",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 3,
+   "quote": "an LLM-based agent dynamically traverses a graph with nodes representing document elements (e.g., passages, tables) and edges encoding lexical and semantical similarity or structural relation- ships."
+  }
+ },
+ "claim-1731~graph": {
+  "answer": {
+   "id": "graph",
+   "label": "graph"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_04f01eaec8c2736a",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 1,
+   "quote": "Graph, by its intrinsic \"nodes connected by edges\" nature, encodes massive heterogeneous and relational information, making it a golden resource for RAG in tremendous real-world applications."
+  }
+ },
+ "claim-1997~graph": {
+  "answer": {
+   "id": "graph",
+   "label": "graph"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_32a1ba5d5a858d6e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 49,
+   "quote": "There are numerous ways to construct graphs, yet different tasks or domains may require different graph structures."
+  }
+ },
+ "claim-1998~graph": {
+  "answer": {
+   "id": "graph",
+   "label": "graph"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_32a1ba5d5a858d6e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 49,
+   "quote": "Understanding when a graph structure is necessary, whether to use single or multiple graphs and how to construct them in the most appropriate way for a specific application is essential but often complex."
+  }
+ },
+ "claim-2059~graph": {
+  "answer": {
+   "id": "graph",
+   "label": "graph"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_3b94e2b8589be29c",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 67,
+   "quote": "Simple is effective: The roles of graphs and large lan- guage models in knowledge-graph-based retrieval-augmented generation."
+  }
+ },
+ "claim-540~model": {
+  "answer": {
+   "id": "model",
+   "label": "model"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_eb30deed640dee3e",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 27,
+   "quote": "A probable reason is that the model is insensitive to such a long entity."
+  }
+ },
+ "claim-541~model": {
+  "answer": {
+   "id": "model",
+   "label": "model"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_eb30deed640dee3e",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 27,
+   "quote": "Besides, the model does not accurately capture the beginning and ending years of the war, which are essential for the query."
+  }
+ },
+ "claim-1026~language_model": {
+  "answer": {
+   "id": "language_model",
+   "label": "Language Models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_eaeadf987e64c603",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 8,
+   "quote": "Language models often struggle when dealing with specialized vocabulary or ambiguous abbrevi- ations with multiple meanings."
+  }
+ },
+ "claim-1383~language_model": {
+  "answer": {
+   "id": "language_model",
+   "label": "Language Models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Demonstrate-search-predict: Composing retrieval and language models for knowledge-intensive NLP."
+  }
+ },
+ "claim-1384~language_model": {
+  "answer": {
+   "id": "language_model",
+   "label": "Language Models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Generalization through memorization: Nearest neighbor language models."
+  }
+ },
+ "claim-1385~language_model": {
+  "answer": {
+   "id": "language_model",
+   "label": "Language Models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Language models (mostly) know what they know."
+  }
+ },
+ "claim-1386~language_model": {
+  "answer": {
+   "id": "language_model",
+   "label": "Language Models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_976b861ece2cc197",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "Large language models struggle to learn long-tail knowledge."
+  }
+ },
+ "claim-1179~query": {
+  "answer": {
+   "id": "query",
+   "label": "query"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_7db9aa4c67688206",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 12,
+   "quote": "Given a passage and a query, predict whether the passage includes an answer to the query by producing either \u2018Yes\u2018 or \u2018No\u2018."
+  }
+ },
+ "claim-1180~query": {
+  "answer": {
+   "id": "query",
+   "label": "query"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_7db9aa4c67688206",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 12,
+   "quote": "Passage: {{passage}} Question: {{query}} A.2 Relevance Generation Instruction (few-shot) Following HELM (Liang et al., 2022), the relevance generation instruction use 4 in-context examples."
+  }
+ },
+ "claim-1181~query": {
+  "answer": {
+   "id": "query",
+   "label": "query"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_7db9aa4c67688206",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 12,
+   "quote": "Query: how many eye drops per ml Does the passage answer the query?"
+  }
+ },
+ "claim-2418~query": {
+  "answer": {
+   "id": "query",
+   "label": "query"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_89dfe9b5ddcf485f",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 19,
+   "quote": "Another common approach is to extract a set of entities that are semantically similar to the original query [443, 347]."
+  }
+ },
+ "claim-2420~query": {
+  "answer": {
+   "id": "query",
+   "label": "query"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_89dfe9b5ddcf485f",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 19,
+   "quote": "HyKGE [185] first generates a hypothesis and extracts entities from the original query and the hypothesis."
+  }
+ },
+ "claim-1358~answer": {
+  "answer": {
+   "id": "answer",
+   "label": "answer"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_4db0d3446b205e0b",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 3,
+   "quote": ") is faithful to the context c(q) if the claims that are made in the answer can be inferred from the con- text."
+  }
+ },
+ "claim-814~context": {
+  "answer": {
+   "id": "context",
+   "label": "context"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_2e7f7273fa816f48",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 14,
+   "quote": "G is still necessary when LLMs 8https://www.trulens.org/trulens eval/core concepts rag triad/ 9https://kimi.moonshot.cn are not constrained by context."
+  }
+ },
+ "claim-816~context": {
+  "answer": {
+   "id": "context",
+   "label": "context"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_2e7f7273fa816f48",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 14,
+   "quote": "On one hand, providing LLMs with a large amount of context at once will significantly impact its inference speed, while chunked retrieval and on-demand input can significantly improve operational efficiency."
+  }
+ },
+ "claim-819~context": {
+  "answer": {
+   "id": "context",
+   "label": "context"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_2e7f7273fa816f48",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 14,
+   "quote": "The entire retrieval and reasoning process is observable, while generation solely relying on long context remains a black box."
+  }
+ },
+ "claim-4669~relevant": {
+  "answer": {
+   "id": "relevant",
+   "label": "Relevant"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_f1a615fbeb84f3af",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 17,
+   "quote": "This aspect indicates whether the evidence provides useful information (Relevant) or not (Irrelevant)."
+  }
+ },
+ "claim-1922~reasoning": {
+  "answer": {
+   "id": "reasoning",
+   "label": "reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_27912289ef765b6f",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 50,
+   "quote": "\u2022 Reasoning, planning, and thinking along the way: A real-world retriever may need to dynami- cally and adaptively update its retrieve process in response to both the initial query and the content retrieved along the way."
+  }
+ },
+ "claim-2916~reasoning": {
+  "answer": {
+   "id": "reasoning",
+   "label": "reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_0df65fc933a084c1",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 8,
+   "quote": "However, these datasets primarily focus on assessing a model\u2019s reasoning skills, and they do not emphasize the retrieval of evidence from a knowledge base."
+  }
+ },
+ "claim-4045~reasoning": {
+  "answer": {
+   "id": "reasoning",
+   "label": "reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_57bd2cab72afc7c2",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 2,
+   "quote": "he volume of pre- training data\u2014enables some remarkable abilities, including in-context learning (Brown et al., 2020), reasoning (Wei et al., 2022), and instruction fol- lowing (Ouyang et al., 2022)."
+  }
+ },
+ "claim-4076~reasoning": {
+  "answer": {
+   "id": "reasoning",
+   "label": "reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_6289eb88d4ad726e",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 26,
+   "quote": "Improv- ing factuality and reasoning in language mod- els through multiagent debate."
+  }
+ },
+ "claim-4569~reasoning": {
+  "answer": {
+   "id": "reasoning",
+   "label": "reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_a6b54c45b44515de",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 1,
+   "quote": "Specifically, SELF-RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form generations"
+  }
+ },
+ "claim-1490~dataset": {
+  "answer": {
+   "id": "dataset",
+   "label": "dataset"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_47cb029842ec7554",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 7,
+   "quote": "6: end procedure For our evaluation, we set K = M = N = 5 for a total of 125 test questions per dataset."
+  }
+ },
+ "claim-1578~dataset": {
+  "answer": {
+   "id": "dataset",
+   "label": "dataset"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_989b29a8d68e3bf2",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 23,
+   "quote": "summarize all the reports from multiple analysts who focused on different parts of the dataset, and incorporate any relevant general knowledge."
+  }
+ },
+ "claim-2923~dataset": {
+  "answer": {
+   "id": "dataset",
+   "label": "dataset"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_154d180c87b62616",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 9,
+   "quote": "Future work can extend the dataset by including queries that require retrieving and reasoning from even more evidence."
+  }
+ },
+ "claim-2925~dataset": {
+  "answer": {
+   "id": "dataset",
+   "label": "dataset"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_154d180c87b62616",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 9,
+   "quote": "nt dataset limits supporting ev- idence for a query to a maximum of four pieces."
+  }
+ },
+ "claim-3109~document": {
+  "answer": {
+   "id": "document",
+   "label": "Document"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_26249f4bdc41b629",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 9,
+   "quote": "In this paper, a document is considered retrieved if any chunk from it is retrieved, irrespective of the query-chunk relevance score."
+  }
+ },
+ "claim-1021~qa": {
+  "answer": {
+   "id": "qa",
+   "label": "question answering"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_e3f7d42ef53cf9be",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 19,
+   "quote": "Pietsch, \u201cCovid-qa: A question answering dataset for covid-19,\u201d in ACL 2020 Workshop on Natural Language Processing for COVID-19 (NLP-COVID), 2020."
+  }
+ },
+ "claim-1496~qa": {
+  "answer": {
+   "id": "qa",
+   "label": "question answering"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_4b9c7ced60e8992a",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 12,
+   "quote": "As a mechanism for question answering over large document collections, there are risks to downstream sensemaking and decision-making tasks if the generated answers do not accurately represent the source data."
+  }
+ },
+ "claim-1611~qa": {
+  "answer": {
+   "id": "qa",
+   "label": "question answering"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_bc0397130f249f34",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 10,
+   "quote": "nt method for the iterative question answering that characterizes sensemaking activity, while retaining advantages in comprehensiveness (72% win rate) and diversity (62% win rate) over vector RAG."
+  }
+ },
+ "claim-170~qa": {
+  "answer": {
+   "id": "qa",
+   "label": "question answering"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_a02c99d7879ea2fe",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 11,
+   "quote": "Qa- gnn: Reasoning with language models and knowl- edge graphs for question answering."
+  }
+ },
+ "claim-1767~qa": {
+  "answer": {
+   "id": "qa",
+   "label": "question answering"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_07c617250e2b8b85",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 57,
+   "quote": "Hitab: A hierarchical table dataset for question answering and natural language generation."
+  }
+ },
+ "claim-1532~entity": {
+  "answer": {
+   "id": "entity",
+   "label": "Entity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_6bc0c105e72f73b9",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 22,
+   "quote": "---Example--- Input: Entities id,entity,description 5,VERDANT OASIS PLAZA,Verdant Oasis Plaza is the location of the Unity March 6,HARMONY ASSEMBLY,Harmony Assembly is an organization that is holding a march at Verdant Oasis Plaza"
+  }
+ },
+ "claim-1676~entity": {
+  "answer": {
+   "id": "entity",
+   "label": "Entity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f804d0e14b71d2b7",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 21,
+   "quote": "From the entities identified in step 1, identify all pairs of (source entity, target entity) that are *clearly related* to each other For each pair of related entities, extract the following information: - source entity: name of the source"
+  }
+ },
+ "claim-1677~entity": {
+  "answer": {
+   "id": "entity",
+   "label": "Entity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f804d0e14b71d2b7",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 21,
+   "quote": "ibutes and activities Format each entity as (\"entity\"{tuple delimiter}<entity name>{tuple delimiter}<entity type>{tuple delimiter}<entity description> 2."
+  }
+ },
+ "claim-2091~entity": {
+  "answer": {
+   "id": "entity",
+   "label": "Entity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_4380228f19a8a4e9",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 31,
+   "quote": "[78] develop a data rebalancing mechanism to ensure that each entity relevant to a question has an equal opportunity of being represented while also highlighting recent significant discoveries."
+  }
+ },
+ "claim-2787~entity": {
+  "answer": {
+   "id": "entity",
+   "label": "Entity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_e249a02054eac506",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 30,
+   "quote": "Building a knowledge graph typically involves two key steps: \u2013 Entity Extraction: This step involves identifying and extracting key entities from the text, such as domain-specific terms (e.g., chemical compounds, genes)."
+  }
+ },
+ "claim-4421~retrieve": {
+  "answer": {
+   "id": "retrieve",
+   "label": "retrieve"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_1a403bc7844bef45",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 21,
+   "quote": "(from gpt4 alpaca) Output [ Retrieve =Yes]<p>Computer memory Computer memory \u2013 In computing, memory refers to the computer hardware integrated circuits that store information for immediate use in a computer; it is synonymous with the term"
+  }
+ },
+ "claim-4550~retrieve": {
+  "answer": {
+   "id": "retrieve",
+   "label": "retrieve"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_8b1f20e5f517a2ad",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 17,
+   "quote": "As a result, we collected 1,2594 for Retrieve , 11,181 for ISSUP , 19,317 for relevance, 3,831 for utility."
+  }
+ },
+ "claim-4585~retrieve": {
+  "answer": {
+   "id": "retrieve",
+   "label": "retrieve"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_b9371cfca242c918",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 6,
+   "quote": "SELF-RAG dynamically decides when to retrieve text passages by predicting Retrieve ."
+  }
+ },
+ "claim-4586~retrieve": {
+  "answer": {
+   "id": "retrieve",
+   "label": "retrieve"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_b9371cfca242c918",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 6,
+   "quote": "Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3)."
+  }
+ },
+ "claim-4620~retrieve": {
+  "answer": {
+   "id": "retrieve",
+   "label": "retrieve"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_c42c8ef441030d1b",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 16,
+   "quote": "\u2022 Retrieval-on-demand ( Retrieve ): Given an input and previous-step generation (if applicable), an LM determines whether the continuation requires factual grounding."
+  }
+ },
+ "claim-1371~retrieval_augmented": {
+  "answer": {
+   "id": "retrieval_augmented",
+   "label": "retrieval-augmented"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_63a9d3059dc5fc6d",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "In-context retrieval-augmented lan- guage models."
+  }
+ },
+ "claim-1372~retrieval_augmented": {
+  "answer": {
+   "id": "retrieval_augmented",
+   "label": "retrieval-augmented"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_63a9d3059dc5fc6d",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "REPLUG: retrieval-augmented black-box language models."
+  }
+ },
+ "claim-3372~relevance": {
+  "answer": {
+   "id": "relevance",
+   "label": "Relevance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_bcf8892d3cc03b86",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 3,
+   "quote": "A retrieval evaluator is constructed to evaluate the relevance of the retrieved documents to the input, and estimate a confidence degree based on which different knowledge retrieval actions of {Correct, Incorrect, Ambiguous} can be"
+  }
+ },
+ "claim-4550~relevance": {
+  "answer": {
+   "id": "relevance",
+   "label": "Relevance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_8b1f20e5f517a2ad",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 17,
+   "quote": "As a result, we collected 1,2594 for Retrieve , 11,181 for ISSUP , 19,317 for relevance, 3,831 for utility."
+  }
+ },
+ "claim-4694~relevance": {
+  "answer": {
+   "id": "relevance",
+   "label": "Relevance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_fead0595059e0df0",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 17,
+   "quote": "We found our assessments show high agreement with GPT-4 predictions, especially for relevance (95%), retrieval necessity (95%), and the degree of support (90%)."
+  }
+ },
+ "claim-780~relevance": {
+  "answer": {
+   "id": "relevance",
+   "label": "Relevance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_1308fdf0c0219e76",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 12,
+   "quote": "For unlabeled content, the evaluation encompasses the faithfulness, relevance, and non-harmfulness of the generated answers."
+  }
+ },
+ "claim-1011~retriever": {
+  "answer": {
+   "id": "retriever",
+   "label": "retriever"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_def28a5af43c8e23",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 7,
+   "quote": "Coarse-grained retrieval units theoretically can provide more relevant information for the problem, but they may also contain redundant content, which could distract the retriever and language models in downstream tasks [50], [87]."
+  }
+ },
+ "claim-1012~retriever": {
+  "answer": {
+   "id": "retriever",
+   "label": "retriever"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_def28a5af43c8e23",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 7,
+   "quote": "GenRead [13] replaces the retriever with an LLM generator, finding that LLM-generated contexts often contain more accurate answers due to better alignment with the pre-training objectives of causal language modeling."
+  }
+ },
+ "claim-1050~retriever": {
+  "answer": {
+   "id": "retriever",
+   "label": "retriever"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f3bfbf66a31a30d7",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 9,
+   "quote": "BGM [26] keeps the retriever and LLM fixed,and trains a bridge Seq2Seq model in between."
+  }
+ },
+ "claim-1051~retriever": {
+  "answer": {
+   "id": "retriever",
+   "label": "retriever"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f3bfbf66a31a30d7",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 9,
+   "quote": "task capabilities of LLM, UP- RISE [20] trained a lightweight prompt retriever that can automatically retrieve prompts from a pre-built prompt pool that are suitable for a given zero-shot task input."
+  }
+ },
+ "claim-1700~retriever": {
+  "answer": {
+   "id": "retriever",
+   "label": "retriever"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_0178f8d07a48f05b",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 52,
+   "quote": "Evaluating each component, such as Graph Construction, Retriever, Organizer, and Generator, requires specific designs suited to their unique roles."
+  }
+ },
+ "claim-10~chat_gpt": {
+  "answer": {
+   "id": "chat_gpt",
+   "label": "GPT-3.5-Turbo"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_0c84e90b4e36766f",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 10,
+   "quote": "Evaluating chatgpt\u2019s information extraction capabilities: An as- sessment of performance, explainability, calibration, and faithfulness."
+  }
+ },
+ "claim-1033~chat_gpt": {
+  "answer": {
+   "id": "chat_gpt",
+   "label": "GPT-3.5-Turbo"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_edf44178ff442ebf",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 1,
+   "quote": "This early stage was characterized by foundational work aimed at refining pre-training techniques [3]\u2013[5].The subsequent arrival of ChatGPT [6] marked a pivotal moment, with LLM demonstrating powerful in context learning (ICL) capabilities."
+  }
+ },
+ "claim-1064~chat_gpt": {
+  "answer": {
+   "id": "chat_gpt",
+   "label": "GPT-3.5-Turbo"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_06f33e4a99ffa6f0",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 6,
+   "quote": "Additionally, ChatGPT achieves a perfor- mance level comparable to that of monoBERT."
+  }
+ },
+ "claim-1077~chat_gpt": {
+  "answer": {
+   "id": "chat_gpt",
+   "label": "GPT-3.5-Turbo"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_0d1ae267ce14be01",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 18,
+   "quote": "To quantify this behavior, we count the number of times this occurred and find that GPT-4 rejects ranking the most frequently, followed by ChatGPT, while the Davinci model never refused to rank."
+  }
+ },
+ "claim-1080~chat_gpt": {
+  "answer": {
+   "id": "chat_gpt",
+   "label": "GPT-3.5-Turbo"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_105779403d67649e",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 6,
+   "quote": "\u2020On BEIR, we use gpt-4 to re-rank the top-30 passages re-ranked by gpt-3.5-turbo to reduce the cost of calling gpt-4 API."
+  }
+ },
+ "claim-126~hallucination": {
+  "answer": {
+   "id": "hallucination",
+   "label": "unverifiable content"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_66464e94b35d33d6",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 11,
+   "quote": "Hallucination is inevitable: An innate lim- itation of large language models."
+  }
+ },
+ "claim-1416~hallucination": {
+  "answer": {
+   "id": "hallucination",
+   "label": "unverifiable content"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_dea4f805f0d3e387",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 2,
+   "quote": "Recent analy- ses, however, suggest that existing models struggle with detecting hallucination when using standard prompting strategies (Li et al., 2023; Azaria and Mitchell, 2023)."
+  }
+ },
+ "claim-2940~hallucination": {
+  "answer": {
+   "id": "hallucination",
+   "label": "unverifiable content"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_240ad1fccc5b1c3c",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 3,
+   "quote": "We include the null query to assess the generation quality, es- pecially regarding the issue of hallucination."
+  }
+ },
+ "claim-3057~hallucination": {
+  "answer": {
+   "id": "hallucination",
+   "label": "unverifiable content"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_d8059d622c7333bf",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 3,
+   "quote": "We include the null query to assess the generation quality, es- pecially regarding the issue of hallucination."
+  }
+ },
+ "claim-3319~hallucination": {
+  "answer": {
+   "id": "hallucination",
+   "label": "unverifiable content"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_8825789ee01e7893",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "On the contrary, even if a system knows that the existing knowledge cannot solve the problem, but still sticks to the limited knowledge corpus, it will only give a fabricated fact in the end, which is called hallucination.."
+  }
+ },
+ "claim-1037~kg": {
+  "answer": {
+   "id": "kg",
+   "label": "knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f22af6d01a52a8fb",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 5,
+   "quote": "Subsequently, the retrieval source expanded to in- clude semi-structured data (PDF) and structured data (Knowl- edge Graph, KG) for enhancement."
+  }
+ },
+ "claim-1474~kg": {
+  "answer": {
+   "id": "kg",
+   "label": "knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_2e87d0e727d79b2e",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 15,
+   "quote": "Representation learning of large-scale knowledge graphs via entity feature combinations."
+  }
+ },
+ "claim-149~kg": {
+  "answer": {
+   "id": "kg",
+   "label": "knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_8ecf3c454742d1ca",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 4,
+   "quote": "After the LLM makes its choice, the relations are transformed to yield: [\u2018Alan Shepard\u2019, \u2018birthDate\u2019, \u2018Nov 18, 1923\u2019], [\u2018Alan Shepard\u2019, \u2018mission\u2019, \u2018Apollo 14\u2019], which forms our canonicalized KG."
+  }
+ },
+ "claim-156~kg": {
+  "answer": {
+   "id": "kg",
+   "label": "knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_988bcdc059305602",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 4,
+   "quote": "Starting with an empty canonical schema, we examine the open KG triplets, searching for potential consolidation candi- dates through vector similarity and LLM veri- fication."
+  }
+ },
+ "claim-158~kg": {
+  "answer": {
+   "id": "kg",
+   "label": "knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_988bcdc059305602",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 4,
+   "quote": "\u2022 Self Canonicalization: Absent a target schema, the goal is to consolidate semanti- cally similar schema components, standardiz- ing them to a singular representation to stream- line the KG."
+  }
+ },
+ "claim-1095~passage": {
+  "answer": {
+   "id": "passage",
+   "label": "passages"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_17f9d31692820ead",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 14,
+   "quote": "B Instructional Methods on LLMs as Rernaker This paper focus on re-ranking task, given M passages for a query q, the re-ranking aims to use an agent f(\u00b7) to output their ranking results R = (r1, ..., rM), where ri \u2208[1, 2, ..., M] denotes"
+  }
+ },
+ "claim-1154~passage": {
+  "answer": {
+   "id": "passage",
+   "label": "passages"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_48bc281c9f001a06",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 4,
+   "quote": "Using GPT-4 to re-rank passages will greatly increase the latency of the search sys- tem."
+  }
+ },
+ "claim-516~passage": {
+  "answer": {
+   "id": "passage",
+   "label": "passages"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_e2ab10a48622bc45",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 4,
+   "quote": "ial cues.2 Finally, as is done when the hippocampal signal is sent upstream, we aggregate the output PPR node probability over the previously indexed passages and use that to rank them for retrieval."
+  }
+ },
+ "claim-1352~prompt": {
+  "answer": {
+   "id": "prompt",
+   "label": "prompt"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_406b010c9a057b34",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 2,
+   "quote": "Re- markably, strong results can be obtained in this way, although it comes with the limitation of being sensitive to the design of the prompt."
+  }
+ },
+ "claim-2961~evidence": {
+  "answer": {
+   "id": "evidence",
+   "label": "evidence"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_462bed72aeef2868",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 5,
+   "quote": "Table 4 shows the distribution of evidence numbers for each query in the dataset."
+  }
+ },
+ "claim-2975~evidence": {
+  "answer": {
+   "id": "evidence",
+   "label": "evidence"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_5b94f712d4b6975b",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 4,
+   "quote": "These bridge- entities or bridge-topics can be used to link dif- ferent pieces of evidence from which a multi-hop query\u2019s answer is derived."
+  }
+ },
+ "claim-3043~evidence": {
+  "answer": {
+   "id": "evidence",
+   "label": "evidence"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_b42c7060040f6da9",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 5,
+   "quote": "Around 42% of queries can be answered using two pieces of evidence, while approximately 30% and 15% of queries can be answered using three or four pieces of evidence, respectively."
+  }
+ },
+ "claim-3044~evidence": {
+  "answer": {
+   "id": "evidence",
+   "label": "evidence"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_b42c7060040f6da9",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 5,
+   "quote": "of Evidence Needed Count Percentage 0 (Null Query) 301 11.78% 2 1078 42.18% 3 779 30.48% 4 398 15.56% Total 2,556 100.00 % Table 4: The distribution of the number of evidence required to answer multi-hop queries in MultiHop-RAG."
+  }
+ },
+ "claim-3045~evidence": {
+  "answer": {
+   "id": "evidence",
+   "label": "evidence"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_b634db6727fa46c3",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 11,
+   "quote": "<News> <evidence> Table 7: Claim Generation Prompting A multi-hop question is a query requiring multiple inferential leaps or accessing several pieces of information from different locations or sources to arrive at an answer."
+  }
+ },
+ "claim-1404~accuracy": {
+  "answer": {
+   "id": "accuracy",
+   "label": "accuracy"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_b3d41f0162312809",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 5,
+   "quote": "0.54 0.40 0.52 Table 1: Agreement with human annotators in pairwise comparisons of faithfulness, answer relevance and con- text relevance, using the WikEval dataset (accuracy)."
+  }
+ },
+ "claim-1921~accuracy": {
+  "answer": {
+   "id": "accuracy",
+   "label": "accuracy"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_27912289ef765b6f",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 50,
+   "quote": "accuracy, diversity, and novelty remains an open-ended challenge."
+  }
+ },
+ "claim-2239~accuracy": {
+  "answer": {
+   "id": "accuracy",
+   "label": "accuracy"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_5ca9edc552f3ed5e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 50,
+   "quote": "Balancing retrieved content\u2019s accuracy, diversity, and novelty remains an open-ended challenge."
+  }
+ },
+ "claim-2240~accuracy": {
+  "answer": {
+   "id": "accuracy",
+   "label": "accuracy"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_5ca9edc552f3ed5e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 50,
+   "quote": "Beyond delivering accurate content to ensure high utility\u2014such as achieving high question-answering accuracy\u2014there may also be a demand for diversity and novelty in the retrieved information."
+  }
+ },
+ "claim-3252~accuracy": {
+  "answer": {
+   "id": "accuracy",
+   "label": "accuracy"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_0c5b2b8dc541c2a5",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 8,
+   "quote": "A, 14.9% FactScore on Biography, 36.6% accuracy on PubHealth, and 15.4% accuracy on Arc-Challenge when based on SelfRAG-LLaMA2- 7b, as well as by margins of 4.4% accuracy on PopQA, 2.8% FactScore on Biography, and 10.3% on Arc-Challenge"
+  }
+ },
+ "claim-3583~application": {
+  "answer": {
+   "id": "application",
+   "label": "applications"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_e7bd98d8333ef3fb",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "A survey on knowledge graphs: Representation, acquisition, and applications."
+  }
+ },
+ "claim-3584~application": {
+  "answer": {
+   "id": "application",
+   "label": "applications"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_e7bd98d8333ef3fb",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "Financial knowl- edge graphs: A novel approach to empower data-driven financial applications."
+  }
+ },
+ "claim-1429~relationship": {
+  "answer": {
+   "id": "relationship",
+   "label": "relationships"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_02012b4621581282",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 4,
+   "quote": "3.1.2 Text Chunks \u2192Entities & Relationships In this step, the LLM is prompted to extract instances of important entities and the relationships between the entities from a given chunk."
+  }
+ },
+ "claim-1430~relationship": {
+  "answer": {
+   "id": "relationship",
+   "label": "relationships"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_02012b4621581282",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 4,
+   "quote": "Additionally, the LLM generates short descriptions for the entities and relationships."
+  }
+ },
+ "claim-1565~relationship": {
+  "answer": {
+   "id": "relationship",
+   "label": "relationships"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_88d531172afa0e68",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 3,
+   "quote": "This graph index spans nodes (e.g., entities), edges (e.g., relationships), and covariates (e.g., claims) that have been detected, extracted, and summarized by LLM prompts tailored to the domain of the dataset."
+  }
+ },
+ "claim-3528~relationship": {
+  "answer": {
+   "id": "relationship",
+   "label": "relationships"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_860706e994d4cd81",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 1,
+   "quote": "KGs have become a pivotal technology in data management and analysis, provid- ing a structured way to represent knowledge through entities and relationships and have been widely adopted in various domains, including search engines,"
+  }
+ },
+ "claim-3793~relationship": {
+  "answer": {
+   "id": "relationship",
+   "label": "relationships"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_d978f083702cad8f",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 13,
+   "quote": "Next, the prompt identifies relationships between these entities, offering explanations, assigning strength scores, and summarizing the relationships using high-level keywords."
+  }
+ },
+ "claim-1020~quality": {
+  "answer": {
+   "id": "quality",
+   "label": "QUALITY"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_e3f7d42ef53cf9be",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 19,
+   "quote": "He et al., \u201cQuality: Question an- swering with long input texts, yes!\u201d arXiv preprint arXiv:2112.08608, 2021."
+  }
+ },
+ "claim-224~extract": {
+  "answer": {
+   "id": "extract",
+   "label": "Extract"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_e69bc461a720c1b6",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 2,
+   "quote": "the Extract subtask leverages recent findings that LLMs are effective open information extractors (Li et al., 2023; Han et al., 2023) \u2014 they can extract semantically correct and meaningful triplets."
+  }
+ },
+ "claim-1067~gpt4": {
+  "answer": {
+   "id": "gpt4",
+   "label": "gpt-4-0314"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_08bad44f50df2e47",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 10,
+   "quote": "Confirmed: the new bing runs on openai\u2019s gpt-4."
+  }
+ },
+ "claim-1074~gpt4": {
+  "answer": {
+   "id": "gpt4",
+   "label": "gpt-4-0314"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_094839f1a26f99da",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 9,
+   "quote": "imitations The limitations of this work include the main analysis for OpenAI ChatGPT and GPT-4, which are proprietary models that are not open-source."
+  }
+ },
+ "claim-1077~gpt4": {
+  "answer": {
+   "id": "gpt4",
+   "label": "gpt-4-0314"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_0d1ae267ce14be01",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 18,
+   "quote": "To quantify this behavior, we count the number of times this occurred and find that GPT-4 rejects ranking the most frequently, followed by ChatGPT, while the Davinci model never refused to rank."
+  }
+ },
+ "claim-1080~gpt4": {
+  "answer": {
+   "id": "gpt4",
+   "label": "gpt-4-0314"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_105779403d67649e",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 6,
+   "quote": "\u2020On BEIR, we use gpt-4 to re-rank the top-30 passages re-ranked by gpt-3.5-turbo to reduce the cost of calling gpt-4 API."
+  }
+ },
+ "claim-1081~gpt4": {
+  "answer": {
+   "id": "gpt4",
+   "label": "gpt-4-0314"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_12e8858fc6e24b99",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 18,
+   "quote": "GPT-4 also slightly outperforms ChatGPT in terms of the RBO metric."
+  }
+ },
+ "claim-1942~relation": {
+  "answer": {
+   "id": "relation",
+   "label": "relation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_29189c9577013eb6",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 22,
+   "quote": "To supplement their knowledge, they also retrieve all triples with (a) the same relation as the query and (b) all triples that contain the entity h in the query."
+  }
+ },
+ "claim-1658~chunk": {
+  "answer": {
+   "id": "chunk",
+   "label": "Chunks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f0465cc559c165ba",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 6,
+   "quote": "Community summaries are randomly shuffled and divided into chunks of pre-specified token size."
+  }
+ },
+ "claim-1661~chunk": {
+  "answer": {
+   "id": "chunk",
+   "label": "Chunks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f0465cc559c165ba",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 6,
+   "quote": "This ensures relevant information is distributed across chunks, rather than concentrated (and potentially lost) in a single context window."
+  }
+ },
+ "claim-2764~chunk": {
+  "answer": {
+   "id": "chunk",
+   "label": "Chunks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_d971c5ad15387e76",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 19,
+   "quote": "Graph-RAG [98] first divides each document into chunks and then uses an LLM to detect all the entities in each chunk, including their name, type, and description."
+  }
+ },
+ "claim-3120~chunk": {
+  "answer": {
+   "id": "chunk",
+   "label": "Chunks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_366da0f5b6260812",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 7,
+   "quote": "For the number of chunks, we tested integer values between 2 and 10 to observe performance changes with different chunk sizes."
+  }
+ },
+ "claim-3121~chunk": {
+  "answer": {
+   "id": "chunk",
+   "label": "Chunks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_366da0f5b6260812",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 7,
+   "quote": "If set to 1, one sentence overlaps between consecutive chunks; if set to 0, there is no overlap."
+  }
+ },
+ "claim-3959~summarization": {
+  "answer": {
+   "id": "summarization",
+   "label": "Summarization"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_391cda0c406e54df",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 4,
+   "quote": "contradiction arises between the generated con- tent and task input, the hallucination is in line with the conventional definition in specific NLG tasks, such as machine translation (Lee et al., 2019) and summarization (Maynez et al.,"
+  }
+ },
+ "claim-4065~summarization": {
+  "answer": {
+   "id": "summarization",
+   "label": "Summarization"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_600be5ade9ca537e",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 5,
+   "quote": "Note that before the advent of the LLM era, language models were already able to generate information that was indistinguishable from reality, but often only in fields such as trans- lation and summarization (Ji et al., 2023)."
+  }
+ },
+ "claim-4173~summarization": {
+  "answer": {
+   "id": "summarization",
+   "label": "Summarization"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_937fa46b8c9725a3",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 35,
+   "quote": "Qafacteval: Im- proved qa-based factual consistency evaluation for summarization."
+  }
+ },
+ "claim-4311~summarization": {
+  "answer": {
+   "id": "summarization",
+   "label": "Summarization"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_de4fcaa4702cfb28",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 35,
+   "quote": "teval: Im- proved qa-based factual consistency evaluation for summarization."
+  }
+ },
+ "claim-4563~instruction": {
+  "answer": {
+   "id": "instruction",
+   "label": "instruction"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_9f9f8e3c98bd1183",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 25,
+   "quote": "Instructions Given an instruction, please make a judgment on whether finding some external documents from the web (e.g., Wikipedia) helps to generate a better response."
+  }
+ },
+ "claim-4564~instruction": {
+  "answer": {
+   "id": "instruction",
+   "label": "instruction"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_9f9f8e3c98bd1183",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 25,
+   "quote": "[No] Explanation This instruction asks us to write a short story, which does not require external evidence to verify."
+  }
+ },
+ "claim-4565~instruction": {
+  "answer": {
+   "id": "instruction",
+   "label": "instruction"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_9f9f8e3c98bd1183",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 25,
+   "quote": "[No] Explanation This instruction is asking about some personal experience and thus it does not require one to find some external documents."
+  }
+ },
+ "claim-3825~pre_training": {
+  "answer": {
+   "id": "pre_training",
+   "label": "pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_07a043c774a9ccea",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 12,
+   "quote": "For example, the pre-training data of GPT-3 (Brown et al., 2020) is cleaned by using similarity to a range of high-quality reference corpora."
+  }
+ },
+ "claim-3885~pre_training": {
+  "answer": {
+   "id": "pre_training",
+   "label": "pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_221d712645942a57",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 13,
+   "quote": "5.2.1 Mitigating hallucination introduced in pre-training during SFT The SFT process, as a critical step in aligning LLMs with human preference, can contribute to mitigating hallucinations that originate from the pre-training phase."
+  }
+ },
+ "claim-3887~pre_training": {
+  "answer": {
+   "id": "pre_training",
+   "label": "pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_221d712645942a57",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 13,
+   "quote": "During pre-training, LLMs are exposed to vast and diverse corpora, which may include inaccurate, outdated, or inconsis- tent information."
+  }
+ },
+ "claim-3924~pre_training": {
+  "answer": {
+   "id": "pre_training",
+   "label": "pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_30bdbffe48567bea",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 3,
+   "quote": "Subsequently, we explore the source of hallucinations and discuss mitigation strategies throughout the life cycle of LLMs (pre-training\u2192SFT\u2192RLHF\u2192inference)."
+  }
+ },
+ "claim-4013~pre_training": {
+  "answer": {
+   "id": "pre_training",
+   "label": "pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_4e911b2558bb824f",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 5,
+   "quote": "These pre-training corpora are automatically collected from the web and often contain a significant amount of fabricated, outdated, or biased informa- tion (Penedo et al., 2023)."
+  }
+ },
+ "claim-1636~embedding": {
+  "answer": {
+   "id": "embedding",
+   "label": "Embeddings"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_d21e4f462f78c5c4",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 3,
+   "quote": "tural language text corpora include rule- matching, statistical pattern recognition, clustering, and embeddings (Etzioni et al., 2004; Kim et al., 2016; Mooney and Bunescu, 2005; Yates et al., 2007)."
+  }
+ },
+ "claim-1637~embedding": {
+  "answer": {
+   "id": "embedding",
+   "label": "Embeddings"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_d44d409d187b9198",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 3,
+   "quote": "2.2 Using Knowledge Graphs with LLMs and RAG Approaches to knowledge graph extraction from natural language text corpora include rule- matching, statistical pattern recognition, clustering, and embeddings (Etzioni et al., 2004; Kim et al.,"
+  }
+ },
+ "claim-3217~embedding": {
+  "answer": {
+   "id": "embedding",
+   "label": "Embeddings"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_cf1b7dfeca5d2412",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "The impact of chunk- ing strategy was often overshadowed by other fac- tors, such as the quality of embeddings, especially when computational resources are limited or when working with standard document structures."
+  }
+ },
+ "claim-3218~embedding": {
+  "answer": {
+   "id": "embedding",
+   "label": "Embeddings"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_cf1b7dfeca5d2412",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "This approach results in sentence embeddings that lack contextual information."
+  }
+ },
+ "claim-63~embedding": {
+  "answer": {
+   "id": "embedding",
+   "label": "Embeddings"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_35b574e0815913c2",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 4,
+   "quote": "We start by vectorizing the definitions of each schema component using a sentence transformer to create embeddings."
+  }
+ },
+ "claim-1750~text_generation_from_knowledge_graph": {
+  "answer": {
+   "id": "text_generation_from_knowledge_graph",
+   "label": "Text generation from knowledge graphs"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_05f1ee452dd6077a",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 66,
+   "quote": "Text generation from knowledge graphs with graph transformers."
+  }
+ },
+ "claim-1785~graph_rag_system": {
+  "answer": {
+   "id": "graph_rag_system",
+   "label": "GraphRAG systems"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_0a2da7c6dc4287d0",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 51,
+   "quote": "Addressing these issues requires a deeper focus on the interplay 51 between structural integrity and the robustness of GraphRAG systems, paving the way for robust performance in tasks requiring complex reasoning and planning."
+  }
+ },
+ "claim-2816~graph_rag_model": {
+  "answer": {
+   "id": "graph_rag_model",
+   "label": "GraphRAG model"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_ecafb67d36b49343",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 31,
+   "quote": "5.5 Generator The generator is a core component of the GraphRAG model and is responsible for producing the final output by integrating retrieved evidence with the input data."
+  }
+ },
+ "claim-100~information_retrieval": {
+  "answer": {
+   "id": "information_retrieval",
+   "label": "information retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_54f654d3ebc5bda8",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 10,
+   "quote": "Word embedding based gen- eralized language model for information retrieval."
+  }
+ },
+ "claim-1092~information_retrieval": {
+  "answer": {
+   "id": "information_retrieval",
+   "label": "information retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_17925a8d15c68611",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 3,
+   "quote": "3 Passage Re-Ranking with LLMs Ranking is the core task in information retrieval ap- plications, such as ad-hoc search (Lin et al., 2020; Fan et al., 2022), Web search (Zou et al., 2021), and open-domain question answering (Karpukhin et"
+  }
+ },
+ "claim-1114~information_retrieval": {
+  "answer": {
+   "id": "information_retrieval",
+   "label": "information retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_354324e14cdcbd8f",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 3,
+   "quote": "3 Passage Re-Ranking with LLMs Ranking is the core task in information retrieval ap- plications, such as ad-hoc search (Lin et al., 2020; Fan et al., 2022), Web search (Zou et al., 2021), and ope"
+  }
+ },
+ "claim-1141~information_retrieval": {
+  "answer": {
+   "id": "information_retrieval",
+   "label": "information retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_3d4a835702dbe7ce",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 1,
+   "quote": "Therefore, there is a growing interest in leveraging the zero-shot language understanding and reason- ing capabilities of LLMs in the IR area."
+  }
+ },
+ "claim-1156~information_retrieval": {
+  "answer": {
+   "id": "information_retrieval",
+   "label": "information retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_5ec87c15e9de1cbb",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 9,
+   "quote": "In- pars: Data augmentation for information retrieval using large language models."
+  }
+ },
+ "claim-3641~retrieval_augmented_generation_rag": {
+  "answer": {
+   "id": "retrieval_augmented_generation_rag",
+   "label": "Retrieval-Augmented Generation (RAG)"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_23bd5eeccc012f74",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 10,
+   "quote": "6 CONCLUSION This work introduces an advancement in Retrieval-Augmented Generation (RAG) through the integration of a graph-based indexing approach that enhances both efficiency and comprehension in information retrieval."
+  }
+ },
+ "claim-3244~corrective_retrieval_augmented_generation": {
+  "answer": {
+   "id": "corrective_retrieval_augmented_generation",
+   "label": "Corrective retrieval augmented generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_07ea5d32230087ac",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 10,
+   "quote": "Corrective Retrieval Augmented Generation is proposed to improve the robustness of generation."
+  }
+ },
+ "claim-3247~corrective_retrieval_augmented_generation": {
+  "answer": {
+   "id": "corrective_retrieval_augmented_generation",
+   "label": "Corrective retrieval augmented generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_07ea5d32230087ac",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 10,
+   "quote": "With the further leverage of web search and optimized knowledge utilization, CRAG has significantly improved the ability of automatic self-correction and efficient utilization of retrieved documents."
+  }
+ },
+ "claim-3255~corrective_retrieval_augmented_generation": {
+  "answer": {
+   "id": "corrective_retrieval_augmented_generation",
+   "label": "Corrective retrieval augmented generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_0c5b2b8dc541c2a5",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 8,
+   "quote": "These results demonstrated the adaptability of CRAG which is plug-and-play and can be implemented into RAG-based approaches."
+  }
+ },
+ "claim-3256~corrective_retrieval_augmented_generation": {
+  "answer": {
+   "id": "corrective_retrieval_augmented_generation",
+   "label": "Corrective retrieval augmented generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_0c5b2b8dc541c2a5",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 8,
+   "quote": "These results verified the consistent effectiveness of CRAG."
+  }
+ },
+ "claim-3257~corrective_retrieval_augmented_generation": {
+  "answer": {
+   "id": "corrective_retrieval_augmented_generation",
+   "label": "Corrective retrieval augmented generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_0f69dd303c0dee26",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "5 Experiments We conducted experiments to extensively demon- strate CRAG\u2019s adaptability to RAG-based ap- proaches and its generalizability across both short- and long-form generation tasks."
+  }
+ },
+ "claim-1117~dense_retrieval": {
+  "answer": {
+   "id": "dense_retrieval",
+   "label": "dense retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_356f98a2884b9cf3",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 2,
+   "quote": "InPars (Bonifacio et al., 2022) gener- ates pseudo-queries using GPT-3, and Promptaga- tor (Dai et al., 2023) proposes a few-shot dense retrieval to leverage a few demonstrations from the target domain for pseudo-query generation."
+  }
+ },
+ "claim-3687~dense_retrieval": {
+  "answer": {
+   "id": "dense_retrieval",
+   "label": "dense retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_4eb4aeeae776b8e6",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 11,
+   "quote": "Precise zero-shot dense retrieval without relevance labels."
+  }
+ },
+ "claim-4717~dense_retrieval": {
+  "answer": {
+   "id": "dense_retrieval",
+   "label": "dense retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_2830a2a1c4514610",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 2,
+   "quote": "The popularity of dense retrieval can be partially attributed to the rich and successful research in very ef\ufb01cient minimum inner product search (MIPS) at very large (billion) scales (Johnson et al., 2017)."
+  }
+ },
+ "claim-4719~dense_retrieval": {
+  "answer": {
+   "id": "dense_retrieval",
+   "label": "dense retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_29453fca0d44f20d",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 3,
+   "quote": "3 Methodology In this section, we \ufb01rst formally de\ufb01ne the prob- lem of (zero-shot) dense retrieval."
+  }
+ },
+ "claim-4720~dense_retrieval": {
+  "answer": {
+   "id": "dense_retrieval",
+   "label": "dense retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_29453fca0d44f20d",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 3,
+   "quote": "3.1 Preliminaries Dense retrieval models similarity between query and document with inner product similarity."
+  }
+ },
+ "claim-2190~document_retrieval": {
+  "answer": {
+   "id": "document_retrieval",
+   "label": "document retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_57e0ba6b88f8a81e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 24,
+   "quote": "\u2022 Document Retrieval: Document retrieval aims to find a list of documents relevant to a given query, which is a key task in Information Retrieval (IR)."
+  }
+ },
+ "claim-3142~document_retrieval": {
+  "answer": {
+   "id": "document_retrieval",
+   "label": "document retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_523725d1f0094d60",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 2,
+   "quote": "3 Experiments In the absence of ground-truth chunk data, we de- signed three experiments to indirectly assess the quality of each chunker: document retrieval, evi- dence retrieval, and answer generation."
+  }
+ },
+ "claim-3144~document_retrieval": {
+  "answer": {
+   "id": "document_retrieval",
+   "label": "document retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_5ce0cc847e090e6c",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 8,
+   "quote": "C Document Stitching and Dataset Choices Most document retrieval datasets consist of short documents (fewer than 20 sentences), which are inadequate for effectively evaluating chunkers."
+  }
+ },
+ "claim-3184~document_retrieval": {
+  "answer": {
+   "id": "document_retrieval",
+   "label": "document retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_9e8e482cc4774faa",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 10,
+   "quote": "No clear trend for \u03bb was observed, indicating that shifting the weight between semantic and po- sitional information does not significantly affect document retrieval."
+  }
+ },
+ "claim-3185~document_retrieval": {
+  "answer": {
+   "id": "document_retrieval",
+   "label": "document retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_9e8e482cc4774faa",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 10,
+   "quote": "This suggests two possibilities: (1) Sentences close in position are often seman- tically similar; (2) Chunks with non-contiguous, yet semantically similar sentences do not enhance document retrieval."
+  }
+ },
+ "claim-3114~evidence_retrieval": {
+  "answer": {
+   "id": "evidence_retrieval",
+   "label": "Evidence retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_267bb9040788f52b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "4.3 Evidence Retrieval As shown in Table 2, Fixed-size Chunker per- formed best on 3 out of 5 datasets, indicating a slight edge in capturing core evidence sentences."
+  }
+ },
+ "claim-3123~evidence_retrieval": {
+  "answer": {
+   "id": "evidence_retrieval",
+   "label": "Evidence retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_3af9b0854c8045f7",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 3,
+   "quote": "3.2 Evidence Retrieval Here we evaluate chunkers at a finer granularity than the previous experiment by measuring their abilities to locate evidence sentences."
+  }
+ },
+ "claim-3152~evidence_retrieval": {
+  "answer": {
+   "id": "evidence_retrieval",
+   "label": "Evidence retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_62e78ed097a9e5e1",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 1,
+   "quote": "Therefore, we design an indirect evaluation using three proxy tasks: (1) doc- ument retrieval, measuring the ability to identify relevant documents; (2) evidence retrieval, mea- suring the ability to locate ground-truth evidence; and (3)"
+  }
+ },
+ "claim-3157~evidence_retrieval": {
+  "answer": {
+   "id": "evidence_retrieval",
+   "label": "Evidence retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_7b79964ed96d7d7b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "5 Conclusion In this paper, we evaluated semantic and fixed-size chunking strategies in RAG systems across docu- ment retrieval, evidence retrieval, and answer gen- eration."
+  }
+ },
+ "claim-3171~evidence_retrieval": {
+  "answer": {
+   "id": "evidence_retrieval",
+   "label": "Evidence retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_8eb1cce3ff0dd0c1",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 10,
+   "quote": "As seen in Figure 3, this leads to a decrease in precision and an increase in recall for document and evidence retrieval, respectively, similar to the single-linkage case."
+  }
+ },
+ "claim-2929~retrieval_performance": {
+  "answer": {
+   "id": "retrieval_performance",
+   "label": "retrieval performance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_18d8d123cda424cd",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 10,
+   "quote": "Each query is paired with a ground-truth answer for the evaluation of generation accuracy, while multiple pieces of supporting evidence are included for assessing retrieval performance."
+  }
+ },
+ "claim-3090~retrieval_performance": {
+  "answer": {
+   "id": "retrieval_performance",
+   "label": "retrieval performance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_10f57c2260ce3d16",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 9,
+   "quote": "E.2 Impact of Embedding Models The choice of embedding model significantly af- fected retrieval performance (See Table 6 for tested models)."
+  }
+ },
+ "claim-3381~retrieval_performance": {
+  "answer": {
+   "id": "retrieval_performance",
+   "label": "retrieval performance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_c43a4fceb72512bc",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "It can be seen that the generation performance of Self-RAG and Self-CRAG dropped as the retrieval performance dropped, indicating that the generator relied heavily on the quality of the retriever."
+  }
+ },
+ "claim-3417~retrieval_performance": {
+  "answer": {
+   "id": "retrieval_performance",
+   "label": "retrieval performance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_f30a811494daff31",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "Furthermore, as the retrieval performance dropped, the generation performance of Self-CRAG dropped more slightly than that of Self-RAG."
+  }
+ },
+ "claim-3418~retrieval_performance": {
+  "answer": {
+   "id": "retrieval_performance",
+   "label": "retrieval performance"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_f30a811494daff31",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "It can be seen that the generation performance of Self-RAG and Self-CRAG dropped as the retrieval performance dropped, indicating that the generator relied heavily on the quality of the retriever."
+  }
+ },
+ "claim-1747~realm": {
+  "answer": {
+   "id": "realm",
+   "label": "Retrieval augmented language model pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_05d1494b2385032c",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 87,
+   "quote": "Realm: Rag-driven enhancement of multimodal electronic health records analysis via large language models."
+  }
+ },
+ "claim-2629~realm": {
+  "answer": {
+   "id": "realm",
+   "label": "Retrieval augmented language model pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_bebe768df78f79bd",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 87,
+   "quote": "Realm: Rag-driven enhancement of multimodal electronic health records analysis via large language models."
+  }
+ },
+ "claim-2897~realm": {
+  "answer": {
+   "id": "realm",
+   "label": "Retrieval augmented language model pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_fb198057dee65e19",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 21,
+   "quote": "While REALM only retrieves the entities themselves, EMERGE further retrieves the 1-hop subgraph around each entity."
+  }
+ },
+ "claim-3504~realm": {
+  "answer": {
+   "id": "realm",
+   "label": "Retrieval augmented language model pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_60af1dfe86016485",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "Realm: Retrieval-augmented language model pre-training."
+  }
+ },
+ "claim-595~realm": {
+  "answer": {
+   "id": "realm",
+   "label": "Retrieval augmented language model pre-training"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "23e3249e9a1e7541_c_36c45e97d75ee2f7",
+   "docId": "23e3249e9a1e7541",
+   "docTitle": "2005.11401_Retrieval_Augmented_Generation_for_Knowledge_Intensive_NLP_Tasks",
+   "page": 5,
+   "quote": "Unlike REALM and T5+SSM, RAG enjoys strong results without expensive, specialized \u201csalient span masking\u201d pre-training [20]."
+  }
+ },
+ "claim-1071~passage_retrieval": {
+  "answer": {
+   "id": "passage_retrieval",
+   "label": "passage retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_094839f1a26f99da",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 9,
+   "quote": "Consequently, the upper bound of the ranking effect is contingent upon the recall of the initial passage retrieval."
+  }
+ },
+ "claim-1073~passage_retrieval": {
+  "answer": {
+   "id": "passage_retrieval",
+   "label": "passage retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_094839f1a26f99da",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 9,
+   "quote": "Therefore, there is a need for fur- ther exploration into effectively utilizing LLMs to enhance the first-stage retrieval and improve the ro- bustness of LLMs in relation to the initial passage retrieval."
+  }
+ },
+ "claim-3265~retrieval_evaluator": {
+  "answer": {
+   "id": "retrieval_evaluator",
+   "label": "retrieval evaluator"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_237a7b969993b98d",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 15,
+   "quote": "B.3 Implementation Details Retrieval Evaluator: We fine-tuned the retrieval evaluator based on the lightweight T5-large (Raffel et al., 2020) pre-trained model."
+  }
+ },
+ "claim-3281~retrieval_evaluator": {
+  "answer": {
+   "id": "retrieval_evaluator",
+   "label": "retrieval evaluator"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_3a17d9e8221309cc",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 5,
+   "quote": "Discussion Preliminary experiments of employ- ing only the Correct and Incorrect actions show that the efficacy of CRAG was easily affected by the accuracy of the retrieval evaluator."
+  }
+ },
+ "claim-3284~retrieval_evaluator": {
+  "answer": {
+   "id": "retrieval_evaluator",
+   "label": "retrieval evaluator"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_402ce444df1ce1dd",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 4,
+   "quote": "We utilized that as the relevance signals for fine-tuning the retrieval evaluator.2 On the other hand, the negative samples for fine-tuning were all randomly sampled from the retrieval results, which are rather similar to the input query"
+  }
+ },
+ "claim-3296~retrieval_evaluator": {
+  "answer": {
+   "id": "retrieval_evaluator",
+   "label": "retrieval evaluator"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_582cfe0b42fdd34e",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 10,
+   "quote": "While we primarily proposed to improve the RAG framework from a corrective perspective and CRAG can be seamlessly coupled with various RAG-based approaches, fine-tuning an external retrieval evaluator is inevitable."
+  }
+ },
+ "claim-3313~retrieval_evaluator": {
+  "answer": {
+   "id": "retrieval_evaluator",
+   "label": "retrieval evaluator"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_7dabedc7c1019ba1",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 5,
+   "quote": "Discussion Preliminary experiments of employ- ing only the Correct and Incorrect actions show that the efficacy of CRAG was easily affected by the accuracy of the retrieval evaluator."
+  }
+ },
+ "claim-1703~retrieval_augmented_large_language_model": {
+  "answer": {
+   "id": "retrieval_augmented_large_language_model",
+   "label": "retrieval-augmented large language models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_01d4dd4bebdbc352",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 64,
+   "quote": "Adaptive-rag: Learning to adapt retrieval-augmented large language models through question complexity."
+  }
+ },
+ "claim-1705~retrieval_augmented_large_language_model": {
+  "answer": {
+   "id": "retrieval_augmented_large_language_model",
+   "label": "retrieval-augmented large language models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_01d4dd4bebdbc352",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 64,
+   "quote": "Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models."
+  }
+ },
+ "claim-2358~retrieval_augmented_large_language_model": {
+  "answer": {
+   "id": "retrieval_augmented_large_language_model",
+   "label": "retrieval-augmented large language models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_7682a0fa5ae15e34",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 59,
+   "quote": "A survey on rag meeting llms: Towards retrieval-augmented large language models."
+  }
+ },
+ "claim-2599~retrieval_augmented_large_language_model": {
+  "answer": {
+   "id": "retrieval_augmented_large_language_model",
+   "label": "retrieval-augmented large language models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_b7740dcbadd981b1",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 63,
+   "quote": "Improving medical reasoning through retrieval and self-reflection with retrieval-augmented large language models."
+  }
+ },
+ "claim-2847~retrieval_augmented_large_language_model": {
+  "answer": {
+   "id": "retrieval_augmented_large_language_model",
+   "label": "retrieval-augmented large language models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_f1d3489531fe025e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 67,
+   "quote": "Re-search for the truth: Multi-round retrieval-augmented large language models are strong fake news detectors."
+  }
+ },
+ "claim-2377~retrieval_augmentation": {
+  "answer": {
+   "id": "retrieval_augmentation",
+   "label": "retrieval augmentation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_7b22c571da30ca60",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 78,
+   "quote": "Astute rag: Over- coming imperfect retrieval augmentation and knowledge conflicts for large language models."
+  }
+ },
+ "claim-2801~retrieval_augmentation": {
+  "answer": {
+   "id": "retrieval_augmentation",
+   "label": "retrieval augmentation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_e5f6365cca2f6ae1",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 81,
+   "quote": "Ram-ehr: Retrieval augmentation meets clinical predictions on electronic health records."
+  }
+ },
+ "claim-3408~retrieval_augmentation": {
+  "answer": {
+   "id": "retrieval_augmentation",
+   "label": "retrieval augmentation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_dfb346c8c9e667f9",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 12,
+   "quote": "Retrieval augmentation reduces hallucination in conversation."
+  }
+ },
+ "claim-398~retrieval_and_generation": {
+  "answer": {
+   "id": "retrieval_and_generation",
+   "label": "retrieval and generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_77febadcd6c2ca2b",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 9,
+   "quote": "More sophisticated RAG methods, which perform multiple steps of retrieval and generation from an LLM, are even able to integrate information across new or updated knowledge elements[38, 64, 72, 78, 88, 90, 92], another crucial aspect of"
+  }
+ },
+ "claim-3778~dual_level_retrieval": {
+  "answer": {
+   "id": "dual_level_retrieval",
+   "label": "dual-level retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_ce8e12d9a8fa510d",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 5,
+   "quote": "\u2022 (RQ2): How do dual-level retrieval and graph-based indexing enhance the generation quality of LightRAG?"
+  }
+ },
+ "claim-1884~iterative_retrieval": {
+  "answer": {
+   "id": "iterative_retrieval",
+   "label": "Iterative Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_25c7f5200a4b74bc",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 13,
+   "quote": "Consequently, iterative retrieval is primarily utilized in GraphRAG to capture these dependencies."
+  }
+ },
+ "claim-2356~iterative_retrieval": {
+  "answer": {
+   "id": "iterative_retrieval",
+   "label": "Iterative Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_75e2a575cb0c73b9",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 76,
+   "quote": "Pullnet: Open domain question answering with iterative retrieval on knowledge bases and text."
+  }
+ },
+ "claim-2902~iterative_retrieval": {
+  "answer": {
+   "id": "iterative_retrieval",
+   "label": "Iterative Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_fd0e0820bace1f0b",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 13,
+   "quote": "Iterative Retrieval: Iterative retrieval is a multistep process where consecutive retrieval operations share common dependencies such as causal, resource, and temporal dependency."
+  }
+ },
+ "claim-794~iterative_retrieval": {
+  "answer": {
+   "id": "iterative_retrieval",
+   "label": "Iterative Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_18d9f568d1c19f4e",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 10,
+   "quote": "(left) Iterative retrieval involves alternating between retrieval and generation, allowing for richer and more targeted context from the knowledge base at each step."
+  }
+ },
+ "claim-796~iterative_retrieval": {
+  "answer": {
+   "id": "iterative_retrieval",
+   "label": "Iterative Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_18d9f568d1c19f4e",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 10,
+   "quote": "Iterative Retrieval Iterative retrieval is a process where the knowledge base is repeatedly searched based on the initial query and the text generated so far, providing a more comprehensive knowledge 11 Fig."
+  }
+ },
+ "claim-353~retrieval_task": {
+  "answer": {
+   "id": "retrieval_task",
+   "label": "retrieval tasks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_4eb522b69751bf59",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 24,
+   "quote": "E.2 Qualitative Analysis In Table 10, we show three more examples from three different domains that illustrate HippoRAG\u2019s potential for solving retrieval tasks that require such cross-passage knowledge integration."
+  }
+ },
+ "claim-897~retrieval_task": {
+  "answer": {
+   "id": "retrieval_task",
+   "label": "retrieval tasks"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_6fa2551d4adeb0bb",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 10,
+   "quote": "For retrieval tasks that engage with structured data, the SANTA framework [76] implements a tripartite training regimen to effectively encapsulate both structural and semantic nuances."
+  }
+ },
+ "claim-278~multi_hop_retrieval": {
+  "answer": {
+   "id": "multi_hop_retrieval",
+   "label": "multi-hop retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_1cae4879d57c3f3a",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": "5.2 HippoRAG\u2019s Advantage: Single-Step Multi-Hop Retrieval A major advantage of HippoRAG over conventional RAG methods in multi-hop QA is its ability to perform multi-hop retrieval in a single step."
+  }
+ },
+ "claim-367~multi_hop_retrieval": {
+  "answer": {
+   "id": "multi_hop_retrieval",
+   "label": "multi-hop retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_5a03cbc1c12462e6",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 10,
+   "quote": "HippoRAG, in contrast, builds a KG from scratch using LLMs and performs multi-hop retrieval without any supervision, making it much more adaptable."
+  }
+ },
+ "claim-376~multi_hop_retrieval": {
+  "answer": {
+   "id": "multi_hop_retrieval",
+   "label": "multi-hop retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_62a7923eec14bda2",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": "Lisa Giocomo 8 5.3 HippoRAG\u2019s Potential: Path-Finding Multi-Hop Retrieval The second example in Table 7, also present in Figure 1, shows a type of questions that is trivial for informed humans but out of reach for current retrievers"
+  }
+ },
+ "claim-527~multi_hop_retrieval": {
+  "answer": {
+   "id": "multi_hop_retrieval",
+   "label": "multi-hop retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_e48772351a996bb8",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": ".1 25.1 37.1 33.3 59.0 21.7 37.4 HippoRAG 10.2 22.4 45.4 75.7 33.8 57.9 29.8 52.0 We further illustrate HippoRAG\u2019s unique single-step multi-hop retrieval ability through the first example in Table 7."
+  }
+ },
+ "claim-528~multi_hop_retrieval": {
+  "answer": {
+   "id": "multi_hop_retrieval",
+   "label": "multi-hop retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_e48772351a996bb8",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": "Additionally, even though IRCoT can also solve this multi-hop retrieval problem, as shown in Appendix G, it is 10-30 times more expensive and 6-13 times slower than ours in terms of online retrieval, arguably the most important factor when"
+  }
+ },
+ "claim-1718~adaptive_retrieval": {
+  "answer": {
+   "id": "adaptive_retrieval",
+   "label": "adaptive retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_034f58fd4faaa1fd",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 10,
+   "quote": "To address this, current traversal techniques integrate adaptive retrieval and filtering processes, selectively exploring the most relevant neighboring nodes and incrementally refining the retrieved content to minimize noise."
+  }
+ },
+ "claim-793~adaptive_retrieval": {
+  "answer": {
+   "id": "adaptive_retrieval",
+   "label": "adaptive retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_18d9f568d1c19f4e",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 10,
+   "quote": "(Right) Adaptive retrieval focuses on enabling the RAG system to autonomously determine whether external knowledge retrieval is necessary and when to stop retrieval and generation, often utilizing LLM-generated special tokens for control."
+  }
+ },
+ "claim-925~adaptive_retrieval": {
+  "answer": {
+   "id": "adaptive_retrieval",
+   "label": "adaptive retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_9045661c1f5ab88c",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 3,
+   "quote": "The overall process is not limited to sequential retrieval and generation; it includes methods such as iterative and adaptive retrieval."
+  }
+ },
+ "claim-937~adaptive_retrieval": {
+  "answer": {
+   "id": "adaptive_retrieval",
+   "label": "adaptive retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_993787ecb894fd47",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 11,
+   "quote": "Adaptive Retrieval Adaptive retrieval methods, exemplified by Flare [24] and Self-RAG [25], refine the RAG framework by enabling LLMs to actively determine the optimal moments and content for retrieval, thus enhancing the efficiency and"
+  }
+ },
+ "claim-1348~retrieval_system": {
+  "answer": {
+   "id": "retrieval_system",
+   "label": "retrieval system"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_3e98239e329f5734",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "r: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the genera- tion itself."
+  }
+ },
+ "claim-1378~retrieval_system": {
+  "answer": {
+   "id": "retrieval_system",
+   "label": "retrieval system"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_795da409fe24f385",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "Evaluating RAG architectures is, however, chal- lenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such"
+  }
+ },
+ "claim-3118~retrieval_quality": {
+  "answer": {
+   "id": "retrieval_quality",
+   "label": "retrieval quality"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_267bb9040788f52b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "st, Fixed-size and Clustering-based Chunkers often mixed sen- tences from different documents, increasing noise and lowering retrieval quality."
+  }
+ },
+ "claim-3226~retrieval_quality": {
+  "answer": {
+   "id": "retrieval_quality",
+   "label": "retrieval quality"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_f5edef1f89ea1d6d",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 1,
+   "quote": "How- ever, the effectiveness of chunking strategies re- mains a significant challenge in optimizing retrieval quality and computational efficiency (Lewis et al., 2020; Finardi et al., 2024)."
+  }
+ },
+ "claim-3306~retrieval_quality": {
+  "answer": {
+   "id": "retrieval_quality",
+   "label": "retrieval quality"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "975aa1fd3c1b6031_c_6ea7de9df0aa688d",
+   "docId": "975aa1fd3c1b6031",
+   "docTitle": "2401.15884_Corrective_Retrieval_Augmented_Generation",
+   "page": 4,
+   "quote": "In our proposed framework, the retrieval quality is evaluated at a relatively low cost without the need to have access to large and expensive LLMs."
+  }
+ },
+ "claim-765~retrieval_quality": {
+  "answer": {
+   "id": "retrieval_quality",
+   "label": "retrieval quality"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_08a47744b68710ea",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 12,
+   "quote": "Despite this, there is a notable paucity of research dedicated to evaluating the distinct characteristics of RAG models.The main evaluation objectives include: Retrieval Quality."
+  }
+ },
+ "claim-766~retrieval_quality": {
+  "answer": {
+   "id": "retrieval_quality",
+   "label": "retrieval quality"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_08a47744b68710ea",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 12,
+   "quote": "Evaluating the retrieval quality is crucial for determining the effectiveness of the context sourced by the retriever component."
+  }
+ },
+ "claim-1191~dense_passage_retrieval": {
+  "answer": {
+   "id": "dense_passage_retrieval",
+   "label": "Dense Passage Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "3a2ca388b4a2fb17_c_909d8ac57b1e2ed0",
+   "docId": "3a2ca388b4a2fb17",
+   "docTitle": "2304.09542_Is_ChatGPT_Good_at_Search_Investigating_Large_Language_Models_as_Re_Ra",
+   "page": 10,
+   "quote": "Dense passage retrieval for open-domain question answering."
+  }
+ },
+ "claim-1983~dense_passage_retrieval": {
+  "answer": {
+   "id": "dense_passage_retrieval",
+   "label": "Dense Passage Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_303b0cbf22ed5741",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 65,
+   "quote": "Dense passage retrieval for open-domain question answering."
+  }
+ },
+ "claim-4724~dense_passage_retrieval": {
+  "answer": {
+   "id": "dense_passage_retrieval",
+   "label": "Dense Passage Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_29c44f2e115fff1f",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 9,
+   "quote": "RocketQA: An opti- mized training approach to dense passage retrieval for open-domain question answering."
+  }
+ },
+ "claim-4753~dense_passage_retrieval": {
+  "answer": {
+   "id": "dense_passage_retrieval",
+   "label": "Dense Passage Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_5187e3dd5a83c5bf",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 8,
+   "quote": "Unsupervised cor- pus aware language model pre-training for dense passage retrieval."
+  }
+ },
+ "claim-4772~dense_passage_retrieval": {
+  "answer": {
+   "id": "dense_passage_retrieval",
+   "label": "Dense Passage Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_8f8c036cdb827189",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 8,
+   "quote": "RocketQA: An opti- mized training approach to dense passage retrieval for open-domain question answering."
+  }
+ },
+ "claim-2020~retrieval_strategy": {
+  "answer": {
+   "id": "retrieval_strategy",
+   "label": "retrieval strategies"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_34a1c1863feaf2b2",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 12,
+   "quote": "To address these highly complex queries, advanced retrieval strategies have been proposed, and we review them as follows: 2Incorporating structural signals may be necessary, a consideration to be addressed in future work."
+  }
+ },
+ "claim-3761~retrieval_strategy": {
+  "answer": {
+   "id": "retrieval_strategy",
+   "label": "retrieval strategies"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_bb87afcd24302d4f",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 4,
+   "quote": "An example of an abstract query is, \u201cHow does artificial intelligence influence modern education?\u201d To accommodate diverse query types, the LightRAG employs two distinct retrieval strategies within the dual-level retrieval paradigm."
+  }
+ },
+ "claim-839~retrieval_granularity": {
+  "answer": {
+   "id": "retrieval_granularity",
+   "label": "retrieval granularity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_450923f637ca6f98",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 7,
+   "quote": "Choosing 8 the appropriate retrieval granularity during inference can be a simple and effective strategy to improve the retrieval and downstream task performance of dense retrievers."
+  }
+ },
+ "claim-3659~comprehensive_information_retrieval": {
+  "answer": {
+   "id": "comprehensive_information_retrieval",
+   "label": "Comprehensive Information Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_370891a4470736df",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "In this work, we achieve an effective and efficient RAG system by addressing three key challenges: i) Comprehensive Information Retrieval."
+  }
+ },
+ "claim-756~hybrid_retrieval": {
+  "answer": {
+   "id": "hybrid_retrieval",
+   "label": "hybrid Retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_016839ec7be553a2",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 9,
+   "quote": "1) Mix/hybrid Retrieval : Sparse and dense embedding approaches capture different relevance features and can ben- efit from each other by leveraging complementary relevance information."
+  }
+ },
+ "claim-3718~retrieval_mechanism": {
+  "answer": {
+   "id": "retrieval_mechanism",
+   "label": "retrieval mechanism"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_81b0b7b973c11066",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "This efficiency is achieved through our retrieval mechanism, 9 which seamlessly integrates graph structures and vectorized representations for information retrieval, thereby eliminating the need to process large volumes of information"
+  }
+ },
+ "claim-577~retrieval_component": {
+  "answer": {
+   "id": "retrieval_component",
+   "label": "Retrieval Component"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "23e3249e9a1e7541_c_279e10ed39fe7339",
+   "docId": "23e3249e9a1e7541",
+   "docTitle": "2005.11401_Retrieval_Augmented_Generation_for_Knowledge_Intensive_NLP_Tasks",
+   "page": 9,
+   "quote": "We conducted an thorough investigation of the learned retrieval component, validating its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining."
+  }
+ },
+ "claim-364~retrieval_encoder": {
+  "answer": {
+   "id": "retrieval_encoder",
+   "label": "retrieval encoders"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_56b6a3130a6fa051",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 3,
+   "quote": "These retrieval encoders provide additional edges between similar but not identical noun phrases within this KG to aid in downstream pattern completion."
+  }
+ },
+ "claim-411~retrieval_encoder": {
+  "answer": {
+   "id": "retrieval_encoder",
+   "label": "retrieval encoders"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_7e3ed7593eeafe4f",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 3,
+   "quote": "These named entities are then linked to nodes in our KG based on the similarity determined by retrieval encoders; we refer to these selected nodes as query nodes."
+  }
+ },
+ "claim-856~post_retrieval": {
+  "answer": {
+   "id": "post_retrieval",
+   "label": "post-retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_51dfc9baf42b165f",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 4,
+   "quote": "Feeding all relevant documents directly into LLMs can lead to information overload, diluting the focus on key details with irrelevant content.To mitigate this, post-retrieval efforts con- centrate on selecting the essential information,"
+  }
+ },
+ "claim-923~post_retrieval": {
+  "answer": {
+   "id": "post_retrieval",
+   "label": "post-retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_9045661c1f5ab88c",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 3,
+   "quote": "(Middle) Advanced RAG proposes multiple optimization strategies around pre-retrieval and post-retrieval, with a process similar to the Naive RAG, still following a chain-like structure."
+  }
+ },
+ "claim-2398~pre_retrieval": {
+  "answer": {
+   "id": "pre_retrieval",
+   "label": "pre-retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_828a3c78723381b3",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 26,
+   "quote": "The pre-retrieval aims to first retrieve relevant documents based on the query and then construct a graph."
+  }
+ },
+ "claim-923~pre_retrieval": {
+  "answer": {
+   "id": "pre_retrieval",
+   "label": "pre-retrieval"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_9045661c1f5ab88c",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 3,
+   "quote": "(Middle) Advanced RAG proposes multiple optimization strategies around pre-retrieval and post-retrieval, with a process similar to the Naive RAG, still following a chain-like structure."
+  }
+ },
+ "claim-3052~retrieval_evaluation": {
+  "answer": {
+   "id": "retrieval_evaluation",
+   "label": "retrieval evaluation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_d8059d622c7333bf",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 3,
+   "quote": "2.3 Evaluation Metrics An RAG system handling multi-hop queries can be assessed from two key aspects: retrieval evaluation and generation evaluation."
+  }
+ },
+ "claim-3056~retrieval_evaluation": {
+  "answer": {
+   "id": "retrieval_evaluation",
+   "label": "retrieval evaluation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "743155d9b0541c99_c_d8059d622c7333bf",
+   "docId": "743155d9b0541c99",
+   "docTitle": "2401.15391_MultiHop_RAG_Benchmarking_Retrieval_Augmented_Generation_for_Multi_Hop",
+   "page": 3,
+   "quote": "Retrieval Evaluation: Evidently, the quality of the retrieval set Rq determines the final genera- tion quality."
+  }
+ },
+ "claim-2026~gnn_rag": {
+  "answer": {
+   "id": "gnn_rag",
+   "label": "Graph neural retrieval for large language model reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_35def297f1fb0985",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 20,
+   "quote": "\u2022 GNN-based retriever: GNN-RAG [289] trains a GNN for the retrieval task."
+  }
+ },
+ "claim-2728~gnn_rag": {
+  "answer": {
+   "id": "gnn_rag",
+   "label": "Graph neural retrieval for large language model reasoning"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_d441d2311abddb2e",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 12,
+   "quote": "For example, GNN-RAG [347] uses a GNN to perform retrieval, where a separate round of message passing is performed for each query."
+  }
+ },
+ "claim-3437~vector_rag": {
+  "answer": {
+   "id": "vector_rag",
+   "label": "VectorRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_0a1fbb25a9893c61",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 2,
+   "quote": "2.1 VectorRAG The traditional RAG [9] process begins with a query that is related to the information possessed within external document(s) that are not a part of the training dataset for the LLM."
+  }
+ },
+ "claim-3449~vector_rag": {
+  "answer": {
+   "id": "vector_rag",
+   "label": "VectorRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_158618a8e274bbce",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 4,
+   "quote": "2.4 Evaluation Metrics To assess the efficacy of this integrated approach, we conducted a comparative analysis among the three approaches in a controlled ex- perimental set up: VectorRAG, GraphRAG and HybridRAG."
+  }
+ },
+ "claim-3458~vector_rag": {
+  "answer": {
+   "id": "vector_rag",
+   "label": "VectorRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_1d3fb804c8623982",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 2,
+   "quote": "To the best of our knowledge the present work is the first work that proposes a RAG approach that is hybrid of both VectorRAG and GraphRAG and demonstrates its potential of more effective analysis and utilization of financial documents by"
+  }
+ },
+ "claim-3481~vector_rag": {
+  "answer": {
+   "id": "vector_rag",
+   "label": "VectorRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_465b7d57f719427a",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 7,
+   "quote": "Furthermore, HybridRAG emerges as the most balanced and effective approach, outperforming both VectorRAG and GraphRAG in key metrics such as faithfulness and answer relevancy, while maintaining high context recall."
+  }
+ },
+ "claim-3482~vector_rag": {
+  "answer": {
+   "id": "vector_rag",
+   "label": "VectorRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_465b7d57f719427a",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 7,
+   "quote": "However, in context recall, both VectorRAG and HybridRAG achieved perfect scores of 1, while GraphRAG lagged behind at 0.85."
+  }
+ },
+ "claim-1053~vector_database": {
+  "answer": {
+   "id": "vector_database",
+   "label": "vector database"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_fab306facd5b5f68",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 2,
+   "quote": "Documents are split into chunks, encoded into vectors, and stored in a vector database."
+  }
+ },
+ "claim-3507~vector_database": {
+  "answer": {
+   "id": "vector_database",
+   "label": "vector database"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_63366a50187da7c6",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 2,
+   "quote": "After that, the retrieval component performs a similarity search within the vector database to identify and rank the chunks most relevant to the query."
+  }
+ },
+ "claim-3768~vector_database": {
+  "answer": {
+   "id": "vector_database",
+   "label": "vector database"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_c3cca751e7f02a91",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 4,
+   "quote": "The algorithm uses an efficient vector database to match local query keywords with candidate entities and global query keywords with relations linked to global keys."
+  }
+ },
+ "claim-760~vector_database": {
+  "answer": {
+   "id": "vector_database",
+   "label": "vector database"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_05a521270f216026",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 3,
+   "quote": "Chunks are then encoded into vector representations using an embedding model and stored in vector database."
+  }
+ },
+ "claim-156~vector_similarity": {
+  "answer": {
+   "id": "vector_similarity",
+   "label": "vector similarity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_988bcdc059305602",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 4,
+   "quote": "Starting with an empty canonical schema, we examine the open KG triplets, searching for potential consolidation candi- dates through vector similarity and LLM veri- fication."
+  }
+ },
+ "claim-4799~vector_similarity": {
+  "answer": {
+   "id": "vector_similarity",
+   "label": "vector similarity"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_c2d8bca5bb26d955",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 1,
+   "quote": "This vector identi\ufb01es a neighborhood in the corpus embedding space, where similar real documents are retrieved based on vector similarity."
+  }
+ },
+ "claim-2387~vector_representation": {
+  "answer": {
+   "id": "vector_representation",
+   "label": "vector representations"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_7d574f7c49c06325",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 12,
+   "quote": "Following this GNN-based embedding paradigm, various forms of graph knowledge from diverse sources\u2014such as nodes, edges, and (sub)graphs\u2014can be uniformly embedded into vector representations, as shown in Figure 5(c) where we derive"
+  }
+ },
+ "claim-3634~vector_representation": {
+  "answer": {
+   "id": "vector_representation",
+   "label": "vector representations"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_1b74875d809abcce",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 4,
+   "quote": "By combining graph structures with vector representations, the model gains a deeper insight into the interrelationships among entities."
+  }
+ },
+ "claim-3730~vector_representation": {
+  "answer": {
+   "id": "vector_representation",
+   "label": "vector representations"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_9fecf35b54907f78",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 2,
+   "quote": "Additionally, by integrating graph structures with vector representations, our framework facilitates efficient retrieval of related entities and relations while enhancing the comprehensiveness of results through relevant structural"
+  }
+ },
+ "claim-153~vector_space": {
+  "answer": {
+   "id": "vector_space",
+   "label": "vector space"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_91910087df7b8f74",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 5,
+   "quote": "The Schema Retriever works in a similar fashion to information retrieval methods based on vector spaces (Ganguly et al., 2015; Lewis et al., 2020); it projects the schema components and the input text to a vector space such that cosine"
+  }
+ },
+ "claim-1671~vector_space": {
+  "answer": {
+   "id": "vector_space",
+   "label": "vector space"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "730f1a9f38d16689_c_f33b63884369fa88",
+   "docId": "730f1a9f38d16689",
+   "docTitle": "2404.16130_From_Local_to_Global_A_Graph_RAG_Approach_to_Query_Focused_Summarizati",
+   "page": 2,
+   "quote": "A common approach to conventional RAG is to use text embeddings, retrieving records closest to the query in vector space where closeness corresponds to semantic similarity (Gao et al., 2023)."
+  }
+ },
+ "claim-4543~vector_space": {
+  "answer": {
+   "id": "vector_space",
+   "label": "vector space"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_8374ade9e138af5d",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 29,
+   "quote": "They are mathematical representations of words or phrases in a vector space, allowing similarities between words and the context in which they are used to be measured."
+  }
+ },
+ "claim-4599~vector_space": {
+  "answer": {
+   "id": "vector_space",
+   "label": "vector space"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d9eaa1398abac0df_c_bbf273c807465f07",
+   "docId": "d9eaa1398abac0df",
+   "docTitle": "2310.11511_Self_RAG_Learning_to_Retrieve_Generate_and_Critique_through_Self_Refle",
+   "page": 27,
+   "quote": "They are mathematical representations of words or phrases in a vector space, allowing similarities between words and the context in which they are used to be measured."
+  }
+ },
+ "claim-3443~vector_retrieval_augmented_generation": {
+  "answer": {
+   "id": "vector_retrieval_augmented_generation",
+   "label": "Vector Retrieval Augmented Generation"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_0c1d41877809f003",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction [29] Ishani Mondal, Yufang Hou, and Charles Jochim."
+  }
+ },
+ "claim-864~vector_search": {
+  "answer": {
+   "id": "vector_search",
+   "label": "vector searches"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_5842e14ae9901740",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 4,
+   "quote": "RAG- Fusion addresses traditional search limitations by employing a multi-query strategy that expands user queries into diverse perspectives, utilizing parallel vector searches and intelligent re-ranking to uncover both explicit and"
+  }
+ },
+ "claim-3718~vectorized_representation": {
+  "answer": {
+   "id": "vectorized_representation",
+   "label": "vectorized representations"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_81b0b7b973c11066",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "This efficiency is achieved through our retrieval mechanism, 9 which seamlessly integrates graph structures and vectorized representations for information retrieval, thereby eliminating the need to process large volumes of information"
+  }
+ },
+ "claim-1046~parallel_vector_search": {
+  "answer": {
+   "id": "parallel_vector_search",
+   "label": "parallel vector searches"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_f2896d5f55e04d17",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 4,
+   "quote": "a multi-query strategy that expands user queries into diverse perspectives, utilizing parallel vector searches and intelligent re-ranking to uncover both explicit and transformative knowl- edge [16]."
+  }
+ },
+ "claim-572~dense_vector_index": {
+  "answer": {
+   "id": "dense_vector_index",
+   "label": "dense vector index"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "23e3249e9a1e7541_c_1cef8689d67ef49b",
+   "docId": "23e3249e9a1e7541",
+   "docTitle": "2005.11401_Retrieval_Augmented_Generation_for_Knowledge_Intensive_NLP_Tasks",
+   "page": 1,
+   "quote": "We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever."
+  }
+ },
+ "claim-3488~word_representations_in_vector_space": {
+  "answer": {
+   "id": "word_representations_in_vector_space",
+   "label": "word representations in vector space"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_535976d43beef18f",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "Efficient estimation of word representations in vector space."
+  }
+ },
+ "claim-3909~contrast_vector_loss": {
+  "answer": {
+   "id": "contrast_vector_loss",
+   "label": "contrast vector loss"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "d2068edc08df316d_c_2a6e5efc87798192",
+   "docId": "d2068edc08df316d",
+   "docTitle": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+   "page": 14,
+   "quote": "(2023a) introduces a contrast vector loss, which utilizes a pair of contrastive prompts with the same input."
+  }
+ },
+ "claim-4803~dense_vector": {
+  "answer": {
+   "id": "dense_vector",
+   "label": "dense vectors"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "dc0ae3c5584ed146_c_e0d5fe2fb9d44eb5",
+   "docId": "dc0ae3c5584ed146",
+   "docTitle": "2212.10496_Precise_Zero_Shot_Dense_Retrieval_without_Relevance_Labels",
+   "page": 4,
+   "quote": "Here the encoder function f serves as a lossy compressor that outputs dense vectors, where the extra details are \ufb01ltered and left out from the vector."
+  }
+ },
+ "claim-366~dense_vector_representation": {
+  "answer": {
+   "id": "dense_vector_representation",
+   "label": "dense vector representations"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_56b6a3130a6fa051",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 3,
+   "quote": "This process extracts salient signals from passages in a retrieval corpus as discrete noun phrases rather than dense vector representations, allowing for more fine-grained pattern separation."
+  }
+ },
+ "claim-3568~vector_based_rag": {
+  "answer": {
+   "id": "vector_based_rag",
+   "label": "vector-based RAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "ac529ab762fd1672_c_d38c0a66ee716acf",
+   "docId": "ac529ab762fd1672",
+   "docTitle": "HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction",
+   "page": 8,
+   "quote": "The hybrid RAG system, by combining traditional vector-based RAG and KG- based RAG, has shown superior performance in terms of retrieval accuracy and answer generation, marking a pivotal step towards more effective financial analysis tools."
+  }
+ },
+ "claim-2383~light_rag": {
+  "answer": {
+   "id": "light_rag",
+   "label": "LightRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "737b0b8fe0aa8459_c_7c2edaa3f14b6776",
+   "docId": "737b0b8fe0aa8459",
+   "docTitle": "2501.00309_Retrieval_Augmented_Generation_with_Graphs_GraphRAG",
+   "page": 61,
+   "quote": "Lightrag: Simple and fast retrieval-augmented generation."
+  }
+ },
+ "claim-3615~light_rag": {
+  "answer": {
+   "id": "light_rag",
+   "label": "LightRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_0b8db5d2f8670657",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 16,
+   "quote": "Notably, LightRAG offers a more in-depth exploration of key themes related to indigenous perspectives, such as cultural significance, collaboration, and legal frameworks, supported by specific and illustrative examples."
+  }
+ },
+ "claim-3616~light_rag": {
+  "answer": {
+   "id": "light_rag",
+   "label": "LightRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_0b8db5d2f8670657",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 16,
+   "quote": "The dual-level retrieval process employed by LightRAG enables a more comprehensive investigation of specific entities and their interrelationships, facilitating extensive searches that effectively capture overarching themes and"
+  }
+ },
+ "claim-3620~light_rag": {
+  "answer": {
+   "id": "light_rag",
+   "label": "LightRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_15b2ed7bc51bfa6e",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 6,
+   "quote": "(RQ1) We compare LightRAG against each baseline across various evaluation dimensions and datasets."
+  }
+ },
+ "claim-3624~light_rag": {
+  "answer": {
+   "id": "light_rag",
+   "label": "LightRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_1637fa4f53becfdf",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 9,
+   "quote": "the depth of insight regarding why these metrics matter.\" Overall Winner: \"Winner\": \"Answer 2 (LightRAG)\", \"Explanation\": \"While Answer 1 is more direct and systematic, Answer 2 excels in comprehensiveness, diversity, and empowerment."
+  }
+ },
+ "claim-246~hippo_rag": {
+  "answer": {
+   "id": "hippo_rag",
+   "label": "HippoRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_048c301c94c7b71d",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 10,
+   "quote": "Finally, and perhaps most importantly, HippoRAG\u2019s scalability still calls for further validation."
+  }
+ },
+ "claim-250~hippo_rag": {
+  "answer": {
+   "id": "hippo_rag",
+   "label": "HippoRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_04dddb1c2d05d742",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 25,
+   "quote": "Idelalisib F Error Analysis F.1 Overview In this section, we provide a detailed error analysis of 100 errors made by HippoRAG on the MuSiQue dataset."
+  }
+ },
+ "claim-271~hippo_rag": {
+  "answer": {
+   "id": "hippo_rag",
+   "label": "HippoRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_15160cee505e4ff0",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": "We measure the percentage of queries for which all supporting passages are successfully retrieved (all-recall, denoted as AR@2 or AR@5) and find even larger performance improvements for HippoRAG."
+  }
+ },
+ "claim-273~hippo_rag": {
+  "answer": {
+   "id": "hippo_rag",
+   "label": "HippoRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_1561f63effe8dae8",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 5,
+   "quote": "HippoRAG outperforms all baselines on MuSiQue and 2WikiMultiHopQA and achieves comparable performance on the less challenging HotpotQA dataset."
+  }
+ },
+ "claim-278~hippo_rag": {
+  "answer": {
+   "id": "hippo_rag",
+   "label": "HippoRAG"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "14671c78fc7de99d_c_1cae4879d57c3f3a",
+   "docId": "14671c78fc7de99d",
+   "docTitle": "2405.14831_HippoRAG_Neurobiologically_Inspired_Long_Term_Memory_for_Large_Languag",
+   "page": 8,
+   "quote": "5.2 HippoRAG\u2019s Advantage: Single-Step Multi-Hop Retrieval A major advantage of HippoRAG over conventional RAG methods in multi-hop QA is its ability to perform multi-hop retrieval in a single step."
+  }
+ },
+ "claim-1347~raga": {
+  "answer": {
+   "id": "raga",
+   "label": "Ragas"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_3e98239e329f5734",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations."
+  }
+ },
+ "claim-1362~raga": {
+  "answer": {
+   "id": "raga",
+   "label": "Ragas"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_57946fbfb2f57874",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 5,
+   "quote": "Finally, we have also described Ragas, our implementation of the three considered quality aspects."
+  }
+ },
+ "claim-1367~raga": {
+  "answer": {
+   "id": "raga",
+   "label": "Ragas"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_5c3e75fced03988b",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "The Ragas frame- work provides an integration with both llama-index and Langchain, the most widely used frameworks for building RAG solutions, thus enabling devel- opers to easily integrate Ragas into their standard workflow."
+  }
+ },
+ "claim-1368~raga": {
+  "answer": {
+   "id": "raga",
+   "label": "Ragas"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_5c3e75fced03988b",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "To address these issues, in this paper we present Ragas1, a framework for the automated assessment 1Ragas is available at https://github.com/ explodinggradients/ragas."
+  }
+ },
+ "claim-1380~raga": {
+  "answer": {
+   "id": "raga",
+   "label": "Ragas"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "6c24762a3f277fd1_c_795da409fe24f385",
+   "docId": "6c24762a3f277fd1",
+   "docTitle": "2309.15217_Ragas_Automated_Evaluation_of_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "Ragas: Automated Evaluation of Retrieval Augmented Generation Shahul Es\u2020, Jithin James\u2020, Luis Espinosa-Anke\u2217\u2662, Steven Schockaert\u2217 \u2020Exploding Gradients \u2217CardiffNLP, Cardiff University, United Kingdom \u2662AMPLYFI, United Kingdom"
+  }
+ },
+ "claim-3130~chunker": {
+  "answer": {
+   "id": "chunker",
+   "label": "chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_40b5abbf99c43c4e",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 17,
+   "quote": "The configuration listed next to each chunker name represents the optimal setup for minimizing errors."
+  }
+ },
+ "claim-3142~chunker": {
+  "answer": {
+   "id": "chunker",
+   "label": "chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_523725d1f0094d60",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 2,
+   "quote": "3 Experiments In the absence of ground-truth chunk data, we de- signed three experiments to indirectly assess the quality of each chunker: document retrieval, evi- dence retrieval, and answer generation."
+  }
+ },
+ "claim-3143~chunker": {
+  "answer": {
+   "id": "chunker",
+   "label": "chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_523725d1f0094d60",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 2,
+   "quote": "When \u03bb = 0, the chunker operates purely based on semantic similarity; when \u03bb = 1, it mirrors the Fixed-size Chunker."
+  }
+ },
+ "claim-3099~chunking": {
+  "answer": {
+   "id": "chunking",
+   "label": "chunking"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_19d2c1fdea24971d",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 11,
+   "quote": "These examples underscore that se- mantic similarity alone is not a reliable measure for effective chunking, and it may be less useful than straightforward positional information."
+  }
+ },
+ "claim-3226~chunking": {
+  "answer": {
+   "id": "chunking",
+   "label": "chunking"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_f5edef1f89ea1d6d",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 1,
+   "quote": "How- ever, the effectiveness of chunking strategies re- mains a significant challenge in optimizing retrieval quality and computational efficiency (Lewis et al., 2020; Finardi et al., 2024)."
+  }
+ },
+ "claim-3662~chunking": {
+  "answer": {
+   "id": "chunking",
+   "label": "chunking"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_39ff7dc4df4647e3",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "By breaking down a large external text corpus into smaller, more manageable segments, chunking significantly enhances the accuracy of information retrieval."
+  }
+ },
+ "claim-3663~chunking": {
+  "answer": {
+   "id": "chunking",
+   "label": "chunking"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "bd72eebf611df136_c_39ff7dc4df4647e3",
+   "docId": "bd72eebf611df136",
+   "docTitle": "2410.05779_LightRAG_Simple_and_Fast_Retrieval_Augmented_Generation",
+   "page": 1,
+   "quote": "Chunking plays a vital role in facilitating the retrieval-augmented generation process Lyu et al."
+  }
+ },
+ "claim-57~chunking": {
+  "answer": {
+   "id": "chunking",
+   "label": "chunking"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_32b739461e661ec5",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 17,
+   "quote": "We ran experiments on Re-DOCRED (Tan et al., 2022) by combining EDC with LingMess (Otmazgin et al., 2023), a SOTA coreference resolution method and simple sentence-level chunking."
+  }
+ },
+ "claim-3082~fixed_size_chunker": {
+  "answer": {
+   "id": "fixed_size_chunker",
+   "label": "Fixed-size Chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_0bbe8107207d6466",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 11,
+   "quote": "It could, like the Fixed-size Chunker, group a sentence with a different chunk due to low seman- tic similarity with neighboring sentences, as seen with Sentence 4 being moved to Chunk 2."
+  }
+ },
+ "claim-3089~fixed_size_chunker": {
+  "answer": {
+   "id": "fixed_size_chunker",
+   "label": "Fixed-size Chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_10f57c2260ce3d16",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 9,
+   "quote": "E.1 Results for Answer Generation As shown in Table 7, semantic chunkers performed slightly better than Fixed-size Chunker in terms of QA cosine similarity."
+  }
+ },
+ "claim-3114~fixed_size_chunker": {
+  "answer": {
+   "id": "fixed_size_chunker",
+   "label": "Fixed-size Chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_267bb9040788f52b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "4.3 Evidence Retrieval As shown in Table 2, Fixed-size Chunker per- formed best on 3 out of 5 datasets, indicating a slight edge in capturing core evidence sentences."
+  }
+ },
+ "claim-3115~fixed_size_chunker": {
+  "answer": {
+   "id": "fixed_size_chunker",
+   "label": "Fixed-size Chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_267bb9040788f52b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "However, the performance differences between the Fixed-size Chunker and the two semantic chunkers were minimal, suggesting no clear advantage for any specific chunking strategy."
+  }
+ },
+ "claim-3116~fixed_size_chunker": {
+  "answer": {
+   "id": "fixed_size_chunker",
+   "label": "Fixed-size Chunker"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "8bbe93a93b05967d_c_267bb9040788f52b",
+   "docId": "8bbe93a93b05967d",
+   "docTitle": "2410.13070_Is_Semantic_Chunking_Worth_the_Computational_Cost",
+   "page": 4,
+   "quote": "These results suggest that in real life, the topics in a document may not be as diverse as in our artificially noisy, stitched data, and hence semantic chunkers may not have an edge over fixed-size chunker there."
+  }
+ },
+ "claim-1~alignment": {
+  "answer": {
+   "id": "alignment",
+   "label": "canonicalization"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_006b4adc45d39187",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 3,
+   "quote": "An extra canonicalization step is required to standardize the triplets to make the KGs useful for downstream applications."
+  }
+ },
+ "claim-10~ie": {
+  "answer": {
+   "id": "ie",
+   "label": "Information Extraction"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "01d82c67ac18ffc3_c_0c84e90b4e36766f",
+   "docId": "01d82c67ac18ffc3",
+   "docTitle": "2404.03868_Extract_Define_Canonicalize_An_LLM_based_Framework_for_Knowledge_Graph",
+   "page": 10,
+   "quote": "Evaluating chatgpt\u2019s information extraction capabilities: An as- sessment of performance, explainability, calibration, and faithfulness."
+  }
+ },
+ "claim-1000~rag_model": {
+  "answer": {
+   "id": "rag_model",
+   "label": "RAG models"
+  },
+  "citation": {
+   "id": "c1",
+   "chunkId": "396a0fadeb4cd40f_c_d53fc0f7e399c539",
+   "docId": "396a0fadeb4cd40f",
+   "docTitle": "2312.10997_Retrieval_Augmented_Generation_for_Large_Language_Models_A_Survey",
+   "page": 15,
+   "quote": "The mutual growth of RAG models and their technology stacks is evident; technological advancements continuously establish new standards for existing infrastructure."
+  }
+ }
+}

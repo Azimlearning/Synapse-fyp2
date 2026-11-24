@@ -17,6 +17,7 @@ import { SavedViews, refusalWords } from "@/components/shell/SavedViews";
 import { PaneSeparator, Panes } from "@/components/shell/Panes";
 import { Shell } from "@/components/shell/Shell";
 import { STARTERS, Studio } from "@/components/shell/Studio";
+import { DemoSuggestions } from "@/components/shell/DemoNotice";
 import { TracePanel } from "@/components/TracePanel";
 import { deleteDocument, deletePattern, fetchNotes, fetchWorkspace, listPatterns, reverifyPattern, savePattern, uploadPdf } from "@/lib/api";
 import { flattenPlaced, placeBlocksByRegion } from "@/lib/layout";
@@ -654,6 +655,12 @@ export function Workspace() {
                   in the Studio. To see an idea move, press <span className="font-medium">Simulate</span> beside Ask: your question becomes an
                   interactive simulation, checked in a real browser first.
                 </p>
+                <DemoSuggestions
+                  onPick={(q) => {
+                    setQuestion(q);
+                    void ask(q);
+                  }}
+                />
               </div>
             )}
             {byRegion.chat.main.map(withSave)}

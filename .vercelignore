@@ -1,0 +1,19 @@
+# Uploaded by `vercel deploy` for the hosted demo (project root: web). Only the web app, its workspace packages and the
+# recorded demo data are needed; the Python backend, corpus and simulation engine are not.
+/data
+/eval
+/refdocs
+/api
+/scripts
+/genui
+/demo
+/.venv
+/.claude
+/.playwright-mcp
+**/node_modules
+**/.next
+**/.next-*
+**/__pycache__
+*.egg-info
+.env
+.env.*

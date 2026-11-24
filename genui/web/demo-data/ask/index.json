@@ -1,0 +1,46 @@
+[
+ {
+  "question": "Why does a spring stretch when I hang a weight on it?",
+  "file": "ask/36eff136c864.json"
+ },
+ {
+  "question": "What happens to the current if I raise the resistance in a circuit?",
+  "file": "ask/216f0f66f03e.json"
+ },
+ {
+  "question": "How does the pressure change as a diver goes deeper in water?",
+  "file": "ask/4418ce319988.json"
+ },
+ {
+  "question": "How much would I weigh on Jupiter compared with Earth?",
+  "file": "ask/e33f8ad08fe1.json"
+ },
+ {
+  "question": "How does gravity change on different planets?",
+  "file": "ask/6e572032bd1a.json"
+ },
+ {
+  "question": "Can you simulate the difference in gravitational strength on each planet in my solar system?",
+  "file": "ask/f1cef4479480.json"
+ },
+ {
+  "question": "How does a black hole bend light?",
+  "file": "ask/2c163cb07043.json"
+ },
+ {
+  "question": "How does the length of a pendulum change how long each swing takes?",
+  "file": "ask/945eec18f771.json"
+ },
+ {
+  "question": "How does reciprocal rank fusion merge a keyword search ranking and a vector search ranking into one list?",
+  "file": "ask/0c6a7ae83414.json"
+ },
+ {
+  "question": "How does the size of a text chunk change whether retrieval finds the right passage?",
+  "file": "ask/b08940ee4ff1.json"
+ },
+ {
+  "question": "How does following links in a knowledge graph find an answer that is two hops away from the question?",
+  "file": "ask/5db771f4a53a.json"
+ }
+]

@@ -1,0 +1,177 @@
+[
+ {
+  "question": "Quiz me on retrieval",
+  "file": "chat/221d70e8a8e3.json",
+  "turns": [
+   "turn-64a29d708ec9"
+  ]
+ },
+ {
+  "question": "Make flashcards for retrieval",
+  "file": "chat/83f0ea4e0627.json",
+  "turns": [
+   "turn-e794a7e64a32"
+  ]
+ },
+ {
+  "question": "Give me cornell notes on retrieval",
+  "file": "chat/5a48021eaa0d.json",
+  "turns": [
+   "turn-c607e118ea2a"
+  ]
+ },
+ {
+  "question": "Guide me with socratic questions about retrieval",
+  "file": "chat/53d96a80c1a0.json",
+  "turns": [
+   "turn-454482ddeaa5"
+  ]
+ },
+ {
+  "question": "Brief me on retrieval",
+  "file": "chat/d18cc01d271d.json",
+  "turns": [
+   "turn-36da33c21084"
+  ]
+ },
+ {
+  "question": "Make a cheat sheet for retrieval",
+  "file": "chat/1979a98964e3.json",
+  "turns": [
+   "turn-e18915c9cb81"
+  ]
+ },
+ {
+  "question": "Write an outline on retrieval",
+  "file": "chat/49404058ad0f.json",
+  "turns": [
+   "turn-5583b8013dcc"
+  ]
+ },
+ {
+  "question": "Write a literature review of retrieval",
+  "file": "chat/7776e0d5e57c.json",
+  "turns": [
+   "turn-086d335aaf67"
+  ]
+ },
+ {
+  "question": "Write an abstract on retrieval",
+  "file": "chat/8287258f0732.json",
+  "turns": [
+   "turn-6c7ad99a2de4"
+  ]
+ },
+ {
+  "question": "Make an audio overview of retrieval",
+  "file": "chat/59b707bd619a.json",
+  "turns": [
+   "turn-7b25a38ed173"
+  ]
+ },
+ {
+  "question": "Show my learning insights",
+  "file": "chat/99c5c37579c2.json",
+  "turns": [
+   "turn-8d7254f713d5"
+  ]
+ },
+ {
+  "question": "What should I review today?",
+  "file": "chat/cb3b0e15af7f.json",
+  "turns": [
+   "turn-15312666a0fb"
+  ]
+ },
+ {
+  "question": "How do GraphRAG, LightRAG and HippoRAG compare in how they use a knowledge graph for retrieval?",
+  "file": "chat/85c0ae4a6aae.json",
+  "turns": [
+   "turn-f22937357663"
+  ]
+ },
+ {
+  "question": "What is reciprocal rank fusion and how does HybridRAG combine graph and vector retrieval?",
+  "file": "chat/125c10f0f014.json",
+  "turns": [
+   "turn-ef9928f1d50d"
+  ]
+ },
+ {
+  "question": "What failure modes of vector-only retrieval are identified across the papers?",
+  "file": "chat/9808af729181.json",
+  "turns": [
+   "turn-461ed7e6260c"
+  ]
+ },
+ {
+  "question": "What is multi-hop question answering, and why is it hard for vector-only retrieval?",
+  "file": "chat/f1718fb80a84.json",
+  "turns": [
+   "turn-d2540216a81b"
+  ]
+ },
+ {
+  "question": "How does chunk size affect retrieval quality?",
+  "file": "chat/1f110724d8ae.json",
+  "turns": [
+   "turn-5fd8ab681d59"
+  ]
+ },
+ {
+  "question": "What is open information extraction and how is it used to build a knowledge graph?",
+  "file": "chat/5428fee49d29.json",
+  "turns": [
+   "turn-1b7765d60077"
+  ]
+ },
+ {
+  "question": "How is retrieval-augmented generation evaluated, and what does RAGAS measure?",
+  "file": "chat/03aa0cc23bd6.json",
+  "turns": [
+   "turn-503bf5ea6ea3"
+  ]
+ },
+ {
+  "question": "Why does a spring stretch when I hang a weight on it?",
+  "file": "chat/36eff136c864.json",
+  "turns": [
+   "turn-9a917f58d724"
+  ]
+ },
+ {
+  "question": "Who won the 2022 FIFA World Cup?",
+  "file": "chat/96f97afe596d.json",
+  "turns": [
+   "turn-9f40a74e998d"
+  ]
+ },
+ {
+  "question": "Quiz me on GraphRAG",
+  "file": "chat/05a61205abac.json",
+  "turns": [
+   "turn-472e7ebe5686"
+  ]
+ },
+ {
+  "question": "Make flashcards for GraphRAG",
+  "file": "chat/400116d51438.json",
+  "turns": [
+   "turn-b915ad9bbdee"
+  ]
+ },
+ {
+  "question": "Make a cheat sheet for GraphRAG",
+  "file": "chat/facd0ca800dc.json",
+  "turns": [
+   "turn-0a83a0beb6c4"
+  ]
+ },
+ {
+  "question": "Make a blurting exercise for retrieval",
+  "file": "chat/620c9e10c695.json",
+  "turns": [
+   "turn-d0f49433220b"
+  ]
+ }
+]

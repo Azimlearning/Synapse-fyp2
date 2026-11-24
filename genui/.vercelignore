@@ -1,0 +1,18 @@
+# Uploaded by `vercel deploy` from genui/ for the hosted simulations demo (project root: web). Only the web app, its workspace
+# packages and the recorded demo data are needed.
+/api
+/data
+/eval
+/refdocs
+/deploy
+/.venv
+/.claude
+/.github
+**/node_modules
+**/.next
+**/.next-*
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+.env
+.env.*
