@@ -29,7 +29,7 @@ export function AppNav({ current, extra }: { current: ViewId; extra?: ReactNode 
         <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
         <span className="hidden pt-1 font-serif text-sm italic text-stone-500 lg:inline">the graph-grounded notebook</span>
       </Link>
-      <nav aria-label="Views" className="ml-2 flex gap-1 rounded-full border border-stone-200 bg-stone-50 p-0.5 text-sm">
+      <nav aria-label="Views" data-tour="views" className="ml-2 flex gap-1 rounded-full border border-stone-200 bg-stone-50 p-0.5 text-sm">
         {VIEWS.map((v) => (
           <Link key={v.id} href={v.href} aria-current={current === v.id ? "page" : undefined} className={current === v.id ? ON : OFF}>
             {v.label}

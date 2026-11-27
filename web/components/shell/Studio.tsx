@@ -64,7 +64,7 @@ function Glyph({ id }: { id: string }) {
 
 export function Studio({ onStart }: { onStart?: (request: string, submit: boolean) => void }) {
   return (
-    <section aria-label="Studio" className="shrink-0 space-y-2">
+    <section aria-label="Studio" data-tour="studio" className="shrink-0 space-y-2">
       <h2 className="nb-label border-b border-stone-200 pb-3">
         Studio<span className="nb-aside">{STARTERS.length + 1} tools</span>
       </h2>

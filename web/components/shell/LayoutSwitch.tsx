@@ -32,7 +32,7 @@ export function LayoutSwitch({
   );
   return (
     <div className="flex items-center gap-2">
-      <div role="group" aria-label="Layout" className="flex gap-0.5 rounded-full border border-stone-200 bg-stone-100 p-0.5">
+      <div role="group" aria-label="Layout" data-tour="layout" className="flex gap-0.5 rounded-full border border-stone-200 bg-stone-100 p-0.5">
         {button("basic", "Basic")}
         {button("adaptive", "Adaptive", !adaptiveAvailable)}
       </div>

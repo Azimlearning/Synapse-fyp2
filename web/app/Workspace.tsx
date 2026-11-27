@@ -508,7 +508,7 @@ export function Workspace() {
           <h2 className="nb-label border-t border-stone-200 pt-4">
             Sources<span className="nb-aside">your corpus</span>
           </h2>
-          <label className="block cursor-pointer rounded-xl border border-dashed border-stone-300 bg-white/40 p-4 text-center text-sm text-stone-700 hover:border-stone-500 hover:bg-white">
+          <label data-tour="sources" className="block cursor-pointer rounded-xl border border-dashed border-stone-300 bg-white/40 p-4 text-center text-sm text-stone-700 hover:border-stone-500 hover:bg-white">
             <span>{uploading ? "Reading the PDF…" : "+ Upload a PDF"}</span>
             {!uploading && <span className="ml-2 font-serif text-xs italic text-stone-500">graph built on upload</span>}
             <input
@@ -686,6 +686,7 @@ export function Workspace() {
             </p>
           )}
           <form
+            data-tour="ask"
             className="sticky bottom-0 flex gap-2 rounded-2xl bg-white p-1.5 pl-4 shadow-[0_8px_24px_rgba(35,33,28,0.08),0_0_0_1px_var(--color-stone-300)]"
             onSubmit={(e) => {
               e.preventDefault();
@@ -703,6 +704,7 @@ export function Workspace() {
             <button
               type="button"
               onClick={() => runSim(question.trim() || asked)}
+              data-tour="simulate"
               title="Turn this question into an interactive simulation, checked in a real browser"
               className="flex items-center gap-1.5 rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-stone-800 hover:border-stone-500"
             >

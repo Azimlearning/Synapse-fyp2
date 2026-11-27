@@ -441,6 +441,7 @@ export function SimulationLauncher({ onOpen }: { onOpen: () => void }) {
   return (
     <button
       type="button"
+      data-tour="simulations"
       onClick={onOpen}
       className="fixed bottom-5 right-5 z-30 flex items-center gap-2 rounded-full bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-stone-800 shadow-[0_6px_20px_rgba(35,33,28,0.16),0_0_0_1px_var(--color-stone-200)] hover:shadow-[0_8px_24px_rgba(35,33,28,0.22),0_0_0_1px_var(--color-stone-300)]"
       title="Prebuilt, browser-verified simulations"

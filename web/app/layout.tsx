@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
+import { OnboardingGate } from "@/components/onboarding/OnboardingGate";
 import { DemoBadge } from "@/components/shell/DemoNotice";
 import { THEME_SCRIPT } from "@/lib/theme";
 import "./globals.css";
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body>
-        {children}
+        <OnboardingGate>{children}</OnboardingGate>
         <DemoBadge />
       </body>
     </html>

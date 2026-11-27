@@ -5,6 +5,8 @@
 
 import { useState } from "react";
 
+import { replayIntro } from "@/lib/introTour";
+
 export const DEMO = process.env.NEXT_PUBLIC_DEMO === "1";
 const REPO = "https://github.com/Azimlearning/Synapse-fyp2";
 const SHOWCASE = "https://github.com/Azimlearning/Arcana-Final-Year-Project-UTP";
@@ -39,12 +41,23 @@ export function DemoBadge() {
               Project and achievements
             </a>
           </p>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              replayIntro();
+            }}
+            className="mt-2 font-medium text-stone-900 underline underline-offset-2"
+          >
+            Show the intro again
+          </button>
         </div>
       )}
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
+        data-tour="demo"
         className="rounded-full bg-stone-900 px-3 py-1.5 font-medium text-stone-50 shadow-md hover:bg-stone-700"
       >
         Hosted demo {open ? "×" : "ⓘ"}
