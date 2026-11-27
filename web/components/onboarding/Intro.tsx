@@ -163,7 +163,7 @@ export function Intro({ onTour, onSkip }: { onTour: () => void; onSkip: () => vo
               Step {index + 1} of {SLIDES.length}
             </p>
             <h2 className="mt-2 min-h-[3.75em] font-display text-2xl font-semibold leading-tight text-stone-900 sm:min-h-[2.5em]">{slide.title}</h2>
-            <p className="mt-2 min-h-[9.75em] text-[15px] sm:min-h-[8.2em] leading-relaxed text-stone-600">{slide.text}</p>
+            <p className="mt-2 min-h-[11.4em] text-[15px] sm:min-h-[8.2em] leading-relaxed text-stone-600">{slide.text}</p>
           </div>
           <div className="mt-4 flex items-center justify-between gap-2">
             <button
