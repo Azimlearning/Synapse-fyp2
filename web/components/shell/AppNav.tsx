@@ -31,7 +31,13 @@ export function AppNav({ current, extra }: { current: ViewId; extra?: ReactNode 
       </Link>
       <nav aria-label="Views" data-tour="views" className="ml-2 flex gap-1 rounded-full border border-stone-200 bg-stone-50 p-0.5 text-sm">
         {VIEWS.map((v) => (
-          <Link key={v.id} href={v.href} aria-current={current === v.id ? "page" : undefined} className={current === v.id ? ON : OFF}>
+          <Link
+            key={v.id}
+            href={v.href}
+            aria-current={current === v.id ? "page" : undefined}
+            data-tour={v.id === "notes" ? "graph" : undefined}
+            className={current === v.id ? ON : OFF}
+          >
             {v.label}
           </Link>
         ))}

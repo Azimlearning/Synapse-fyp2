@@ -27,7 +27,7 @@ export function ThemeSwitch() {
   const on = `${base} bg-white font-medium text-stone-900 shadow-[0_0_0_1px_var(--color-stone-200)]`;
   const off = `${base} text-stone-600 hover:text-stone-900`;
   return (
-    <div role="group" aria-label="Colour mode" className="flex gap-0.5 rounded-full border border-stone-200 bg-stone-100 p-0.5">
+    <div role="group" aria-label="Colour mode" data-tour="theme" className="flex gap-0.5 rounded-full border border-stone-200 bg-stone-100 p-0.5">
       <button type="button" aria-pressed={theme === "light"} onClick={() => choose("light")} className={theme === "light" ? on : off}>
         Light
       </button>

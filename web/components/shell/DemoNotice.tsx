@@ -87,6 +87,9 @@ export function DemoSuggestions({ onPick }: { onPick: (question: string) => void
           </button>
         ))}
       </div>
+      <button type="button" onClick={() => replayIntro()} className="mt-3 text-xs font-medium text-accent underline underline-offset-2">
+        Replay the intro and tour
+      </button>
     </div>
   );
 }

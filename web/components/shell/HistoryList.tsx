@@ -45,6 +45,7 @@ export function ChatList({
         type="button"
         onClick={onNew}
         disabled={busy}
+        data-tour="newchat"
         className="flex w-full items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-medium text-stone-900 shadow-[0_0_0_1px_var(--color-stone-300)] hover:shadow-[0_0_0_1px_var(--color-stone-500)] disabled:opacity-50"
       >
         <span aria-hidden className="text-base leading-none">+</span> New chat
@@ -52,7 +53,7 @@ export function ChatList({
       {chats.length === 0 ? (
         <p className="px-1 font-serif text-sm italic text-stone-500">Your chats will appear here.</p>
       ) : (
-        <div className="max-h-[34vh] space-y-3 overflow-y-auto pr-1">
+        <div data-tour="chats" className="max-h-[34vh] space-y-3 overflow-y-auto pr-1">
           {groupChats(chats).map((g) => (
             <div key={g.label}>
               <p className="px-1 pb-1 text-[11px] font-semibold uppercase tracking-wide text-stone-500">{g.label}</p>
@@ -147,7 +148,7 @@ export function StudioList({
   onDelete: (chatId: string, turnId: string) => void;
 }) {
   return (
-    <section aria-label="Previous studios" className="flex flex-col gap-2 md:min-h-0 md:flex-1">
+    <section aria-label="Previous studios" data-tour="studio-history" className="flex flex-col gap-2 md:min-h-0 md:flex-1">
       <h2 className="nb-label shrink-0 border-b border-stone-200 pb-2">
         Previous studios ({items.length})<span className="nb-aside">every Studio output</span>
       </h2>

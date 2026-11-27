@@ -32,7 +32,11 @@ export function OnboardingGate({ children, enabled = DEMO }: { children?: ReactN
       {children !== undefined && <div inert={active}>{children}</div>}
       {stage === "intro" && (
         <Intro
-          onTour={() => markIntroSeen()}
+          onTour={() => {
+            markIntroSeen();
+            // The tour points at the Chat screen's controls: a first visit that began on another page goes there for it.
+            if (window.location.pathname !== "/") window.location.assign("/");
+          }}
           onSkip={() => {
             markIntroSeen();
             markTourSeen();

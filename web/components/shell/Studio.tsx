@@ -82,7 +82,7 @@ export function Studio({ onStart }: { onStart?: (request: string, submit: boolea
           </li>
         ))}
         <li>
-          <a href="/notes" className={TILE}>
+          <a href="/notes" data-tour="notes" className={TILE}>
             <Glyph id="notes" />
             <span className="min-w-0">
               <span className="block font-medium text-stone-800">Notes</span>

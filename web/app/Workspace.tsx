@@ -17,7 +17,7 @@ import { SavedViews, refusalWords } from "@/components/shell/SavedViews";
 import { PaneSeparator, Panes } from "@/components/shell/Panes";
 import { Shell } from "@/components/shell/Shell";
 import { STARTERS, Studio } from "@/components/shell/Studio";
-import { DemoSuggestions } from "@/components/shell/DemoNotice";
+import { DEMO, DemoSuggestions } from "@/components/shell/DemoNotice";
 import { TracePanel } from "@/components/TracePanel";
 import { deleteDocument, deletePattern, fetchNotes, fetchWorkspace, listPatterns, reverifyPattern, savePattern, uploadPdf } from "@/lib/api";
 import { flattenPlaced, placeBlocksByRegion } from "@/lib/layout";
@@ -508,6 +508,12 @@ export function Workspace() {
           <h2 className="nb-label border-t border-stone-200 pt-4">
             Sources<span className="nb-aside">your corpus</span>
           </h2>
+          {DEMO && (
+            <p data-demo-samples className="rounded-xl bg-accent-soft px-3 py-2 text-xs leading-relaxed text-stone-700">
+              <span className="font-semibold text-stone-900">Sample documents.</span> These 16 research papers come with the demo. In your
+              own copy of Synapse you can delete them and upload your own PDFs; the hosted demo only replays them.
+            </p>
+          )}
           <label data-tour="sources" className="block cursor-pointer rounded-xl border border-dashed border-stone-300 bg-white/40 p-4 text-center text-sm text-stone-700 hover:border-stone-500 hover:bg-white">
             <span>{uploading ? "Reading the PDF…" : "+ Upload a PDF"}</span>
             {!uploading && <span className="ml-2 font-serif text-xs italic text-stone-500">graph built on upload</span>}

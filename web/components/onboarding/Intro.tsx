@@ -87,7 +87,7 @@ export const SLIDES: Slide[] = [
   },
   {
     title: "You are in the hosted demo",
-    text: "Everything here was recorded from the real system on 16 research papers about retrieval and knowledge graphs. Try the suggested questions, any Studio tool and the simulations. Uploads and new questions need the full system.",
+    text: "Everything here was recorded from the real system on 16 sample research papers about retrieval and knowledge graphs. Try the suggested questions, any Studio tool and the simulations. In your own copy you can delete the samples and add your own documents.",
     picture: <ReplayPicture />,
   },
 ];

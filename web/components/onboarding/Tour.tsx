@@ -10,13 +10,19 @@ import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore
 export type Stop = { target: string; title: string; text: string };
 
 export const STOPS: Stop[] = [
-  { target: "views", title: "Chat and Knowledge graph", text: "Ask questions in Chat, or explore the whole corpus as a graph of concepts." },
+  { target: "views", title: "Chat", text: "Ask questions about the papers here. The answers quote their sources." },
+  { target: "graph", title: "Knowledge graph", text: "The whole corpus as a graph of concepts. Open one to see its passages, cited definitions, a quiz and a review." },
+  { target: "theme", title: "Light or dark", text: "Switch the colour mode at any time." },
+  { target: "layout", title: "Basic or Adaptive", text: "Adaptive lets the answer arrange the workspace, adding a graph or a comparison only when the evidence supports it." },
+  { target: "newchat", title: "New chat", text: "Start a fresh conversation. Past chats are kept in this browser, below this button." },
+  { target: "chats", title: "Past chats", text: "Reopen, rename or delete an earlier chat." },
+  { target: "sources", title: "Sample documents", text: "16 sample research papers come with the demo. In your own copy of Synapse you can delete them and upload your own." },
   { target: "ask", title: "Ask a question", text: "Ask about the papers, or pick a suggested question. Every answer quotes its sources." },
   { target: "simulate", title: "Simulate", text: "Turns the question in the box into a hands-on simulation." },
   { target: "simulations", title: "Ready-made simulations", text: "Springs, circuits, planets and ideas from the papers, ready to drag and drop." },
-  { target: "layout", title: "Basic or Adaptive", text: "Adaptive lets the answer arrange the workspace, adding a graph or a comparison only when the evidence supports it." },
-  { target: "studio", title: "Studio", text: "One click turns the papers into a quiz, flashcards, notes or a cited draft." },
-  { target: "sources", title: "Sources", text: "The demo answers from 16 research papers. Uploading your own needs the full system." },
+  { target: "studio", title: "Studio", text: "One click turns the papers into a quiz, flashcards, notes, a cheat sheet or a cited draft." },
+  { target: "notes", title: "Notes", text: "Concept pages built from the papers, with their graph, a quiz and a review schedule." },
+  { target: "studio-history", title: "Previous studios", text: "Every Studio output you make is kept here to reopen." },
   { target: "demo", title: "About this demo", text: "What is real here, the source code, and a way to see this intro again." },
 ];
 

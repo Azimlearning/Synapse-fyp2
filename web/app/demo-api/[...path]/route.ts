@@ -9,6 +9,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import { LIMITS, SAFE_HEADERS, cleanId, cleanText, clientKey, rateLimited, readJsonBody, tooMany } from "@/lib/demoGuard";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -27,15 +29,15 @@ async function readJson<T>(rel: string): Promise<T> {
 }
 
 const json = (body: unknown, status = 200) =>
-  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  new Response(JSON.stringify(body), { status, headers: { ...SAFE_HEADERS, "content-type": "application/json" } });
 
 function envelope(code: string, message: string, status: number, retryable = false) {
   return json({ code, message, issues: [], retryable }, status);
 }
 
 const DEMO_ONLY =
-  "This is the hosted demo: it replays answers recorded from the real system on its 16 research papers, so it cannot change anything. " +
-  "Run Synapse locally (github.com/Azimlearning/Synapse-fyp2) to upload your own documents.";
+  "This is the hosted demo: it replays answers recorded from the real system on 16 sample research papers, so it cannot change anything. " +
+  "In your own copy of Synapse (github.com/Azimlearning/Synapse-fyp2) you can delete the samples and upload your own documents.";
 
 function keyOf(method: string, pathname: string, search: URLSearchParams): string {
   const q = [...search.entries()].sort(([a], [b]) => a.localeCompare(b));
@@ -48,7 +50,7 @@ async function replayGet(key: string): Promise<Response | null> {
   const hit = routes[key];
   if (!hit) return null;
   const body = await fs.readFile(path.join(DATA, hit.file), "utf-8");
-  return new Response(body, { status: hit.status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  return new Response(body, { status: hit.status, headers: { ...SAFE_HEADERS, "content-type": "application/json" } });
 }
 
 // ── chat matching ────────────────────────────────────────────────────────────
@@ -99,7 +101,7 @@ function sseResponse(frames: Frame[]): Response {
     },
   });
   return new Response(stream, {
-    headers: { "content-type": "text/event-stream", "cache-control": "no-cache, no-transform", "x-accel-buffering": "no" },
+    headers: { ...SAFE_HEADERS, "content-type": "text/event-stream", "cache-control": "no-cache, no-transform", "x-accel-buffering": "no" },
   });
 }
 
@@ -126,12 +128,41 @@ async function notRecorded(): Promise<Response> {
 // ── handlers ─────────────────────────────────────────────────────────────────
 
 type Ctx = { params: Promise<{ path: string[] }> };
-const pathOf = async (ctx: Ctx) => "/" + (await ctx.params).path.map(encodeURIComponent).join("/");
+
+/** The path, or null when it is too deep or a segment is not a plain id (no traversal, no odd characters). */
+async function pathOf(ctx: Ctx): Promise<string | null> {
+  const parts = (await ctx.params).path;
+  if (parts.length === 0 || parts.length > 4) return null;
+  const clean = parts.map(cleanId);
+  return clean.every((p) => p !== null) ? "/" + clean.join("/") : null;
+}
+
+/** Query parameters the API takes: `page` (an id) and `query` (text). Anything else, or a bad value, is refused. */
+function cleanSearch(raw: URLSearchParams): URLSearchParams | null {
+  const out = new URLSearchParams();
+  for (const [k, v] of raw) {
+    if (k === "page") {
+      const id = cleanId(v);
+      if (!id) return null;
+      out.set(k, id);
+    } else if (k === "query") {
+      const text = cleanText(v, LIMITS.idChars);
+      if (!text) return null;
+      out.set(k, text);
+    } else {
+      return null;
+    }
+  }
+  return out;
+}
 
 export async function GET(request: Request, ctx: Ctx): Promise<Response> {
   if (!ENABLED) return new Response("Not found", { status: 404 });
+  const wait = rateLimited(clientKey(request), "read");
+  if (wait) return tooMany(wait);
   const pathname = await pathOf(ctx);
-  const search = new URL(request.url).searchParams;
+  const search = cleanSearch(new URL(request.url).searchParams);
+  if (!pathname || !search) return envelope("bad_request", "That request is not part of the hosted demo.", 400);
   const hit = await replayGet(keyOf("GET", pathname, search));
   if (hit) return hit;
 
@@ -159,15 +190,20 @@ export async function GET(request: Request, ctx: Ctx): Promise<Response> {
 export async function POST(request: Request, ctx: Ctx): Promise<Response> {
   if (!ENABLED) return new Response("Not found", { status: 404 });
   const pathname = await pathOf(ctx);
+  const wait = rateLimited(clientKey(request), pathname === "/chat" ? "replay" : "read");
+  if (wait) return tooMany(wait);
+  if (pathname !== "/chat" && pathname !== "/quiz/answer" && pathname !== "/learner/events") return envelope("bad_request", DEMO_ONLY, 400);
+
+  const read = await readJsonBody(request);
+  if (!read.ok) return envelope("bad_request", read.message, read.status);
+  const body = read.body;
 
   if (pathname === "/chat") {
-    let message = "";
-    try {
-      message = String(((await request.json()) as { message?: unknown }).message ?? "");
-    } catch {
-      return envelope("bad_request", "The request is not JSON.", 400);
+    const message = cleanText(body.message, LIMITS.messageChars);
+    if (!message) return envelope("bad_request", `Ask a question of 1 to ${LIMITS.messageChars} characters.`, 400);
+    if (body.history !== undefined && (!Array.isArray(body.history) || body.history.length > 20)) {
+      return envelope("bad_request", "The history is too long.", 400);
     }
-    if (!message.trim()) return envelope("bad_request", "The message is empty.", 400);
     const entry = await findChat(message);
     if (!entry) return notRecorded();
     const recorded = await readJson<{ frames: Frame[] }>(entry.file);
@@ -175,13 +211,15 @@ export async function POST(request: Request, ctx: Ctx): Promise<Response> {
   }
 
   if (pathname === "/quiz/answer") {
-    const body = (await request.json().catch(() => ({}))) as { itemId?: string; chosenId?: string };
+    const itemId = cleanId(body.itemId);
+    const chosenId = cleanId(body.chosenId);
+    if (!itemId || !chosenId) return envelope("validation_failed", "The answer needs a question id and a choice.", 422);
     const answers = await readJson<Record<string, QuizAnswer>>("quiz_answers.json");
-    const known = body.itemId ? answers[body.itemId] : undefined;
-    if (!known || !body.chosenId) return envelope("not_found", "This question's answer was not recorded in the hosted demo.", 404);
-    const correct = body.chosenId === known.answer.id;
+    const known = Object.hasOwn(answers, itemId) ? answers[itemId] : undefined;
+    if (!known) return envelope("not_found", "This question's answer was not recorded in the hosted demo.", 404);
+    const correct = chosenId === known.answer.id;
     return json({
-      itemId: body.itemId,
+      itemId,
       correct,
       answer: known.answer,
       citation: known.citation,
@@ -190,15 +228,15 @@ export async function POST(request: Request, ctx: Ctx): Promise<Response> {
     });
   }
 
-  if (pathname === "/learner/events") {
-    const body = (await request.json().catch(() => ({}))) as { pageId?: string };
-    return json({ pageId: body.pageId ?? "", mastery: { score: 0.5, events: 1 } });
-  }
-
-  return envelope("bad_request", DEMO_ONLY, 400);
+  // /learner/events: a self-rating; the demo stores nothing.
+  const pageId = cleanId(body.pageId);
+  if (!pageId) return envelope("validation_failed", "The rating needs a page id.", 422);
+  return json({ pageId, mastery: { score: 0.5, events: 1 } });
 }
 
-export async function DELETE(_request: Request, _ctx: Ctx): Promise<Response> {
+export async function DELETE(request: Request, _ctx: Ctx): Promise<Response> {
   if (!ENABLED) return new Response("Not found", { status: 404 });
+  const wait = rateLimited(clientKey(request), "read");
+  if (wait) return tooMany(wait);
   return envelope("bad_request", DEMO_ONLY, 400);
 }

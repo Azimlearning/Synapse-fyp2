@@ -10,6 +10,8 @@ import { createHash } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import { LIMITS, SAFE_HEADERS, cleanId, cleanText, clientKey, rateLimited, readJsonBody, tooMany } from "../../../lib/demoGuard";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -53,10 +55,15 @@ function rehomeText(text: string, origin: string): string {
 /** A file's bytes as an ArrayBuffer, which every Response accepts. */
 const bytes = (buf: Buffer): ArrayBuffer => buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
 
+/** Hosts this demo may be served from. The origin goes into each Environment's CSP, so it is never taken from an arbitrary header. */
+const ALLOWED_HOST = /^(localhost|127\.0\.0\.1)(:\d{1,5})?$|^[a-z0-9-]+\.vercel\.app$/;
+const FALLBACK_ORIGIN = "https://synapse-fyp2-simulations.vercel.app";
+
 function originOf(request: Request): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-  const proto = request.headers.get("x-forwarded-proto") ?? new URL(request.url).protocol.replace(":", "");
-  return host ? `${proto}://${host}` : new URL(request.url).origin;
+  const host = (request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "").toLowerCase();
+  if (!ALLOWED_HOST.test(host)) return FALLBACK_ORIGIN;
+  const local = host.startsWith("localhost") || host.startsWith("127.0.0.1");
+  return `${local ? "http" : "https"}://${host}`;
 }
 
 const envelope = (code: string, message: string, status: number) =>
@@ -109,6 +116,11 @@ type Ctx = { params: Promise<{ path: string[] }> };
 export async function GET(request: Request, ctx: Ctx): Promise<Response> {
   if (!ENABLED) return new Response("Not found", { status: 404 });
   const parts = (await ctx.params).path;
+  const wait = rateLimited(clientKey(request), "read");
+  if (wait) return tooMany(wait);
+  if (parts.length === 0 || parts.length > 5 || parts.some((p) => !cleanId(p))) {
+    return envelope("bad_request", "That request is not part of the hosted demo.", 400);
+  }
 
   if (parts[0] === "vendor" && parts[1] === "kit") {
     const rel = path.normalize(parts.slice(2).join("/"));
@@ -131,16 +143,20 @@ export async function GET(request: Request, ctx: Ctx): Promise<Response> {
   const raw = await fs.readFile(path.join(DATA, hit.file));
   const isText = hit.type.includes("json") || hit.type.includes("html") || hit.type.includes("text");
   const body = isText ? rehomeText(raw.toString("utf-8"), originOf(request)) : bytes(raw);
-  return new Response(body, { status: hit.status, headers: { "content-type": hit.type } });
+  return new Response(body, { status: hit.status, headers: { ...SAFE_HEADERS, "content-type": hit.type } });
 }
 
 export async function POST(request: Request, ctx: Ctx): Promise<Response> {
   if (!ENABLED) return new Response("Not found", { status: 404 });
   const parts = (await ctx.params).path;
-  if (parts.length === 1 && parts[0] === "ask") {
-    const body = (await request.json().catch(() => ({}))) as { question?: unknown };
-    const question = typeof body.question === "string" ? body.question : "";
-    if (!question.trim()) return envelope("bad_request", "The question is empty.", 400);
+  const isAsk = parts.length === 1 && parts[0] === "ask";
+  const wait = rateLimited(clientKey(request), isAsk ? "replay" : "read");
+  if (wait) return tooMany(wait);
+  if (isAsk) {
+    const read = await readJsonBody(request);
+    if (!read.ok) return envelope("bad_request", read.message, read.status);
+    const question = cleanText(read.body.question, LIMITS.messageChars);
+    if (!question) return envelope("bad_request", `Ask a question of 1 to ${LIMITS.messageChars} characters.`, 400);
     const entry = await findAsk(question);
     if (!entry) {
       const index = await readJson<AskEntry[]>("ask/index.json");
