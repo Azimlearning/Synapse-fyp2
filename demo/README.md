@@ -40,9 +40,8 @@ $env:NEXT_PUBLIC_DEMO="1"; $env:NEXT_PUBLIC_API_BASE_URL="/demo-api"; $env:NEXT_
 pnpm --filter web build                                  # from the repo root, with NEXT_PUBLIC_SIMULATIONS_URL set
 cd genui; pnpm --filter web exec next build --webpack   # from genui/
 
-# Deploy (projects are linked in .vercel/; their settings hold the env vars and root directory web/)
-cd genui; vercel deploy --prod
-cd ..;    vercel deploy --prod
+# Deploy: both projects are connected to this GitHub repository (branch main), so a push to main deploys both.
+# Project settings hold the env vars and the root directories: web/ and genui/web/.
 ```
 
-`.vercelignore` (repo root) and `genui/.vercelignore` keep the corpus, Python code and node_modules out of the upload.
+`.vercelignore` keeps the Python backends and corpus data out of both builds.

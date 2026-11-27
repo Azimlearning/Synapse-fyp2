@@ -1,11 +1,15 @@
-# Uploaded by `vercel deploy` for the hosted demo (project root: web). Only the web app, its workspace packages and the
-# recorded demo data are needed; the Python backend, corpus and simulation engine are not.
+# Both hosted-demo projects build from this repository (Git-connected: synapse-fyp2-demo from web/, synapse-fyp2-simulations
+# from genui/web/). Only the two web apps, their workspace packages and the recorded demo data are needed.
 /data
 /eval
 /refdocs
 /api
 /scripts
-/genui
+/genui/api
+/genui/data
+/genui/eval
+/genui/refdocs
+/genui/deploy
 /demo
 /.venv
 /.claude
